@@ -1,0 +1,22 @@
+{
+  "name": "@shopify/liquid-tm-grammar",
+  "version": "0.1.0",
+  "description": "Shopify Liquid TextMate Grammar for Syntax Highlighting",
+  "main": "liquid.tmLanguage",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shopify/liquid-tm-grammar.git"
+  },
+  "keywords": [
+    "syntax-highlighting"
+  ],
+  "author": "Shopify",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shopify/liquid-tm-grammar/issues"
+  },
+  "homepage": "https://github.com/Shopify/liquid-tm-grammar#readme"
+}
