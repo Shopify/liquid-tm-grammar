@@ -4,7 +4,8 @@
   "description": "Shopify Liquid TextMate Grammar for Syntax Highlighting",
   "main": "liquid.tmLanguage",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build/index.js",
+    "dev": "node build/watch.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Shopify/liquid-tm-grammar/issues"
   },
-  "homepage": "https://github.com/Shopify/liquid-tm-grammar#readme"
+  "homepage": "https://github.com/Shopify/liquid-tm-grammar#readme",
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
 }
