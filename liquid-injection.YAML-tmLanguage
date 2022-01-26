@@ -1,0 +1,48 @@
+scopeName: liquid.injection
+
+# The way this works is that we inject the following
+# patterns to the L:eft of the rules applied. Thereby
+# hijacking the JS ans CSS embedded languages with
+# liquid rules.
+injectionSelector: |
+  L:meta.embedded.block.js,
+  L:meta.embedded.block.css,
+  L:meta.embedded.block.html,
+  L:string.quoted
+
+patterns:
+  - include: '#comment_block'
+  - include: '#comment_inline'
+
+  - begin: '{{-?'
+    end: '-?}}'
+    name: punctuation.output.liquid
+    beginCaptures:
+      0:
+        name: meta.embedded.punctuation.definition.block.liquid.output
+    endCaptures:
+      0:
+        name: meta.embedded.punctuation.definition.block.liquid.output
+    patterns:
+      - include: '#template_var'
+
+    # Here the begin makes sure we're not closing the tag because
+    # otherwise our parent syntax would never close. Since The injection
+    # would think that endstyle/endjavascript was part of the
+    # injection
+  - begin: '{%-?(?!\s*(endstyle|endjavascript|endcomment))'
+    end: '-?%}'
+    name: punctuation.tag.liquid
+    beginCaptures:
+      0:
+        name: meta.embedded.punctuation.definition.block.liquid.tag
+    endCaptures:
+      0:
+        name: meta.embedded.punctuation.definition.block.liquid.tag
+    patterns:
+      - include: '#template_tag_name'
+      - include: '#template_tag_keyword'
+      - include: '#template_var'
+
+repository:
+  # See base-syntax.yml

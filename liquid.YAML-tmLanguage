@@ -1,0 +1,105 @@
+name: 'Liquid HTML'
+scopeName: text.html.liquid
+fileTypes:
+  - liquid
+foldingStartMarker: |
+  (?x)
+  {%
+    -?
+    \s*
+    (<%= ANY_BLOCK_OPEN_TAGS %>)
+    [^(%})]+
+  %}
+foldingStopMarker: |
+  (?x)
+  {%
+    \s*
+    (<%= ANY_BLOCK_END_TAGS %>)
+    [^(%})]+
+  %}
+patterns:
+  - include: '#comment_block'
+  - include: '#comment_inline'
+
+  # style code fence
+  - begin: '{%-?\s*(style)\s*-?%}'
+    end: '{%-?\s*(endstyle)\s*-?%}'
+    beginCaptures:
+      0:
+        name: meta.tag.metadata.style.start.liquid
+      1:
+        name: entity.name.tag.liquid
+    endCaptures:
+      0:
+        name: meta.tag.metadata.style.end.liquid
+      1:
+        name: entity.name.tag.liquid
+    name: meta.style.block.todo
+    contentName: meta.embedded.block.css
+    patterns:
+      - include: source.css
+
+  # json code fence
+  - begin: '{%-?\s*(schema)\s*-?%}'
+    end: '{%-?\s*(endschema)\s*-?%}'
+    beginCaptures:
+      0:
+        name: meta.tag.metadata.schema.start.liquid
+      1:
+        name: entity.name.tag.liquid
+    endCaptures:
+      0:
+        name: meta.tag.metadata.schema.end.liquid
+      1:
+        name: entity.name.tag.liquid
+    name: meta.block.schema.liquid
+    contentName: meta.embedded.block.json
+    patterns:
+      - include: source.json
+
+  # javascript code fence
+  - begin: '{%-?\s*(javascript)\s*-?%}'
+    end: '{%-?\s*(endjavascript)\s*-?%}'
+    beginCaptures:
+      0:
+        name: meta.tag.metadata.javascript.start.liquid
+      1:
+        name: entity.name.tag.liquid
+    endCaptures:
+      0:
+        name: meta.tag.metadata.javascript.end.liquid
+      1:
+        name: entity.name.tag.liquid
+    name: meta.block.javascript.liquid
+    contentName: meta.embedded.block.js
+    patterns:
+      - include: source.js
+
+  - begin: '{{-?'
+    end: '-?}}'
+    name: punctuation.output.liquid
+    beginCaptures:
+      0:
+        name: punctuation.definition.block.liquid.output
+    endCaptures:
+      0:
+        name: punctuation.definition.block.liquid.output
+    patterns:
+      - include: '#template_var'
+  - begin: '{%-?'
+    end: '-?%}'
+    name: punctuation.tag.liquid
+    beginCaptures:
+      0:
+        name: punctuation.definition.block.liquid.tag
+    endCaptures:
+      0:
+        name: punctuation.definition.block.liquid.tag
+    patterns:
+      - include: '#template_tag_name'
+      - include: '#template_tag_keyword'
+      - include: '#template_var'
+  - include: text.html.basic
+
+repository:
+  # see base-syntax.yml
