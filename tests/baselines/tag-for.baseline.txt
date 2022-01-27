@@ -1,0 +1,146 @@
+original file
+-----------------------------------
+{% for reversedEl in col reversed limit: 10 offset:5 %}
+  {% continue %}
+{% else %}
+  {% break %}
+{% endfor %}
+
+{% for i in (1..2) %}{% endfor %}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% for reversedEl in col reversed limit: 10 offset:5 %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^
+    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+       ^
+       text.html.liquid meta.braces.liquid
+        ^^^^^^^^^^
+        text.html.liquid meta.braces.liquid variable.other.liquid
+                  ^
+                  text.html.liquid meta.braces.liquid
+                   ^^
+                   text.html.liquid meta.braces.liquid keyword.control.liquid
+                     ^
+                     text.html.liquid meta.braces.liquid
+                      ^^^
+                      text.html.liquid meta.braces.liquid variable.other.liquid
+                         ^
+                         text.html.liquid meta.braces.liquid
+                          ^^^^^^^^
+                          text.html.liquid meta.braces.liquid keyword.control.liquid
+                                  ^
+                                  text.html.liquid meta.braces.liquid
+                                   ^^^^^^
+                                   text.html.liquid meta.braces.liquid keyword.control.liquid
+                                         ^
+                                         text.html.liquid meta.braces.liquid
+                                          ^^
+                                          text.html.liquid meta.braces.liquid constant.numeric.liquid
+                                            ^
+                                            text.html.liquid meta.braces.liquid
+                                             ^^^^^^^
+                                             text.html.liquid meta.braces.liquid keyword.control.liquid
+                                                    ^
+                                                    text.html.liquid meta.braces.liquid constant.numeric.liquid
+                                                     ^
+                                                     text.html.liquid meta.braces.liquid
+                                                      ^^
+                                                      text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>  {% continue %}
+ ^^
+ text.html.liquid
+   ^^
+   text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+     ^
+     text.html.liquid meta.braces.liquid
+      ^^^^^^^^
+      text.html.liquid meta.braces.liquid keyword.control.liquid
+              ^
+              text.html.liquid meta.braces.liquid
+               ^^
+               text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>{% else %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^^
+    text.html.liquid meta.braces.liquid keyword.control.liquid
+        ^
+        text.html.liquid meta.braces.liquid
+         ^^
+         text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>  {% break %}
+ ^^
+ text.html.liquid
+   ^^
+   text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+     ^
+     text.html.liquid meta.braces.liquid
+      ^^^^^
+      text.html.liquid meta.braces.liquid keyword.control.liquid
+           ^
+           text.html.liquid meta.braces.liquid
+            ^^
+            text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>{% endfor %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^^^^
+    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+          ^
+          text.html.liquid meta.braces.liquid
+           ^^
+           text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{% for i in (1..2) %}{% endfor %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^
+    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+       ^
+       text.html.liquid meta.braces.liquid
+        ^
+        text.html.liquid meta.braces.liquid variable.other.liquid
+         ^
+         text.html.liquid meta.braces.liquid
+          ^^
+          text.html.liquid meta.braces.liquid keyword.control.liquid
+            ^
+            text.html.liquid meta.braces.liquid
+             ^
+             text.html.liquid meta.braces.liquid meta.range.liquid punctuation.section.parens.begin.liquid
+              ^
+              text.html.liquid meta.braces.liquid meta.range.liquid constant.numeric.liquid
+               ^^
+               text.html.liquid meta.braces.liquid meta.range.liquid punctuation.range.liquid
+                 ^
+                 text.html.liquid meta.braces.liquid meta.range.liquid constant.numeric.liquid
+                  ^
+                  text.html.liquid meta.braces.liquid meta.range.liquid punctuation.section.parens.end.liquid
+                   ^
+                   text.html.liquid meta.braces.liquid
+                    ^^
+                    text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                      ^^
+                      text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+                        ^
+                        text.html.liquid meta.braces.liquid
+                         ^^^^^^
+                         text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+                               ^
+                               text.html.liquid meta.braces.liquid
+                                ^^
+                                text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid

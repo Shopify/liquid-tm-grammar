@@ -115,30 +115,6 @@
       "end": "-?%}",
       "name": "comment.line.number-sign.liquid"
     },
-    "assign_op": {
-      "patterns": [
-        {
-          "match": "/=",
-          "name": "keyword.operator.assignment.augmented.liquid"
-        }
-      ]
-    },
-    "logic_expression": {
-      "patterns": [
-        {
-          "match": "/=",
-          "name": "keyword.operator.assignment.augmented.liquid"
-        }
-      ]
-    },
-    "logic_op": {
-      "patterns": [
-        {
-          "match": "\\s+(and|or|not|contains|(\\!\\=|\\=\\=|<\\=|>\\=|<|>)\\s+",
-          "name": "keyword.operator.logical.liquid"
-        }
-      ]
-    },
     "tag": {
       "begin": "{%-?",
       "end": "-?%}",
@@ -155,13 +131,7 @@
       },
       "patterns": [
         {
-          "include": "#template_tag_name"
-        },
-        {
-          "include": "#template_tag_keyword"
-        },
-        {
-          "include": "#template_var"
+          "include": "#tag_body"
         }
       ]
     },
@@ -181,6 +151,13 @@
       },
       "patterns": [
         {
+          "include": "#tag_body"
+        }
+      ]
+    },
+    "tag_body": {
+      "patterns": [
+        {
           "include": "#template_tag_name"
         },
         {
@@ -194,31 +171,51 @@
     "template_tag_name": {
       "patterns": [
         {
-          "match": "(?<={%-?|^)\\s*\\b(else|break|continue)\\b",
-          "name": "keyword.control.liquid"
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(else|break|continue)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.liquid"
+            }
+          }
         },
         {
-          "match": "(?<={%-?|^)\\s*\\b(if|unless|else|eslif|endunless|endif)\\b",
-          "name": "keyword.control.conditional.liquid"
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|unless|else|eslif|endunless|endif)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.conditional.liquid"
+            }
+          }
         },
         {
-          "match": "(?<={%-?|^)\\s*\\b(for|endfor|cycle|tablerow|endtablerow)\\b",
-          "name": "keyword.control.loop.liquid"
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(for|endfor|cycle|tablerow|endtablerow)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.loop.liquid"
+            }
+          }
         },
         {
-          "match": "(?<={%-?|^)\\s*\\b(case|when|endcase)\\b",
-          "name": "keyword.control.switch.liquid"
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(case|when|endcase)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.switch.liquid"
+            }
+          }
         },
         {
-          "match": "(?<={%-?|^)\\s*(\\w+)",
-          "name": "entity.name.tag.liquid"
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(\\w+)",
+          "captures": {
+            "1": {
+              "name": "entity.name.tag.liquid"
+            }
+          }
         }
       ]
     },
     "template_tag_keyword": {
       "patterns": [
         {
-          "match": "\\b(reversed|in):",
+          "match": "\\b(reversed|in)\\b",
           "name": "keyword.control.liquid"
         },
         {
@@ -244,6 +241,37 @@
       "patterns": [
         {
           "include": "#template_var"
+        }
+      ]
+    },
+    "invalid_range": {
+      "match": "\\((.(?!\\.\\.))+\\)",
+      "name": "invalid.illegal.range.liquid"
+    },
+    "range": {
+      "begin": "\\(",
+      "end": "\\)",
+      "name": "meta.range.liquid",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.parens.begin.liquid"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.parens.end.liquid"
+        }
+      },
+      "patterns": [
+        {
+          "match": "\\.\\.",
+          "name": "punctuation.range.liquid"
+        },
+        {
+          "include": "#variable_lookup"
+        },
+        {
+          "include": "#number"
         }
       ]
     },
@@ -302,7 +330,7 @@
           ]
         },
         {
-          "match": "(?<=\\.)(\\w+)\\b",
+          "match": "(?<=\\w\\.)(\\w+)\\b",
           "name": "variable.other.member.liquid"
         },
         {
@@ -314,6 +342,14 @@
           "name": "variable.other.liquid"
         }
       ]
+    },
+    "operator": {
+      "match": "(?:(?<=\\s)|\\b)(\\=\\=|!\\=|\\>|\\<|\\>\\=|\\<\\=|or|and|contains)(?:(?=\\s)|\\b)",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.expression.liquid"
+        }
+      }
     },
     "template_var": {
       "patterns": [
@@ -337,24 +373,7 @@
           "name": "constant.language.liquid"
         },
         {
-          "captures": {
-            "3": {
-              "name": "invalid.illegal.operator.liquid"
-            }
-          },
-          "match": "(?=if|unless|elsif)\\s*[^%}]+\\s(in)\\s"
-        },
-        {
-          "match": "\\s+(and|or|not|contains|in|by|((\\!|\\=|\\<|\\>)\\=))\\s+",
-          "name": "keyword.operator.expression.liquid"
-        },
-        {
-          "captures": {
-            "2": {
-              "name": "invalid.illegal.assignment.liquid"
-            }
-          },
-          "match": "(?<=assign)([^\\=]+)(\\=\\=+)"
+          "include": "#operator"
         },
         {
           "match": "\\|\\s+(?![\\.0-9])[a-zA-Z0-9_-]+\\:\\s+",
@@ -365,20 +384,10 @@
           "name": "support.function.without-args.liquid"
         },
         {
-          "match": "(?<=\\s)(with|offset\\:|limit\\:)(?=\\s)",
-          "name": "keyword.control.liquid"
+          "include": "#invalid_range"
         },
         {
-          "captures": {
-            "2": {
-              "name": "invalid.illegal.argument.liquid"
-            }
-          },
-          "match": "(?<=include)(.*)(with\\:|offset|limit)(?=\\s)"
-        },
-        {
-          "match": "(?<=\\s)(\\w+\\:)(?=\\:\\s)",
-          "name": "invalid.illegal.liquid"
+          "include": "#range"
         },
         {
           "include": "#number"

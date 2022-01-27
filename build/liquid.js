@@ -7,6 +7,7 @@ const loadYaml = (file) =>
 
 const tags = loadYaml(path.join(__dirname, '../liquid/tags.yml'));
 const objects = loadYaml(path.join(__dirname, '../liquid/objects.yml'));
+const operators = loadYaml(path.join(__dirname, '../liquid/operators.yml'));
 
 const isObject = (x) => typeof x == 'object' && !Array.isArray(x);
 
@@ -21,4 +22,5 @@ module.exports = {
     .filter(isObject)
     .map((x) => Object.values(x)[0]),
   ALL_GLOBAL_OBJECTS: objects,
+  ALL_OPERATORS: operators,
 };

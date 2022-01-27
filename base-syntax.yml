@@ -15,21 +15,6 @@ repository:
     end: '-?%}'
     name: comment.line.number-sign.liquid
 
-  assign_op:
-    patterns:
-      - match: /=
-        name: keyword.operator.assignment.augmented.liquid
-
-  logic_expression:
-    patterns:
-      - match: /=
-        name: keyword.operator.assignment.augmented.liquid
-
-  logic_op:
-    patterns:
-      - match: \s+(and|or|not|contains|(\!\=|\=\=|<\=|>\=|<|>)\s+
-        name: keyword.operator.logical.liquid
-
   tag:
     begin: '{%-?'
     end: '-?%}'
@@ -41,9 +26,7 @@ repository:
       0:
         name: punctuation.section.braces.end.tag.liquid
     patterns:
-      - include: '#template_tag_name'
-      - include: '#template_tag_keyword'
-      - include: '#template_var'
+      - include: '#tag_body'
 
   tag_injection:
     # Here the begin makes sure we're not closing the tag because
@@ -60,26 +43,38 @@ repository:
       0:
         name: meta.embedded.punctuation.definition.block.liquid.tag
     patterns:
+      - include: '#tag_body'
+
+  tag_body:
+    patterns:
       - include: '#template_tag_name'
       - include: '#template_tag_keyword'
       - include: '#template_var'
 
   template_tag_name:
     patterns:
-      - match: '(?<={%-?|^)\s*\b(else|break|continue)\b'
-        name: keyword.control.liquid
-      - match: '(?<={%-?|^)\s*\b(if|unless|else|eslif|endunless|endif)\b'
-        name: keyword.control.conditional.liquid
-      - match: '(?<={%-?|^)\s*\b(for|endfor|cycle|tablerow|endtablerow)\b'
-        name: keyword.control.loop.liquid
-      - match: '(?<={%-?|^)\s*\b(case|when|endcase)\b'
-        name: keyword.control.switch.liquid
-      - match: '(?<={%-?|^)\s*(\w+)'
-        name: entity.name.tag.liquid
+      # The ugly regex at the beginning is to check if you start with
+      # {%, {%- or the start of the line but without capturing the
+      # result.
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(else|break|continue)\b'
+        captures:
+          1: { name: keyword.control.liquid }
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(if|unless|else|eslif|endunless|endif)\b'
+        captures:
+          1: { name: keyword.control.conditional.liquid }
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(for|endfor|cycle|tablerow|endtablerow)\b'
+        captures:
+          1: { name: keyword.control.loop.liquid }
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(case|when|endcase)\b'
+        captures:
+          1: { name: keyword.control.switch.liquid }
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(\w+)'
+        captures:
+          1: { name: entity.name.tag.liquid }
 
   template_tag_keyword:
     patterns:
-      - match: '\b(reversed|in):'
+      - match: '\b(reversed|in)\b'
         name: keyword.control.liquid
       - match: '\b(cols|offset|limit):'
         name: keyword.control.liquid
@@ -96,6 +91,25 @@ repository:
         name: punctuation.section.braces.end.liquid
     patterns:
       - include: '#template_var'
+
+  # Parens without .. in the middle are not supported in conditions
+  invalid_range:
+    match: '\((.(?!\.\.))+\)'
+    name: invalid.illegal.range.liquid
+
+  range:
+    begin: '\('
+    end: '\)'
+    name: meta.range.liquid
+    beginCaptures:
+      0: { name: punctuation.section.parens.begin.liquid }
+    endCaptures:
+      0: { name: punctuation.section.parens.end.liquid }
+    patterns:
+      - match: '\.\.'
+        name: 'punctuation.range.liquid'
+      - include: '#variable_lookup'
+      - include: '#number'
 
   number:
     match: '((-|\+)\s*)?[0-9]+(\.[0-9]+)?'
@@ -138,7 +152,7 @@ repository:
           - include: '#string'
 
         # what follows the dot in a variable
-      - match: (?<=\.)(\w+)\b
+      - match: (?<=\w\.)(\w+)\b
         name: variable.other.member.liquid
 
         # the literal dot
@@ -149,6 +163,10 @@ repository:
       - match: (?i)[a-z_]\w*
         name: variable.other.liquid
 
+  operator:
+    match: '(?:(?<=\s)|\b)(<%= ANY_OPERATOR %>)(?:(?=\s)|\b)'
+    captures:
+      1: { name: keyword.operator.expression.liquid }
 
   template_var:
     patterns:
@@ -166,19 +184,7 @@ repository:
       - match: (false|true|nil|blank)
         name: constant.language.liquid
 
-        # TODO ??
-      - captures:
-          '3': { name: invalid.illegal.operator.liquid }
-        match: '(?=if|unless|elsif)\s*[^%}]+\s(in)\s'
-
-        # operators
-      - match: \s+(and|or|not|contains|in|by|((\!|\=|\<|\>)\=))\s+
-        name: keyword.operator.expression.liquid
-
-        # TODO ???
-      - captures:
-          '2': { name: invalid.illegal.assignment.liquid }
-        match: '(?<=assign)([^\=]+)(\=\=+)'
+      - include: '#operator'
 
         # filter with args (e.g. "at_most" in `| at_most: 1` )
       - match: '\|\s+(?![\.0-9])[a-zA-Z0-9_-]+\:\s+'
@@ -188,19 +194,21 @@ repository:
       - match: '\|\s+(?![\.0-9])[a-zA-Z0-9_-]+\s+'
         name: support.function.without-args.liquid
 
-        # TODO ???
-      - match: '(?<=\s)(with|offset\:|limit\:)(?=\s)'
-        name: keyword.control.liquid
+      #   # TODO ???
+      # - match: '(?<=\s)(with|offset\:|limit\:)(?=\s)'
+      #   name: keyword.control.liquid
+      #
+      #   # TODO ???
+      # - captures:
+      #     '2': { name: invalid.illegal.argument.liquid }
+      #   match: '(?<=include)(.*)(with\:|offset|limit)(?=\s)'
+      #
+      #   # TODO ???
+      # - match: '(?<=\s)(\w+\:)(?=\:\s)'
+      #   name: invalid.illegal.liquid
 
-        # TODO ???
-      - captures:
-          '2': { name: invalid.illegal.argument.liquid }
-        match: '(?<=include)(.*)(with\:|offset|limit)(?=\s)'
-
-        # TODO ???
-      - match: '(?<=\s)(\w+\:)(?=\:\s)'
-        name: invalid.illegal.liquid
-
+      - include: '#invalid_range'
+      - include: '#range'
       - include: '#number'
       - include: '#string'
       - include: '#variable_lookup'

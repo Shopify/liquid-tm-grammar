@@ -8,7 +8,6 @@ original file
   echo
   'hello world'
 %}
-
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -31,8 +30,10 @@ Grammar: liquid.tmLanguage.json
 >{% echo 'hello world' %}
  ^^
  text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
-   ^^^^^
-   text.html.liquid meta.braces.liquid entity.name.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^^
+    text.html.liquid meta.braces.liquid entity.name.tag.liquid
         ^
         text.html.liquid meta.braces.liquid
          ^
@@ -63,8 +64,10 @@ Grammar: liquid.tmLanguage.json
 >{%- echo 'hello world' -%}
  ^^^
  text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
-    ^^^^^
-    text.html.liquid meta.braces.liquid entity.name.tag.liquid
+    ^
+    text.html.liquid meta.braces.liquid
+     ^^^^
+     text.html.liquid meta.braces.liquid entity.name.tag.liquid
          ^
          text.html.liquid meta.braces.liquid
           ^
@@ -84,7 +87,7 @@ Grammar: liquid.tmLanguage.json
  ^^
  text.html.liquid meta.braces.liquid
    ^^^^
-   text.html.liquid meta.braces.liquid variable.other.liquid
+   text.html.liquid meta.braces.liquid entity.name.tag.liquid
 >  'hello world'
  ^^
  text.html.liquid meta.braces.liquid
@@ -97,6 +100,3 @@ Grammar: liquid.tmLanguage.json
 >%}
  ^^
  text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
->
- ^
- text.html.liquid

@@ -6,6 +6,7 @@ const {
   ALL_BLOCK_OPEN_TAGS,
   ALL_BLOCK_END_TAGS,
   ALL_GLOBAL_OBJECTS,
+  ALL_OPERATORS,
 } = require('./liquid');
 
 function merge(a, b) {
@@ -15,12 +16,17 @@ function merge(a, b) {
   };
 }
 
+function escapeRegex(string) {
+  return string.replace(/[><=]/g, '\\$&');
+}
+
 function replacePlaceholders(fileContents) {
   const context = {
     ANY_TAG: ALL_TAGS.join('|'),
     ANY_BLOCK_OPEN_TAG: ALL_BLOCK_OPEN_TAGS.join('|'),
     ANY_BLOCK_END_TAG: ALL_BLOCK_END_TAGS.join('|'),
     ANY_GLOBAL_OBJECT: ALL_GLOBAL_OBJECTS.join('|'),
+    ANY_OPERATOR: ALL_OPERATORS.map(escapeRegex).join('|'),
   };
   return fileContents.replace(
     /<%= ([a-z_]+) %>/gi,

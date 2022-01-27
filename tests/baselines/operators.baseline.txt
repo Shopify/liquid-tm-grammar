@@ -1,0 +1,150 @@
+original file
+-----------------------------------
+{% if a < b and b > c %}
+{% if a <= b and b <= c %}
+{% if a == b or a != b %}
+{% if a contains b %}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% if a < b and b > c %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^
+    text.html.liquid meta.braces.liquid keyword.control.conditional.liquid
+      ^
+      text.html.liquid meta.braces.liquid
+       ^
+       text.html.liquid meta.braces.liquid variable.other.liquid
+        ^
+        text.html.liquid meta.braces.liquid
+         ^
+         text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+          ^
+          text.html.liquid meta.braces.liquid
+           ^
+           text.html.liquid meta.braces.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.braces.liquid
+             ^^^
+             text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                ^
+                text.html.liquid meta.braces.liquid
+                 ^
+                 text.html.liquid meta.braces.liquid variable.other.liquid
+                  ^
+                  text.html.liquid meta.braces.liquid
+                   ^
+                   text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                    ^
+                    text.html.liquid meta.braces.liquid
+                     ^
+                     text.html.liquid meta.braces.liquid variable.other.liquid
+                      ^
+                      text.html.liquid meta.braces.liquid
+                       ^^
+                       text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>{% if a <= b and b <= c %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^
+    text.html.liquid meta.braces.liquid keyword.control.conditional.liquid
+      ^
+      text.html.liquid meta.braces.liquid
+       ^
+       text.html.liquid meta.braces.liquid variable.other.liquid
+        ^
+        text.html.liquid meta.braces.liquid
+         ^^
+         text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+           ^
+           text.html.liquid meta.braces.liquid
+            ^
+            text.html.liquid meta.braces.liquid variable.other.liquid
+             ^
+             text.html.liquid meta.braces.liquid
+              ^^^
+              text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                 ^
+                 text.html.liquid meta.braces.liquid
+                  ^
+                  text.html.liquid meta.braces.liquid variable.other.liquid
+                   ^
+                   text.html.liquid meta.braces.liquid
+                    ^^
+                    text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                      ^
+                      text.html.liquid meta.braces.liquid
+                       ^
+                       text.html.liquid meta.braces.liquid variable.other.liquid
+                        ^
+                        text.html.liquid meta.braces.liquid
+                         ^^
+                         text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>{% if a == b or a != b %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^
+    text.html.liquid meta.braces.liquid keyword.control.conditional.liquid
+      ^
+      text.html.liquid meta.braces.liquid
+       ^
+       text.html.liquid meta.braces.liquid variable.other.liquid
+        ^
+        text.html.liquid meta.braces.liquid
+         ^^
+         text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+           ^
+           text.html.liquid meta.braces.liquid
+            ^
+            text.html.liquid meta.braces.liquid variable.other.liquid
+             ^
+             text.html.liquid meta.braces.liquid
+              ^^
+              text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                ^
+                text.html.liquid meta.braces.liquid
+                 ^
+                 text.html.liquid meta.braces.liquid variable.other.liquid
+                  ^
+                  text.html.liquid meta.braces.liquid
+                   ^^
+                   text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                     ^
+                     text.html.liquid meta.braces.liquid
+                      ^
+                      text.html.liquid meta.braces.liquid variable.other.liquid
+                       ^
+                       text.html.liquid meta.braces.liquid
+                        ^^
+                        text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>{% if a contains b %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^
+    text.html.liquid meta.braces.liquid keyword.control.conditional.liquid
+      ^
+      text.html.liquid meta.braces.liquid
+       ^
+       text.html.liquid meta.braces.liquid variable.other.liquid
+        ^
+        text.html.liquid meta.braces.liquid
+         ^^^^^^^^
+         text.html.liquid meta.braces.liquid keyword.operator.expression.liquid
+                 ^
+                 text.html.liquid meta.braces.liquid
+                  ^
+                  text.html.liquid meta.braces.liquid variable.other.liquid
+                   ^
+                   text.html.liquid meta.braces.liquid
+                    ^^
+                    text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid

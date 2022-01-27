@@ -1,0 +1,22 @@
+original file
+-----------------------------------
+{% if (a or b) %}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% if (a or b) %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^
+    text.html.liquid meta.braces.liquid keyword.control.conditional.liquid
+      ^
+      text.html.liquid meta.braces.liquid
+       ^^^^^^^^
+       text.html.liquid meta.braces.liquid invalid.illegal.range.liquid
+               ^
+               text.html.liquid meta.braces.liquid
+                ^^
+                text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
