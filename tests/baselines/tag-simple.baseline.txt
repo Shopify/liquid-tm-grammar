@@ -4,6 +4,10 @@ original file
 {% echo 'hello world' %}
 {%-echo 'hello world'-%}
 {%- echo 'hello world' -%}
+{%
+  echo
+  'hello world'
+%}
 
 -----------------------------------
 
@@ -73,6 +77,26 @@ Grammar: liquid.tmLanguage.json
                        text.html.liquid meta.braces.liquid
                         ^^^
                         text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+>{%
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+>  echo
+ ^^
+ text.html.liquid meta.braces.liquid
+   ^^^^
+   text.html.liquid meta.braces.liquid variable.other.liquid
+>  'hello world'
+ ^^
+ text.html.liquid meta.braces.liquid
+   ^
+   text.html.liquid meta.braces.liquid string.quoted.single.liquid
+    ^^^^^^^^^^^
+    text.html.liquid meta.braces.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.braces.liquid string.quoted.single.liquid
+>%}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
 >
  ^
  text.html.liquid

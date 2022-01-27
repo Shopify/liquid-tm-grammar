@@ -66,17 +66,15 @@ repository:
 
   template_tag_name:
     patterns:
-      - match: '(?<={%)\s*\b(else|break|continue)\b'
+      - match: '(?<={%-?|^)\s*\b(else|break|continue)\b'
         name: keyword.control.liquid
-      - match: '(?<={%)\s*\b(if|unless|else|eslif|endunless|endif)\b'
+      - match: '(?<={%-?|^)\s*\b(if|unless|else|eslif|endunless|endif)\b'
         name: keyword.control.conditional.liquid
-      - match: '(?<={%)\s*\b(for|endfor|cycle|tablerow|endtablerow)\b'
+      - match: '(?<={%-?|^)\s*\b(for|endfor|cycle|tablerow|endtablerow)\b'
         name: keyword.control.loop.liquid
-      - match: '(?<={%)\s*\b(case|when|endcase)\b'
+      - match: '(?<={%-?|^)\s*\b(case|when|endcase)\b'
         name: keyword.control.switch.liquid
-      - match: '(?<={%)\s*(\w+)'
-        name: entity.name.tag.liquid
-      - match: '(?<={%-)\s*(\w+)'
+      - match: '(?<={%-?|^)\s*(\w+)'
         name: entity.name.tag.liquid
 
   template_tag_keyword:
