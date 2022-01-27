@@ -5,7 +5,10 @@
   "main": "liquid.tmLanguage",
   "scripts": {
     "build": "node build/index.js",
-    "dev": "node build/watch.js"
+    "dev": "node build/watch.js",
+    "test": "mocha --full-trace tests/test.js",
+    "test:accept": "copyfiles -u 2 \"tests/generated/*\" tests/baselines",
+    "test:diff": "cross-env-shell $DIFF tests/baselines tests/generated"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,11 @@
   },
   "homepage": "https://github.com/Shopify/liquid-tm-grammar#readme",
   "devDependencies": {
-    "js-yaml": "^4.1.0"
+    "chai": "^4.3.6",
+    "copyfiles": "^2.3.0",
+    "cross-env": "^5.1.1",
+    "js-yaml": "^4.1.0",
+    "mocha": "^9.2.0",
+    "vscode-textmate": "^4.1.1"
   }
 }

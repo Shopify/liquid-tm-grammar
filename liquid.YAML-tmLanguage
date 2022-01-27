@@ -7,14 +7,14 @@ foldingStartMarker: |
   {%
     -?
     \s*
-    (<%= ANY_BLOCK_OPEN_TAGS %>)
+    (<%= ANY_BLOCK_OPEN_TAG %>)
     [^(%})]+
   %}
 foldingStopMarker: |
   (?x)
   {%
     \s*
-    (<%= ANY_BLOCK_END_TAGS %>)
+    (<%= ANY_BLOCK_END_TAG %>)
     [^(%})]+
   %}
 patterns:
@@ -75,30 +75,8 @@ patterns:
     patterns:
       - include: source.js
 
-  - begin: '{{-?'
-    end: '-?}}'
-    name: punctuation.output.liquid
-    beginCaptures:
-      0:
-        name: punctuation.definition.block.liquid.output
-    endCaptures:
-      0:
-        name: punctuation.definition.block.liquid.output
-    patterns:
-      - include: '#template_var'
-  - begin: '{%-?'
-    end: '-?%}'
-    name: punctuation.tag.liquid
-    beginCaptures:
-      0:
-        name: punctuation.definition.block.liquid.tag
-    endCaptures:
-      0:
-        name: punctuation.definition.block.liquid.tag
-    patterns:
-      - include: '#template_tag_name'
-      - include: '#template_tag_keyword'
-      - include: '#template_var'
+  - include: '#object'
+  - include: '#tag'
   - include: text.html.basic
 
 repository:

@@ -30,12 +30,39 @@ repository:
       - match: \s+(and|or|not|contains|(\!\=|\=\=|<\=|>\=|<|>)\s+
         name: keyword.operator.logical.liquid
 
-  # TODO this is broken. We should go in different branches.
-  # template_var is too generic.
-  # tag:
-  #   patterns:
-  #     - include: '#liquid-tag'
-  #     - include: '#tag'
+  tag:
+    begin: '{%-?'
+    end: '-?%}'
+    name: punctuation.tag.liquid
+    beginCaptures:
+      0:
+        name: punctuation.definition.block.liquid.tag
+    endCaptures:
+      0:
+        name: punctuation.definition.block.liquid.tag
+    patterns:
+      - include: '#template_tag_name'
+      - include: '#template_tag_keyword'
+      - include: '#template_var'
+
+  tag_injection:
+    # Here the begin makes sure we're not closing the tag because
+    # otherwise our parent syntax would never close. Since The injection
+    # would think that endstyle/endjavascript was part of the
+    # injection
+    begin: '{%-?(?!\s*(endstyle|endjavascript|endcomment))'
+    end: '-?%}'
+    name: punctuation.tag.liquid
+    beginCaptures:
+      0:
+        name: meta.embedded.punctuation.definition.block.liquid.tag
+    endCaptures:
+      0:
+        name: meta.embedded.punctuation.definition.block.liquid.tag
+    patterns:
+      - include: '#template_tag_name'
+      - include: '#template_tag_keyword'
+      - include: '#template_var'
 
   template_tag_name:
     patterns:
@@ -58,6 +85,72 @@ repository:
         name: keyword.control.liquid
       - match: '\b(cols|offset|limit):'
         name: keyword.control.liquid
+
+  object:
+    begin: '{{-?'
+    end: '-?}}'
+    name: meta.braces.liquid
+    beginCaptures:
+      0:
+        name: punctuation.section.braces.begin.liquid
+    endCaptures:
+      0:
+        name: punctuation.section.braces.end.liquid
+    patterns:
+      - include: '#template_var'
+
+  number:
+    match: '((-|\+)\s*)?[0-9]+(\.[0-9]+)?'
+    name: constant.numeric.liquid
+
+  string:
+    patterns:
+      - include: '#string_single'
+      - include: '#string_double'
+
+  string_double:
+    begin: '"'
+    end: '"'
+    name: string.quoted.double.liquid
+
+  string_single:
+    begin: "'"
+    end: "'"
+    name: string.quoted.single.liquid
+
+  variable_lookup:
+    patterns:
+        # Stuff provided by the language has its own colour
+      - match: \b(<%= ANY_GLOBAL_OBJECT %>)\b
+        name: variable.language.liquid
+
+        # a parameter name following a colon. e.g. "var" in `product: var`
+      - match: '((?<=\w\:\s)\w+)'
+        name: variable.parameter.liquid
+
+        # square brackets accessor
+      - begin: (?<=\w)\[
+        beginCaptures:
+          0: { name: punctuation.section.brackets.begin.liquid }
+        end: \]
+        endCaptures:
+          0: { name: punctuation.section.brackets.end.liquid }
+        name: meta.brackets.liquid
+        patterns:
+          - include: '#string'
+
+        # what follows the dot in a variable
+      - match: (?<=\.)(\w+)\b
+        name: variable.other.member.liquid
+
+        # the literal dot
+      - match: (?<=\w)\.(?=\w)
+        name: punctuation.accessor.liquid
+
+        # the beginning of the variable
+      - match: (?i)[a-z_]\w*
+        name: variable.other.liquid
+
 
   template_var:
     patterns:
@@ -110,32 +203,6 @@ repository:
       - match: '(?<=\s)(\w+\:)(?=\:\s)'
         name: invalid.illegal.liquid
 
-        # double quotes
-      - begin: '"'
-        end: '"'
-        name: string.quoted.double.liquid
-
-        # single quotes
-      - begin: "'"
-        end: "'"
-        name: string.quoted.single.liquid
-
-        # numbers
-      - match: '(-|\+)?\s*[0-9]+(\.[0-9]+)?'
-        name: constant.numeric.liquid
-
-        # Stuff provided by the language has its own colour
-      - match: \b(<%= ANY_GLOBAL_OBJECT %>)\b
-        name: variable.language.liquid
-
-        # a parameter name following a colon. e.g. "var" in `product: var`
-      - match: '((?<=\w\:\s)\w+)'
-        name: variable.parameter.liquid
-
-        # what follows the dot in a variable
-      - match: '(?<=\.)\w+\b'
-        name: support.variable.liquid
-
-        # Must be a variable...
-      - match: \w+
-        name: variable.other.liquid
+      - include: '#number'
+      - include: '#string'
+      - include: '#variable_lookup'

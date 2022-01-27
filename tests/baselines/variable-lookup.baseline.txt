@@ -1,0 +1,86 @@
+original file
+-----------------------------------
+{{variable}}
+{{-variable.sub.sub-}}
+{{ variable["subproperty"] }}
+{{- variable['subproperty'] -}}
+{{ all_products }}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{{variable}}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.liquid
+   ^^^^^^^^
+   text.html.liquid meta.braces.liquid variable.other.liquid
+           ^^
+           text.html.liquid meta.braces.liquid punctuation.section.braces.end.liquid
+>{{-variable.sub.sub-}}
+ ^^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.liquid
+    ^^^^^^^^
+    text.html.liquid meta.braces.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.braces.liquid punctuation.accessor.liquid
+             ^^^
+             text.html.liquid meta.braces.liquid variable.other.member.liquid
+                ^
+                text.html.liquid meta.braces.liquid punctuation.accessor.liquid
+                 ^^^
+                 text.html.liquid meta.braces.liquid variable.other.member.liquid
+                    ^^^
+                    text.html.liquid meta.braces.liquid punctuation.section.braces.end.liquid
+>{{ variable["subproperty"] }}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^^^^^^
+    text.html.liquid meta.braces.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.braces.liquid meta.brackets.liquid punctuation.section.brackets.begin.liquid
+             ^
+             text.html.liquid meta.braces.liquid meta.brackets.liquid string.quoted.double.liquid
+              ^^^^^^^^^^^
+              text.html.liquid meta.braces.liquid meta.brackets.liquid string.quoted.double.liquid
+                         ^
+                         text.html.liquid meta.braces.liquid meta.brackets.liquid string.quoted.double.liquid
+                          ^
+                          text.html.liquid meta.braces.liquid meta.brackets.liquid punctuation.section.brackets.end.liquid
+                           ^
+                           text.html.liquid meta.braces.liquid
+                            ^^
+                            text.html.liquid meta.braces.liquid punctuation.section.braces.end.liquid
+>{{- variable['subproperty'] -}}
+ ^^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.liquid
+    ^
+    text.html.liquid meta.braces.liquid
+     ^^^^^^^^
+     text.html.liquid meta.braces.liquid variable.other.liquid
+             ^
+             text.html.liquid meta.braces.liquid meta.brackets.liquid punctuation.section.brackets.begin.liquid
+              ^
+              text.html.liquid meta.braces.liquid meta.brackets.liquid string.quoted.single.liquid
+               ^^^^^^^^^^^
+               text.html.liquid meta.braces.liquid meta.brackets.liquid string.quoted.single.liquid
+                          ^
+                          text.html.liquid meta.braces.liquid meta.brackets.liquid string.quoted.single.liquid
+                           ^
+                           text.html.liquid meta.braces.liquid meta.brackets.liquid punctuation.section.brackets.end.liquid
+                            ^
+                            text.html.liquid meta.braces.liquid
+                             ^^^
+                             text.html.liquid meta.braces.liquid punctuation.section.braces.end.liquid
+>{{ all_products }}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^^^^^^^^^^
+    text.html.liquid meta.braces.liquid variable.language.liquid
+                ^
+                text.html.liquid meta.braces.liquid
+                 ^^
+                 text.html.liquid meta.braces.liquid punctuation.section.braces.end.liquid

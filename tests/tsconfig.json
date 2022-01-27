@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["cases", "baselines", "generated", "node_modules"]
+}
