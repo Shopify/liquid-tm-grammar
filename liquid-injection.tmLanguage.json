@@ -53,15 +53,15 @@
     "tag": {
       "begin": "{%-?",
       "end": "-?%}",
-      "name": "punctuation.tag.liquid",
+      "name": "meta.braces.liquid",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.block.liquid.tag"
+          "name": "punctuation.section.braces.begin.tag.liquid"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.block.liquid.tag"
+          "name": "punctuation.section.braces.end.tag.liquid"
         }
       },
       "patterns": [
