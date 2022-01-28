@@ -1,0 +1,350 @@
+original file
+-----------------------------------
+{{ 42 | plus: tax.value | times: 100.0 | ceil }}
+
+{{
+  "foo.woff"
+    | asset_url
+    | preload_tag: as: 'font', media: 'mobile'
+}}
+
+{%
+  echo
+  "foo.woff"
+    | asset_url
+    | preload_tag:
+      as: 'font',
+      media: 'mobile'
+%}
+
+{%
+  assign foo =
+  "foo.woff"
+    | asset_url
+    | preload_tag:
+      as: 'font',
+      media:
+        'mobile'
+%}
+
+{% liquid
+  echo "foo" | plus: 1, arg: value
+  assign x = "foo" | plus: 1, arg: value
+%}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{{ 42 | plus: tax.value | times: 100.0 | ceil }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^
+    text.html.liquid meta.object.liquid constant.numeric.liquid
+      ^
+      text.html.liquid meta.object.liquid
+       ^^
+       text.html.liquid meta.object.liquid
+         ^^^^^
+         text.html.liquid meta.object.liquid support.function.liquid
+              ^
+              text.html.liquid meta.object.liquid
+               ^^^
+               text.html.liquid meta.object.liquid variable.parameter.liquid
+                  ^
+                  text.html.liquid meta.object.liquid punctuation.accessor.liquid
+                   ^^^^^
+                   text.html.liquid meta.object.liquid variable.other.member.liquid
+                        ^
+                        text.html.liquid meta.object.liquid
+                         ^^
+                         text.html.liquid meta.object.liquid
+                           ^^^^^^
+                           text.html.liquid meta.object.liquid support.function.liquid
+                                 ^
+                                 text.html.liquid meta.object.liquid
+                                  ^^^^^
+                                  text.html.liquid meta.object.liquid constant.numeric.liquid
+                                       ^
+                                       text.html.liquid meta.object.liquid
+                                        ^^
+                                        text.html.liquid meta.object.liquid
+                                          ^^^^
+                                          text.html.liquid meta.object.liquid support.function.liquid
+                                              ^
+                                              text.html.liquid meta.object.liquid
+                                               ^^
+                                               text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>
+ ^
+ text.html.liquid
+>{{
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+>  "foo.woff"
+ ^^
+ text.html.liquid meta.object.liquid
+   ^
+   text.html.liquid meta.object.liquid string.quoted.double.liquid
+    ^^^^^^^^
+    text.html.liquid meta.object.liquid string.quoted.double.liquid
+            ^
+            text.html.liquid meta.object.liquid string.quoted.double.liquid
+>    | asset_url
+ ^^^^
+ text.html.liquid meta.object.liquid
+     ^^
+     text.html.liquid meta.object.liquid
+       ^^^^^^^^^
+       text.html.liquid meta.object.liquid support.function.liquid
+>    | preload_tag: as: 'font', media: 'mobile'
+ ^^^^
+ text.html.liquid meta.object.liquid
+     ^^
+     text.html.liquid meta.object.liquid
+       ^^^^^^^^^^^^
+       text.html.liquid meta.object.liquid support.function.liquid
+                   ^
+                   text.html.liquid meta.object.liquid
+                    ^^^
+                    text.html.liquid meta.object.liquid entity.other.attribute-name.liquid
+                       ^
+                       text.html.liquid meta.object.liquid
+                        ^
+                        text.html.liquid meta.object.liquid string.quoted.single.liquid
+                         ^^^^
+                         text.html.liquid meta.object.liquid string.quoted.single.liquid
+                             ^
+                             text.html.liquid meta.object.liquid string.quoted.single.liquid
+                              ^^
+                              text.html.liquid meta.object.liquid
+                                ^^^^^^
+                                text.html.liquid meta.object.liquid entity.other.attribute-name.liquid
+                                      ^
+                                      text.html.liquid meta.object.liquid
+                                       ^
+                                       text.html.liquid meta.object.liquid string.quoted.single.liquid
+                                        ^^^^^^
+                                        text.html.liquid meta.object.liquid string.quoted.single.liquid
+                                              ^
+                                              text.html.liquid meta.object.liquid string.quoted.single.liquid
+>}}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>
+ ^
+ text.html.liquid
+>{%
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+>  echo
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+   ^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.name.tag.liquid
+>  "foo.woff"
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.double.liquid
+    ^^^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.double.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.double.liquid
+>    | asset_url
+ ^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+     ^^
+     text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^^^^^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid support.function.liquid
+>    | preload_tag:
+ ^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+     ^^
+     text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^^^^^^^^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid support.function.liquid
+>      as: 'font',
+ ^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.other.attribute-name.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+            ^^^^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                 ^^
+                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+>      media: 'mobile'
+ ^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.other.attribute-name.liquid
+             ^
+             text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+              ^
+              text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+               ^^^^^^
+               text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                     ^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{%
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+>  assign foo =
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.name.tag.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+          ^^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid variable.other.liquid
+             ^^^
+             text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+>  "foo.woff"
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.double.liquid
+    ^^^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.double.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.double.liquid
+>    | asset_url
+ ^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+     ^^
+     text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^^^^^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid support.function.liquid
+>    | preload_tag:
+ ^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+     ^^
+     text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^^^^^^^^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid support.function.liquid
+>      as: 'font',
+ ^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.other.attribute-name.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+            ^^^^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                 ^^
+                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+>      media:
+ ^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+       ^^^^^^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.other.attribute-name.liquid
+>        'mobile'
+ ^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+          ^^^^^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  echo "foo" | plus: 1, arg: value
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+   ^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid entity.name.tag.liquid
+       ^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.double.liquid
+         ^^^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.double.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.double.liquid
+             ^
+             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+              ^^
+              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                ^^^^^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid support.function.liquid
+                     ^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                      ^
+                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid constant.numeric.liquid
+                       ^^
+                       text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                         ^^^^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid entity.other.attribute-name.liquid
+                             ^
+                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                              ^^^^^
+                              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid variable.parameter.liquid
+>  assign x = "foo" | plus: 1, arg: value
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid entity.name.tag.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid variable.other.liquid
+           ^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+              ^
+              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.double.liquid
+               ^^^
+               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.double.liquid
+                  ^
+                  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.double.liquid
+                   ^
+                   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                    ^^
+                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                      ^^^^^
+                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid support.function.liquid
+                           ^
+                           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                            ^
+                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid constant.numeric.liquid
+                             ^^
+                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                               ^^^^
+                               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid entity.other.attribute-name.liquid
+                                   ^
+                                   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
+                                    ^^^^^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid variable.parameter.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid

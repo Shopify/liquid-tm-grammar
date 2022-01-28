@@ -9,7 +9,7 @@ repository:
       1: { name: entity.name.tag.liquid }
     endCaptures:
       1: { name: entity.name.tag.liquid }
-    name: meta.entity.tag.other.liquid
+    name: meta.entity.tag.liquid
     contentName: string.unquoted.liquid
 
   comment_block:
@@ -55,6 +55,7 @@ repository:
   tag_body:
     patterns:
       - include: '#tag_liquid'
+      - include: '#tag_assign'
       - include: '#tag_case'
       - include: '#tag_conditional'
       - include: '#tag_for'
@@ -70,6 +71,7 @@ repository:
       1: { name: keyword.control.liquid.liquid }
     end: '(?=%})'
     patterns:
+      - include: '#tag_assign_liquid'
       - include: '#tag_case_liquid'
       - include: '#tag_conditional_liquid'
       - include: '#tag_for_liquid'
@@ -130,6 +132,28 @@ repository:
         name: keyword.control.liquid
       - include: '#value_expression'
 
+  tag_assign:
+    name: meta.entity.tag.liquid
+    begin: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(assign|echo)\b'
+    beginCaptures:
+      1: { name: entity.name.tag.liquid }
+    end: '(?=%})'
+    patterns:
+      - include: '#filter'
+      - include: '#attribute'
+      - include: '#value_expression'
+
+  tag_assign_liquid:
+    name: meta.entity.tag.liquid
+    begin: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(assign|echo)\b'
+    beginCaptures:
+      1: { name: entity.name.tag.liquid }
+    end: '$'
+    patterns:
+      - include: '#filter'
+      - include: '#attribute_liquid'
+      - include: '#value_expression'
+
   tag_render:
     name: meta.entity.tag.render.liquid
     begin: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(render)\b'
@@ -138,7 +162,7 @@ repository:
     end: '(?=%})'
     patterns:
       - include: '#tag_render_special_keywords'
-      - include: '#tag_attribute'
+      - include: '#attribute'
       - include: '#value_expression'
 
   tag_render_liquid:
@@ -149,7 +173,7 @@ repository:
     end: '$'
     patterns:
       - include: '#tag_render_special_keywords'
-      - include: '#tag_attribute_liquid'
+      - include: '#attribute_liquid'
       - include: '#value_expression'
 
   tag_render_special_keywords:
@@ -241,7 +265,7 @@ repository:
         beginCaptures:
           1: { name: entity.name.tag.liquid }
         end: '(?=%})'
-        name: meta.entity.tag.other.liquid
+        name: meta.entity.tag.liquid
         patterns:
           - include: '#value_expression'
 
@@ -252,7 +276,7 @@ repository:
         beginCaptures:
           1: { name: entity.name.tag.liquid }
         end: '$'
-        name: meta.entity.tag.other.liquid
+        name: meta.entity.tag.liquid
         patterns:
           - include: '#value_expression'
 
@@ -267,6 +291,8 @@ repository:
       0:
         name: punctuation.section.braces.end.liquid
     patterns:
+      - include: '#filter'
+      - include: '#attribute'
       - include: '#value_expression'
 
   # Parens without .. in the middle are not supported in conditions
@@ -316,21 +342,27 @@ repository:
     match: '\b(false|true|nil|blank)\b|empty(?!\?)'
     name: constant.language.liquid
 
-  tag_attribute:
+  attribute:
     begin: '\w+:'
-    end: '(?=,|%})'
+    end: '(?=,|%}|}}|\|)'
     beginCaptures:
       0: { name: 'entity.other.attribute-name.liquid' }
     patterns:
       - include: '#value_expression'
 
-  tag_attribute_liquid:
+  attribute_liquid:
     begin: '\w+:'
-    end: '(?=,)|$'
+    end: '(?=,|\|)|$'
     beginCaptures:
       0: { name: 'entity.other.attribute-name.liquid' }
     patterns:
       - include: '#value_expression'
+
+  filter:
+    # filter with args (e.g. "at_most" in `| at_most: 1` )
+    match: '\|\s*((?![\.0-9])[a-zA-Z0-9_-]+\:?)\s*'
+    captures:
+      1: { name: support.function.liquid }
 
   value_expression:
     patterns:
@@ -346,28 +378,6 @@ repository:
 
       - include: '#language_constant'
       - include: '#operator'
-
-        # filter with args (e.g. "at_most" in `| at_most: 1` )
-      - match: '\|\s+(?![\.0-9])[a-zA-Z0-9_-]+\:\s+'
-        name: support.function.with-args.liquid
-
-        # filter without args (e.g. "first" in `| first` )
-      - match: '\|\s+(?![\.0-9])[a-zA-Z0-9_-]+\s+'
-        name: support.function.without-args.liquid
-
-      #   # TODO ???
-      # - match: '(?<=\s)(with|offset\:|limit\:)(?=\s)'
-      #   name: keyword.control.liquid
-      #
-      #   # TODO ???
-      # - captures:
-      #     '2': { name: invalid.illegal.argument.liquid }
-      #   match: '(?<=include)(.*)(with\:|offset|limit)(?=\s)'
-      #
-      #   # TODO ???
-      # - match: '(?<=\s)(\w+\:)(?=\:\s)'
-      #   name: invalid.illegal.liquid
-
       - include: '#invalid_range'
       - include: '#range'
       - include: '#number'

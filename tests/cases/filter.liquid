@@ -1,0 +1,31 @@
+{{ 42 | plus: tax.value | times: 100.0 | ceil }}
+
+{{
+  "foo.woff"
+    | asset_url
+    | preload_tag: as: 'font', media: 'mobile'
+}}
+
+{%
+  echo
+  "foo.woff"
+    | asset_url
+    | preload_tag:
+      as: 'font',
+      media: 'mobile'
+%}
+
+{%
+  assign foo =
+  "foo.woff"
+    | asset_url
+    | preload_tag:
+      as: 'font',
+      media:
+        'mobile'
+%}
+
+{% liquid
+  echo "foo" | plus: 1, arg: value
+  assign x = "foo" | plus: 1, arg: value
+%}

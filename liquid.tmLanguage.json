@@ -121,7 +121,7 @@
           "name": "entity.name.tag.liquid"
         }
       },
-      "name": "meta.entity.tag.other.liquid",
+      "name": "meta.entity.tag.liquid",
       "contentName": "string.unquoted.liquid"
     },
     "comment_block": {
@@ -180,6 +180,9 @@
           "include": "#tag_liquid"
         },
         {
+          "include": "#tag_assign"
+        },
+        {
           "include": "#tag_case"
         },
         {
@@ -212,6 +215,9 @@
       },
       "end": "(?=%})",
       "patterns": [
+        {
+          "include": "#tag_assign_liquid"
+        },
         {
           "include": "#tag_case_liquid"
         },
@@ -325,6 +331,48 @@
         }
       ]
     },
+    "tag_assign": {
+      "name": "meta.entity.tag.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(assign|echo)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#filter"
+        },
+        {
+          "include": "#attribute"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_assign_liquid": {
+      "name": "meta.entity.tag.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(assign|echo)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#filter"
+        },
+        {
+          "include": "#attribute_liquid"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
     "tag_render": {
       "name": "meta.entity.tag.render.liquid",
       "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(render)\\b",
@@ -339,7 +387,7 @@
           "include": "#tag_render_special_keywords"
         },
         {
-          "include": "#tag_attribute"
+          "include": "#attribute"
         },
         {
           "include": "#value_expression"
@@ -360,7 +408,7 @@
           "include": "#tag_render_special_keywords"
         },
         {
-          "include": "#tag_attribute_liquid"
+          "include": "#attribute_liquid"
         },
         {
           "include": "#value_expression"
@@ -521,7 +569,7 @@
             }
           },
           "end": "(?=%})",
-          "name": "meta.entity.tag.other.liquid",
+          "name": "meta.entity.tag.liquid",
           "patterns": [
             {
               "include": "#value_expression"
@@ -543,7 +591,7 @@
             }
           },
           "end": "$",
-          "name": "meta.entity.tag.other.liquid",
+          "name": "meta.entity.tag.liquid",
           "patterns": [
             {
               "include": "#value_expression"
@@ -567,6 +615,12 @@
         }
       },
       "patterns": [
+        {
+          "include": "#filter"
+        },
+        {
+          "include": "#attribute"
+        },
         {
           "include": "#value_expression"
         }
@@ -639,9 +693,9 @@
       "match": "\\b(false|true|nil|blank)\\b|empty(?!\\?)",
       "name": "constant.language.liquid"
     },
-    "tag_attribute": {
+    "attribute": {
       "begin": "\\w+:",
-      "end": "(?=,|%})",
+      "end": "(?=,|%}|}}|\\|)",
       "beginCaptures": {
         "0": {
           "name": "entity.other.attribute-name.liquid"
@@ -653,9 +707,9 @@
         }
       ]
     },
-    "tag_attribute_liquid": {
+    "attribute_liquid": {
       "begin": "\\w+:",
-      "end": "(?=,)|$",
+      "end": "(?=,|\\|)|$",
       "beginCaptures": {
         "0": {
           "name": "entity.other.attribute-name.liquid"
@@ -666,6 +720,14 @@
           "include": "#value_expression"
         }
       ]
+    },
+    "filter": {
+      "match": "\\|\\s*((?![\\.0-9])[a-zA-Z0-9_-]+\\:?)\\s*",
+      "captures": {
+        "1": {
+          "name": "support.function.liquid"
+        }
+      }
     },
     "value_expression": {
       "patterns": [
@@ -689,14 +751,6 @@
         },
         {
           "include": "#operator"
-        },
-        {
-          "match": "\\|\\s+(?![\\.0-9])[a-zA-Z0-9_-]+\\:\\s+",
-          "name": "support.function.with-args.liquid"
-        },
-        {
-          "match": "\\|\\s+(?![\\.0-9])[a-zA-Z0-9_-]+\\s+",
-          "name": "support.function.without-args.liquid"
         },
         {
           "include": "#invalid_range"

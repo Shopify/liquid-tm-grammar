@@ -11,24 +11,24 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% raw %}
  ^^^
- text.html.liquid meta.entity.tag.other.liquid
+ text.html.liquid meta.entity.tag.liquid
     ^^^
-    text.html.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+    text.html.liquid meta.entity.tag.liquid entity.name.tag.liquid
        ^^^
-       text.html.liquid meta.entity.tag.other.liquid
+       text.html.liquid meta.entity.tag.liquid
 >  this should be free form
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
- text.html.liquid meta.entity.tag.other.liquid string.unquoted.liquid
+ text.html.liquid meta.entity.tag.liquid string.unquoted.liquid
 >  {% comment %} does not need to close
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- text.html.liquid meta.entity.tag.other.liquid string.unquoted.liquid
+ text.html.liquid meta.entity.tag.liquid string.unquoted.liquid
 >  {{ does not get highlighted }}
  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- text.html.liquid meta.entity.tag.other.liquid string.unquoted.liquid
+ text.html.liquid meta.entity.tag.liquid string.unquoted.liquid
 >{% endraw %}
  ^^^
- text.html.liquid meta.entity.tag.other.liquid
+ text.html.liquid meta.entity.tag.liquid
     ^^^^^^
-    text.html.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+    text.html.liquid meta.entity.tag.liquid entity.name.tag.liquid
           ^^^
-          text.html.liquid meta.entity.tag.other.liquid
+          text.html.liquid meta.entity.tag.liquid

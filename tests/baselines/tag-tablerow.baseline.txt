@@ -160,17 +160,17 @@ Grammar: liquid.tmLanguage.json
                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.tablerow.liquid constant.numeric.liquid
 >    echo 'hello world'
  ^^^^
- text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
      ^^^^
-     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid entity.name.tag.liquid
          ^
-         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid
           ^
-          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.single.liquid
            ^^^^^^^^^^^
-           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.single.liquid
                       ^
-                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.single.liquid
 >  endtablerow
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
