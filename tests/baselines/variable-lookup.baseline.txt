@@ -1,24 +1,31 @@
 original file
 -----------------------------------
-{{variable}}
-{{-variable.sub.sub-}}
+{{ variable }}
+{{ variable.sub.sub }}
 {{ variable["subproperty"] }}
-{{- variable['subproperty'] -}}
+{{ variable['subproperty'].sub }}
+{{ variable['sub']['sub'].sub }}
 {{ all_products }}
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
 -----------------------------------
->{{variable}}
+>{{ variable }}
  ^^
  text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
-   ^^^^^^^^
-   text.html.liquid meta.object.liquid variable.other.liquid
-           ^^
-           text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
->{{-variable.sub.sub-}}
- ^^^
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^^^^^
+    text.html.liquid meta.object.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.object.liquid
+             ^^
+             text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ variable.sub.sub }}
+ ^^
  text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
     ^^^^^^^^
     text.html.liquid meta.object.liquid variable.other.liquid
             ^
@@ -29,8 +36,10 @@ Grammar: liquid.tmLanguage.json
                 text.html.liquid meta.object.liquid punctuation.accessor.liquid
                  ^^^
                  text.html.liquid meta.object.liquid variable.other.member.liquid
-                    ^^^
-                    text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                    ^
+                    text.html.liquid meta.object.liquid
+                     ^^
+                     text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
 >{{ variable["subproperty"] }}
  ^^
  text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
@@ -52,27 +61,64 @@ Grammar: liquid.tmLanguage.json
                            text.html.liquid meta.object.liquid
                             ^^
                             text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
->{{- variable['subproperty'] -}}
- ^^^
+>{{ variable['subproperty'].sub }}
+ ^^
  text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
-    ^
-    text.html.liquid meta.object.liquid
-     ^^^^^^^^
-     text.html.liquid meta.object.liquid variable.other.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^^^^^
+    text.html.liquid meta.object.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.object.liquid meta.brackets.liquid punctuation.section.brackets.begin.liquid
              ^
-             text.html.liquid meta.object.liquid meta.brackets.liquid punctuation.section.brackets.begin.liquid
-              ^
+             text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
+              ^^^^^^^^^^^
               text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
-               ^^^^^^^^^^^
-               text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
+                         ^
+                         text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
                           ^
-                          text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
+                          text.html.liquid meta.object.liquid meta.brackets.liquid punctuation.section.brackets.end.liquid
                            ^
-                           text.html.liquid meta.object.liquid meta.brackets.liquid punctuation.section.brackets.end.liquid
-                            ^
-                            text.html.liquid meta.object.liquid
-                             ^^^
-                             text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                           text.html.liquid meta.object.liquid
+                            ^^^
+                            text.html.liquid meta.object.liquid variable.other.member.liquid
+                               ^
+                               text.html.liquid meta.object.liquid
+                                ^^
+                                text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ variable['sub']['sub'].sub }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^^^^^
+    text.html.liquid meta.object.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.object.liquid meta.brackets.liquid punctuation.section.brackets.begin.liquid
+             ^
+             text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
+              ^^^
+              text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
+                 ^
+                 text.html.liquid meta.object.liquid meta.brackets.liquid string.quoted.single.liquid
+                  ^
+                  text.html.liquid meta.object.liquid meta.brackets.liquid punctuation.section.brackets.end.liquid
+                   ^
+                   text.html.liquid meta.object.liquid
+                    ^
+                    text.html.liquid meta.object.liquid string.quoted.single.liquid
+                     ^^^
+                     text.html.liquid meta.object.liquid string.quoted.single.liquid
+                        ^
+                        text.html.liquid meta.object.liquid string.quoted.single.liquid
+                         ^^
+                         text.html.liquid meta.object.liquid
+                           ^^^
+                           text.html.liquid meta.object.liquid variable.other.member.liquid
+                              ^
+                              text.html.liquid meta.object.liquid
+                               ^^
+                               text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
 >{{ all_products }}
  ^^
  text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid

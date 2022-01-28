@@ -268,7 +268,7 @@ repository:
           - include: '#string'
 
         # what follows the dot in a variable
-      - match: (?<=\w\.)(\w+)\b
+      - match: (?<=(\w|\])\.)(\w+)\b
         name: variable.other.member.liquid
 
         # the literal dot

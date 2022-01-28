@@ -540,7 +540,7 @@
           ]
         },
         {
-          "match": "(?<=\\w\\.)(\\w+)\\b",
+          "match": "(?<=(\\w|\\])\\.)(\\w+)\\b",
           "name": "variable.other.member.liquid"
         },
         {
