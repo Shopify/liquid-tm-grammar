@@ -59,6 +59,7 @@ repository:
       - include: '#tag_conditional'
       - include: '#tag_for'
       - include: '#tag_paginate'
+      - include: '#tag_render'
       - include: '#tag_tablerow'
       - include: '#tag_expression'
 
@@ -73,6 +74,7 @@ repository:
       - include: '#tag_conditional_liquid'
       - include: '#tag_for_liquid'
       - include: '#tag_paginate_liquid'
+      - include: '#tag_render_liquid'
       - include: '#tag_tablerow_liquid'
       - include: '#tag_expression_liquid'
 
@@ -127,6 +129,32 @@ repository:
       - match: '\b(offset|limit):'
         name: keyword.control.liquid
       - include: '#value_expression'
+
+  tag_render:
+    name: meta.entity.tag.render.liquid
+    begin: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(render)\b'
+    beginCaptures:
+      1: { name: entity.name.tag.render.liquid }
+    end: '(?=%})'
+    patterns:
+      - include: '#tag_render_special_keywords'
+      - include: '#tag_attribute'
+      - include: '#value_expression'
+
+  tag_render_liquid:
+    name: meta.entity.tag.render.liquid
+    begin: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(render)\b'
+    beginCaptures:
+      1: { name: entity.name.tag.render.liquid }
+    end: '$'
+    patterns:
+      - include: '#tag_render_special_keywords'
+      - include: '#tag_attribute_liquid'
+      - include: '#value_expression'
+
+  tag_render_special_keywords:
+    match: '\b(with|as|for)\b'
+    name: keyword.control.other.liquid
 
   tag_paginate:
     name: meta.entity.tag.paginate.liquid
@@ -279,47 +307,30 @@ repository:
     end: "'"
     name: string.quoted.single.liquid
 
-  variable_lookup:
-    patterns:
-        # Stuff provided by the language has its own colour
-      - match: \b(<%= ANY_GLOBAL_OBJECT %>)\b
-        name: variable.language.liquid
-
-        # a parameter name following a colon. e.g. "var" in `product: var`
-      - match: '((?<=\w\:\s)\w+)'
-        name: variable.parameter.liquid
-
-        # square brackets accessor
-      - begin: (?<=\w)\[
-        beginCaptures:
-          0: { name: punctuation.section.brackets.begin.liquid }
-        end: \]
-        endCaptures:
-          0: { name: punctuation.section.brackets.end.liquid }
-        name: meta.brackets.liquid
-        patterns:
-          - include: '#string'
-
-        # what follows the dot in a variable
-      - match: (?<=(\w|\])\.)([-\w]+\??)
-        name: variable.other.member.liquid
-
-        # the literal dot
-      - match: (?<=\w)\.(?=\w)
-        name: punctuation.accessor.liquid
-
-        # the beginning of the variable
-      - match: (?i)[a-z_](\w|(?:-(?!\}\})))*
-        name: variable.other.liquid
-
   operator:
     match: '(?:(?<=\s)|\b)(<%= ANY_OPERATOR %>)(?:(?=\s)|\b)'
     captures:
       1: { name: keyword.operator.expression.liquid }
 
   language_constant:
-    match: \b(false|true|nil|blank|empty)\b(!=\?)
+    match: '\b(false|true|nil|blank)\b|empty(?!\?)'
     name: constant.language.liquid
+
+  tag_attribute:
+    begin: '\w+:'
+    end: '(?=,|%})'
+    beginCaptures:
+      0: { name: 'entity.other.attribute-name.liquid' }
+    patterns:
+      - include: '#value_expression'
+
+  tag_attribute_liquid:
+    begin: '\w+:'
+    end: '(?=,)|$'
+    beginCaptures:
+      0: { name: 'entity.other.attribute-name.liquid' }
+    patterns:
+      - include: '#value_expression'
 
   value_expression:
     patterns:
@@ -362,3 +373,36 @@ repository:
       - include: '#number'
       - include: '#string'
       - include: '#variable_lookup'
+
+  variable_lookup:
+    patterns:
+        # Stuff provided by the language has its own colour
+      - match: \b(<%= ANY_GLOBAL_OBJECT %>)\b
+        name: variable.language.liquid
+
+        # a parameter name following a colon. e.g. "var" in `product: var`
+      - match: '((?<=\w\:\s)\w+)'
+        name: variable.parameter.liquid
+
+        # square brackets accessor
+      - begin: (?<=\w)\[
+        beginCaptures:
+          0: { name: punctuation.section.brackets.begin.liquid }
+        end: \]
+        endCaptures:
+          0: { name: punctuation.section.brackets.end.liquid }
+        name: meta.brackets.liquid
+        patterns:
+          - include: '#string'
+
+        # what follows the dot in a variable
+      - match: (?<=(\w|\])\.)([-\w]+\??)
+        name: variable.other.member.liquid
+
+        # the literal dot
+      - match: (?<=\w)\.(?=\w)
+        name: punctuation.accessor.liquid
+
+        # the beginning of the variable
+      - match: (?i)[a-z_](\w|(?:-(?!\}\})))*
+        name: variable.other.liquid

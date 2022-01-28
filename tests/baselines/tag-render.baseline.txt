@@ -1,0 +1,310 @@
+original file
+-----------------------------------
+{% render 'product' with foo as bar %}
+{% render 'variant' for elements as element %}
+{% render 'name', named: my_variable, other: 'oranges' %}
+{%
+  render 'name', named: my_variable,
+  other:
+    'oranges'
+%}
+
+{% liquid
+  render 'name', named: my_variable, other: 'oranges'
+  render 'name': named: my_variable, other: 'oranges'
+  render 'name' with foo as bar
+  render 'name' for elements as element
+%}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% render 'product' with foo as bar %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+            ^^^^^^^
+            text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                   ^
+                   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                    ^
+                    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                     ^^^^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                         ^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                          ^^^
+                          text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid variable.other.liquid
+                             ^
+                             text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                              ^^
+                              text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                                ^
+                                text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                 ^^^
+                                 text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid variable.other.liquid
+                                    ^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                     ^^
+                                     text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>{% render 'variant' for elements as element %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+            ^^^^^^^
+            text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                   ^
+                   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                    ^
+                    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                     ^^^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                        ^
+                        text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                         ^^^^^^^^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid variable.other.liquid
+                                 ^
+                                 text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                  ^^
+                                  text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                                    ^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                     ^^^^^^^
+                                     text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid variable.other.liquid
+                                            ^
+                                            text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                             ^^
+                                             text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>{% render 'name', named: my_variable, other: 'oranges' %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+            ^^^^
+            text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                 ^^
+                 text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                   ^^^^^^
+                   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                         ^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                          ^^^^^^^^^^^
+                          text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid variable.parameter.liquid
+                                     ^^
+                                     text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                       ^^^^^^
+                                       text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                                             ^
+                                             text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                              ^
+                                              text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                               ^^^^^^^
+                                               text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                                      ^
+                                                      text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                                       ^
+                                                       text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                                                        ^^
+                                                        text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>{%
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+>  render 'name', named: my_variable,
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+           ^^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                ^^
+                text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                  ^^^^^^
+                  text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                        ^
+                        text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+                         ^^^^^^^^^^^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid variable.parameter.liquid
+                                    ^^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+>  other:
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+>    'oranges'
+ ^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid
+     ^
+     text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+      ^^^^^^^
+      text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+             ^
+             text.html.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  render 'name', named: my_variable, other: 'oranges'
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+           ^^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                ^^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                  ^^^^^^
+                  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                        ^
+                        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                         ^^^^^^^^^^^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid variable.parameter.liquid
+                                    ^^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                                      ^^^^^^
+                                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                                            ^
+                                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                                             ^
+                                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                              ^^^^^^^
+                                              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                                     ^
+                                                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+>  render 'name': named: my_variable, other: 'oranges'
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+           ^^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                ^^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                  ^^^^^^
+                  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                        ^
+                        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                         ^^^^^^^^^^^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid variable.parameter.liquid
+                                    ^^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                                      ^^^^^^
+                                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
+                                            ^
+                                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                                             ^
+                                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                              ^^^^^^^
+                                              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                                                     ^
+                                                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+>  render 'name' with foo as bar
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+           ^^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                 ^^^^
+                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                     ^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                      ^^^
+                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid variable.other.liquid
+                         ^
+                         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                          ^^
+                          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                            ^
+                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                             ^^^
+                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid variable.other.liquid
+>  render 'name' for elements as element
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+           ^^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                 ^^^
+                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                    ^
+                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                     ^^^^^^^^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid variable.other.liquid
+                             ^
+                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                              ^^
+                              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid keyword.control.other.liquid
+                                ^
+                                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid
+                                 ^^^^^^^
+                                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.render.liquid variable.other.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid

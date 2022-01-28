@@ -1,0 +1,15 @@
+{% render 'product' with foo as bar %}
+{% render 'variant' for elements as element %}
+{% render 'name', named: my_variable, other: 'oranges' %}
+{%
+  render 'name', named: my_variable,
+  other:
+    'oranges'
+%}
+
+{% liquid
+  render 'name', named: my_variable, other: 'oranges'
+  render 'name': named: my_variable, other: 'oranges'
+  render 'name' with foo as bar
+  render 'name' for elements as element
+%}

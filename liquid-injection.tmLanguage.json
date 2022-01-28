@@ -103,6 +103,9 @@
           "include": "#tag_paginate"
         },
         {
+          "include": "#tag_render"
+        },
+        {
           "include": "#tag_tablerow"
         },
         {
@@ -131,6 +134,9 @@
         },
         {
           "include": "#tag_paginate_liquid"
+        },
+        {
+          "include": "#tag_render_liquid"
         },
         {
           "include": "#tag_tablerow_liquid"
@@ -229,6 +235,52 @@
           "include": "#value_expression"
         }
       ]
+    },
+    "tag_render": {
+      "name": "meta.entity.tag.render.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(render)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.render.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#tag_render_special_keywords"
+        },
+        {
+          "include": "#tag_attribute"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_render_liquid": {
+      "name": "meta.entity.tag.render.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(render)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.render.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#tag_render_special_keywords"
+        },
+        {
+          "include": "#tag_attribute_liquid"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_render_special_keywords": {
+      "match": "\\b(with|as|for)\\b",
+      "name": "keyword.control.other.liquid"
     },
     "tag_paginate": {
       "name": "meta.entity.tag.paginate.liquid",
@@ -486,50 +538,6 @@
       "end": "'",
       "name": "string.quoted.single.liquid"
     },
-    "variable_lookup": {
-      "patterns": [
-        {
-          "match": "\\b(additional_checkout_buttons|address|all_country_option_tags|all_products|article|articles|block|blog|blogs|canonical_url|cart|checkout|collection|collections|comment|content_for_additional_checkout_buttons|content_for_header|content_for_index|content_for_layout|country_option_tags|currency|current_page|current_tags|customer|customer_address|discount_allocation|discount_application|external_video|font|forloop|form|fulfillment|gift_card|handle|image|images|line_item|link|linklist|linklists|location|localization|metafield|model|model_source|order|page|page_description|page_image|page_title|pages|paginate|part|policy|powered_by_link|predictive_search|product|product_option|product_variant|recommendations|request|routes|script|scripts|search|section|selling_plan|selling_plan_allocation|selling_plan_group|settings|shipping_method|shop|shop_locale|store_availability|tablerow|tax_line|template|theme|transaction|unit_price_measurement|variant|video|video_source)\\b",
-          "name": "variable.language.liquid"
-        },
-        {
-          "match": "((?<=\\w\\:\\s)\\w+)",
-          "name": "variable.parameter.liquid"
-        },
-        {
-          "begin": "(?<=\\w)\\[",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.section.brackets.begin.liquid"
-            }
-          },
-          "end": "\\]",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.section.brackets.end.liquid"
-            }
-          },
-          "name": "meta.brackets.liquid",
-          "patterns": [
-            {
-              "include": "#string"
-            }
-          ]
-        },
-        {
-          "match": "(?<=(\\w|\\])\\.)([-\\w]+\\??)",
-          "name": "variable.other.member.liquid"
-        },
-        {
-          "match": "(?<=\\w)\\.(?=\\w)",
-          "name": "punctuation.accessor.liquid"
-        },
-        {
-          "match": "(?i)[a-z_](\\w|(?:-(?!\\}\\})))*",
-          "name": "variable.other.liquid"
-        }
-      ]
-    },
     "operator": {
       "match": "(?:(?<=\\s)|\\b)(\\=\\=|!\\=|\\>|\\<|\\>\\=|\\<\\=|or|and|contains)(?:(?=\\s)|\\b)",
       "captures": {
@@ -539,8 +547,36 @@
       }
     },
     "language_constant": {
-      "match": "\\b(false|true|nil|blank|empty)\\b(!=\\?)",
+      "match": "\\b(false|true|nil|blank)\\b|empty(?!\\?)",
       "name": "constant.language.liquid"
+    },
+    "tag_attribute": {
+      "begin": "\\w+:",
+      "end": "(?=,|%})",
+      "beginCaptures": {
+        "0": {
+          "name": "entity.other.attribute-name.liquid"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_attribute_liquid": {
+      "begin": "\\w+:",
+      "end": "(?=,)|$",
+      "beginCaptures": {
+        "0": {
+          "name": "entity.other.attribute-name.liquid"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#value_expression"
+        }
+      ]
     },
     "value_expression": {
       "patterns": [
@@ -587,6 +623,50 @@
         },
         {
           "include": "#variable_lookup"
+        }
+      ]
+    },
+    "variable_lookup": {
+      "patterns": [
+        {
+          "match": "\\b(additional_checkout_buttons|address|all_country_option_tags|all_products|article|articles|block|blog|blogs|canonical_url|cart|checkout|collection|collections|comment|content_for_additional_checkout_buttons|content_for_header|content_for_index|content_for_layout|country_option_tags|currency|current_page|current_tags|customer|customer_address|discount_allocation|discount_application|external_video|font|forloop|form|fulfillment|gift_card|handle|image|images|line_item|link|linklist|linklists|location|localization|metafield|model|model_source|order|page|page_description|page_image|page_title|pages|paginate|part|policy|powered_by_link|predictive_search|product|product_option|product_variant|recommendations|request|routes|script|scripts|search|section|selling_plan|selling_plan_allocation|selling_plan_group|settings|shipping_method|shop|shop_locale|store_availability|tablerow|tax_line|template|theme|transaction|unit_price_measurement|variant|video|video_source)\\b",
+          "name": "variable.language.liquid"
+        },
+        {
+          "match": "((?<=\\w\\:\\s)\\w+)",
+          "name": "variable.parameter.liquid"
+        },
+        {
+          "begin": "(?<=\\w)\\[",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.section.brackets.begin.liquid"
+            }
+          },
+          "end": "\\]",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.brackets.end.liquid"
+            }
+          },
+          "name": "meta.brackets.liquid",
+          "patterns": [
+            {
+              "include": "#string"
+            }
+          ]
+        },
+        {
+          "match": "(?<=(\\w|\\])\\.)([-\\w]+\\??)",
+          "name": "variable.other.member.liquid"
+        },
+        {
+          "match": "(?<=\\w)\\.(?=\\w)",
+          "name": "punctuation.accessor.liquid"
+        },
+        {
+          "match": "(?i)[a-z_](\\w|(?:-(?!\\}\\})))*",
+          "name": "variable.other.liquid"
         }
       ]
     }
