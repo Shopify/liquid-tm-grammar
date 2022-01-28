@@ -1,0 +1,50 @@
+original file
+-----------------------------------
+{{ 'hello' }}
+{{ "world" }}
+{{ 25 }}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{{ 'hello' }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^
+    text.html.liquid meta.object.liquid string.quoted.single.liquid
+     ^^^^^
+     text.html.liquid meta.object.liquid string.quoted.single.liquid
+          ^
+          text.html.liquid meta.object.liquid string.quoted.single.liquid
+           ^
+           text.html.liquid meta.object.liquid
+            ^^
+            text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ "world" }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^
+    text.html.liquid meta.object.liquid string.quoted.double.liquid
+     ^^^^^
+     text.html.liquid meta.object.liquid string.quoted.double.liquid
+          ^
+          text.html.liquid meta.object.liquid string.quoted.double.liquid
+           ^
+           text.html.liquid meta.object.liquid
+            ^^
+            text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ 25 }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^
+    text.html.liquid meta.object.liquid constant.numeric.liquid
+      ^
+      text.html.liquid meta.object.liquid
+       ^^
+       text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
