@@ -1,0 +1,42 @@
+original file
+-----------------------------------
+{% cycle 'one', 'two', 'three' %}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% cycle 'one', 'two', 'three' %}
+ ^^
+ text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.braces.liquid
+    ^^^^^
+    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+         ^
+         text.html.liquid meta.braces.liquid
+          ^
+          text.html.liquid meta.braces.liquid string.quoted.single.liquid
+           ^^^
+           text.html.liquid meta.braces.liquid string.quoted.single.liquid
+              ^
+              text.html.liquid meta.braces.liquid string.quoted.single.liquid
+               ^^
+               text.html.liquid meta.braces.liquid
+                 ^
+                 text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                  ^^^
+                  text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                     ^
+                     text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                      ^^
+                      text.html.liquid meta.braces.liquid
+                        ^
+                        text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                         ^^^^^
+                         text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                              ^
+                              text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                               ^
+                               text.html.liquid meta.braces.liquid
+                                ^^
+                                text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
