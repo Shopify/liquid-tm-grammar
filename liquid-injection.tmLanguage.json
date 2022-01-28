@@ -451,7 +451,7 @@
           ]
         },
         {
-          "match": "(?<=(\\w|\\])\\.)(\\w+)\\b",
+          "match": "(?<=(\\w|\\])\\.)([-\\w]+\\??)",
           "name": "variable.other.member.liquid"
         },
         {
@@ -459,7 +459,7 @@
           "name": "punctuation.accessor.liquid"
         },
         {
-          "match": "(?i)[a-z_]\\w*",
+          "match": "(?i)[a-z_](\\w|(?:-(?!\\}\\})))*",
           "name": "variable.other.liquid"
         }
       ]
@@ -473,7 +473,7 @@
       }
     },
     "language_constant": {
-      "match": "(false|true|nil|blank|empty)",
+      "match": "\\b(false|true|nil|blank|empty)\\b(!=\\?)",
       "name": "constant.language.liquid"
     },
     "value_expression": {
