@@ -90,7 +90,7 @@
           }
         },
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|unless|else|eslif|endunless|endif)\\b",
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|unless|else|elsif|endunless|endif)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.conditional.liquid"

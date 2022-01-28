@@ -59,7 +59,7 @@ repository:
       - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(else|break|continue)\b'
         captures:
           1: { name: keyword.control.liquid }
-      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(if|unless|else|eslif|endunless|endif)\b'
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(if|unless|else|elsif|endunless|endif)\b'
         captures:
           1: { name: keyword.control.conditional.liquid }
       - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(for|endfor|cycle|tablerow|endtablerow)\b'
