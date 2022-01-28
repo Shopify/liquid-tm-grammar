@@ -1,0 +1,38 @@
+original file
+-----------------------------------
+{% form 'activate_customer_password' %}
+{% endform %}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% form 'activate_customer_password' %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+    ^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                                    ^
+                                    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                                     ^
+                                     text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+                                      ^^
+                                      text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>{% endform %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+    ^^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+            ^^
+            text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid

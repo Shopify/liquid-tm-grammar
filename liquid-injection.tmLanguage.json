@@ -81,6 +81,9 @@
           "include": "#tag_for"
         },
         {
+          "include": "#tag_paginate"
+        },
+        {
           "include": "#tag_tablerow"
         },
         {
@@ -106,6 +109,9 @@
         },
         {
           "include": "#tag_for_liquid"
+        },
+        {
+          "include": "#tag_paginate_liquid"
         },
         {
           "include": "#tag_tablerow_liquid"
@@ -205,6 +211,47 @@
         }
       ]
     },
+    "tag_paginate": {
+      "name": "meta.entity.tag.paginate.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(paginate)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.paginate.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#tag_paginate_body"
+        }
+      ]
+    },
+    "tag_paginate_liquid": {
+      "name": "meta.entity.tag.paginate.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(paginate)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.paginate.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#tag_paginate_body"
+        }
+      ]
+    },
+    "tag_paginate_body": {
+      "patterns": [
+        {
+          "match": "\\b(by)\\b",
+          "name": "keyword.control.liquid"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
     "tag_conditional": {
       "name": "meta.entity.tag.conditional.liquid",
       "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|elsif|unless)\\b",
@@ -276,7 +323,7 @@
           }
         },
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endfor|endtablerow)\\b",
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endfor|endtablerow|endpaginate)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.loop.liquid"
