@@ -1,0 +1,26 @@
+original file
+-----------------------------------
+{% comment %}
+  hello world {{ product.liquid }}
+{% endcomment %}
+{% comment %}hello{% endcomment %}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% comment %}
+ ^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
+>  hello world {{ product.liquid }}
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
+>{% endcomment %}
+ ^^^^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
+>{% comment %}hello{% endcomment %}
+ ^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
+              ^^^^^
+              text.html.liquid comment.block.liquid
+                   ^^^^^^^^^^^^^^^^
+                   text.html.liquid comment.block.liquid
