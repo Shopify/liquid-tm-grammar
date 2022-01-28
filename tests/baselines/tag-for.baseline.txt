@@ -6,141 +6,247 @@ original file
   {% break %}
 {% endfor %}
 
-{% for i in (1..2) %}{% endfor %}
+{%
+  for
+  el
+  in
+  (1..2)
+  reversed
+  limit: 10
+%}
+
+{% liquid
+  for i in (1..2) reversed limit: 10 offset:5 invalid: 5
+    echo 'hello world'
+  endfor
+%}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% for reversedEl in col reversed limit: 10 offset:5 %}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.braces.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
     ^^^
-    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+    text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.for.liquid
        ^
-       text.html.liquid meta.braces.liquid
+       text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
         ^^^^^^^^^^
-        text.html.liquid meta.braces.liquid variable.other.liquid
+        text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid variable.other.liquid
                   ^
-                  text.html.liquid meta.braces.liquid
+                  text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                    ^^
-                   text.html.liquid meta.braces.liquid keyword.control.liquid
+                   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
                      ^
-                     text.html.liquid meta.braces.liquid
+                     text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                       ^^^
-                      text.html.liquid meta.braces.liquid variable.other.liquid
+                      text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid variable.other.liquid
                          ^
-                         text.html.liquid meta.braces.liquid
+                         text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                           ^^^^^^^^
-                          text.html.liquid meta.braces.liquid keyword.control.liquid
+                          text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
                                   ^
-                                  text.html.liquid meta.braces.liquid
+                                  text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                                    ^^^^^^
-                                   text.html.liquid meta.braces.liquid keyword.control.liquid
+                                   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
                                          ^
-                                         text.html.liquid meta.braces.liquid
+                                         text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                                           ^^
-                                          text.html.liquid meta.braces.liquid constant.numeric.liquid
+                                          text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid constant.numeric.liquid
                                             ^
-                                            text.html.liquid meta.braces.liquid
+                                            text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                                              ^^^^^^^
-                                             text.html.liquid meta.braces.liquid keyword.control.liquid
+                                             text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
                                                     ^
-                                                    text.html.liquid meta.braces.liquid constant.numeric.liquid
+                                                    text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid constant.numeric.liquid
                                                      ^
-                                                     text.html.liquid meta.braces.liquid
+                                                     text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
                                                       ^^
-                                                      text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                                                      text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >  {% continue %}
  ^^
  text.html.liquid
    ^^
-   text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
      ^
-     text.html.liquid meta.braces.liquid
+     text.html.liquid meta.tag.liquid
       ^^^^^^^^
-      text.html.liquid meta.braces.liquid keyword.control.liquid
+      text.html.liquid meta.tag.liquid keyword.control.liquid
               ^
-              text.html.liquid meta.braces.liquid
+              text.html.liquid meta.tag.liquid
                ^^
-               text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+               text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >{% else %}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.braces.liquid
+   text.html.liquid meta.tag.liquid
     ^^^^
-    text.html.liquid meta.braces.liquid keyword.control.liquid
+    text.html.liquid meta.tag.liquid keyword.control.liquid
         ^
-        text.html.liquid meta.braces.liquid
+        text.html.liquid meta.tag.liquid
          ^^
-         text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+         text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >  {% break %}
  ^^
  text.html.liquid
    ^^
-   text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+   text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
      ^
-     text.html.liquid meta.braces.liquid
+     text.html.liquid meta.tag.liquid
       ^^^^^
-      text.html.liquid meta.braces.liquid keyword.control.liquid
+      text.html.liquid meta.tag.liquid keyword.control.liquid
            ^
-           text.html.liquid meta.braces.liquid
+           text.html.liquid meta.tag.liquid
             ^^
-            text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+            text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >{% endfor %}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.braces.liquid
+   text.html.liquid meta.tag.liquid
     ^^^^^^
-    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+    text.html.liquid meta.tag.liquid keyword.control.loop.liquid
           ^
-          text.html.liquid meta.braces.liquid
+          text.html.liquid meta.tag.liquid
            ^^
-           text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+           text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >
  ^
  text.html.liquid
->{% for i in (1..2) %}{% endfor %}
+>{%
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+>  for
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+   ^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.for.liquid
+>  el
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+   ^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid variable.other.liquid
+>  in
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+   ^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
+>  (1..2)
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
    ^
-   text.html.liquid meta.braces.liquid
-    ^^^
-    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid meta.range.liquid punctuation.section.parens.begin.liquid
+    ^
+    text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid meta.range.liquid constant.numeric.liquid
+     ^^
+     text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid meta.range.liquid punctuation.range.liquid
        ^
-       text.html.liquid meta.braces.liquid
+       text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid meta.range.liquid constant.numeric.liquid
         ^
-        text.html.liquid meta.braces.liquid variable.other.liquid
+        text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid meta.range.liquid punctuation.section.parens.end.liquid
+>  reversed
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+   ^^^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
+>  limit: 10
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
          ^
-         text.html.liquid meta.braces.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
           ^^
-          text.html.liquid meta.braces.liquid keyword.control.liquid
+          text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid constant.numeric.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  for i in (1..2) reversed limit: 10 offset:5 invalid: 5
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+   ^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid keyword.control.for.liquid
+      ^
+      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+       ^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid variable.other.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+         ^^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid keyword.control.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
             ^
-            text.html.liquid meta.braces.liquid
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid meta.range.liquid punctuation.section.parens.begin.liquid
              ^
-             text.html.liquid meta.braces.liquid meta.range.liquid punctuation.section.parens.begin.liquid
-              ^
-              text.html.liquid meta.braces.liquid meta.range.liquid constant.numeric.liquid
-               ^^
-               text.html.liquid meta.braces.liquid meta.range.liquid punctuation.range.liquid
+             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid meta.range.liquid constant.numeric.liquid
+              ^^
+              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid meta.range.liquid punctuation.range.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid meta.range.liquid constant.numeric.liquid
                  ^
-                 text.html.liquid meta.braces.liquid meta.range.liquid constant.numeric.liquid
+                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid meta.range.liquid punctuation.section.parens.end.liquid
                   ^
-                  text.html.liquid meta.braces.liquid meta.range.liquid punctuation.section.parens.end.liquid
-                   ^
-                   text.html.liquid meta.braces.liquid
-                    ^^
-                    text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
-                      ^^
-                      text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
-                        ^
-                        text.html.liquid meta.braces.liquid
-                         ^^^^^^
-                         text.html.liquid meta.braces.liquid keyword.control.loop.liquid
-                               ^
-                               text.html.liquid meta.braces.liquid
-                                ^^
-                                text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid keyword.control.liquid
+                           ^
+                           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+                            ^^^^^^
+                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid keyword.control.liquid
+                                  ^
+                                  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+                                   ^^
+                                   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid constant.numeric.liquid
+                                     ^
+                                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+                                      ^^^^^^^
+                                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid keyword.control.liquid
+                                             ^
+                                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid constant.numeric.liquid
+                                              ^
+                                              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+                                               ^^^^^^^
+                                               text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid variable.other.liquid
+                                                      ^^
+                                                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid
+                                                        ^
+                                                        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.for.liquid constant.numeric.liquid
+>    echo 'hello world'
+ ^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+     ^^^^
+     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+           ^^^^^^^^^^^
+           text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                      ^
+                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+>  endfor
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+   ^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.loop.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid

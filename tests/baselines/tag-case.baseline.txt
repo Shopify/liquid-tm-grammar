@@ -1,0 +1,150 @@
+original file
+-----------------------------------
+{% case thing %}
+  {% when 'foo' %}
+  {% else %}
+{% endcase %}
+
+{% 
+  case
+  thing
+%}
+
+{% liquid 
+  case thing
+  when 'foo'
+  else
+  endcase
+%}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% case thing %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+    ^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid keyword.control.case.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+         ^^^^^
+         text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid variable.other.liquid
+              ^
+              text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+               ^^
+               text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>  {% when 'foo' %}
+ ^^
+ text.html.liquid
+   ^^
+   text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+     ^
+     text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+      ^^^^
+      text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid keyword.control.case.liquid
+          ^
+          text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+           ^
+           text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid string.quoted.single.liquid
+            ^^^
+            text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid string.quoted.single.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid string.quoted.single.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+                 ^^
+                 text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>  {% else %}
+ ^^
+ text.html.liquid
+   ^^
+   text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+     ^
+     text.html.liquid meta.tag.liquid
+      ^^^^
+      text.html.liquid meta.tag.liquid keyword.control.liquid
+          ^
+          text.html.liquid meta.tag.liquid
+           ^^
+           text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>{% endcase %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid
+    ^^^^^^^
+    text.html.liquid meta.tag.liquid keyword.control.case.liquid
+           ^
+           text.html.liquid meta.tag.liquid
+            ^^
+            text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{% 
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^^
+   text.html.liquid meta.tag.liquid
+>  case
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+   ^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid keyword.control.case.liquid
+>  thing
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid
+   ^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.case.liquid variable.other.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid 
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+          ^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+>  case thing
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid
+   ^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid keyword.control.case.liquid
+       ^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid
+        ^^^^^
+        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid variable.other.liquid
+>  when 'foo'
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid
+   ^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid keyword.control.case.liquid
+       ^
+       text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid string.quoted.single.liquid
+         ^^^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid string.quoted.single.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.case.liquid string.quoted.single.liquid
+>  else
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+   ^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid
+>  endcase
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+   ^^^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.case.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid

@@ -1,0 +1,18 @@
+{% tablerow el in col cols:2 limit: 3 offset: 2 %}
+{% endtablerow %}
+
+{%
+  tablerow
+  el
+  in
+  col
+  cols:2
+  limit: 3
+%}
+
+{%
+  liquid
+  tablerow el in col cols:2
+    echo 'hello world'
+  endtablerow
+%}

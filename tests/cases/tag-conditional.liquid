@@ -2,11 +2,17 @@
 {% elsif other condition %}
 {% else %}
 {% endif %}
+{% 
+  if 
+  condition
+%}
 
 {% unless condition %}
 {% endunless %}
 
-{% case thing %}
-  {% when something %}
-  {% else %}
-{% endif %}
+{% liquid
+  if condition
+  elsif condition
+  else
+  endif
+%}

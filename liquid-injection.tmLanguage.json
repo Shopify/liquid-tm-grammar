@@ -29,7 +29,7 @@
     "tag": {
       "begin": "{%-?",
       "end": "-?%}",
-      "name": "meta.braces.liquid",
+      "name": "meta.tag.liquid",
       "beginCaptures": {
         "0": {
           "name": "punctuation.section.braces.begin.tag.liquid"
@@ -69,28 +69,206 @@
     "tag_body": {
       "patterns": [
         {
-          "include": "#template_tag_name"
+          "include": "#tag_liquid"
         },
         {
-          "include": "#template_tag_keyword"
+          "include": "#tag_case"
         },
         {
-          "include": "#template_var"
+          "include": "#tag_conditional"
+        },
+        {
+          "include": "#tag_for"
+        },
+        {
+          "include": "#tag_tablerow"
+        },
+        {
+          "include": "#tag_expression"
         }
       ]
     },
-    "template_tag_name": {
+    "tag_liquid": {
+      "name": "meta.entity.tag.liquid.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(liquid)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.liquid.liquid"
+        }
+      },
+      "end": "(?=%})",
       "patterns": [
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(else|break|continue)\\b",
-          "captures": {
-            "1": {
-              "name": "keyword.control.liquid"
-            }
-          }
+          "include": "#tag_case_liquid"
         },
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|unless|else|elsif|endunless|endif)\\b",
+          "include": "#tag_conditional_liquid"
+        },
+        {
+          "include": "#tag_for_liquid"
+        },
+        {
+          "include": "#tag_tablerow_liquid"
+        },
+        {
+          "include": "#tag_expression_liquid"
+        }
+      ]
+    },
+    "tag_tablerow": {
+      "name": "meta.entity.tag.tablerow.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(tablerow)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.tablerow.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#tag_tablerow_body"
+        }
+      ]
+    },
+    "tag_tablerow_liquid": {
+      "name": "meta.entity.tag.tablerow.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(tablerow)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.tablerow.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#tag_tablerow_body"
+        }
+      ]
+    },
+    "tag_tablerow_body": {
+      "patterns": [
+        {
+          "match": "\\b(in)\\b",
+          "name": "keyword.control.liquid"
+        },
+        {
+          "match": "\\b(cols|offset|limit):",
+          "name": "keyword.control.liquid"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_for": {
+      "name": "meta.entity.tag.for.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(for)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.for.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#tag_for_body"
+        }
+      ]
+    },
+    "tag_for_liquid": {
+      "name": "meta.entity.tag.for.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(for)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.for.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#tag_for_body"
+        }
+      ]
+    },
+    "tag_for_body": {
+      "patterns": [
+        {
+          "match": "\\b(in|reversed)\\b",
+          "name": "keyword.control.liquid"
+        },
+        {
+          "match": "\\b(offset|limit):",
+          "name": "keyword.control.liquid"
+        },
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_conditional": {
+      "name": "meta.entity.tag.conditional.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|elsif|unless)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.conditional.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_conditional_liquid": {
+      "name": "meta.entity.tag.conditional.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(if|elsif|unless)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.conditional.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_case": {
+      "name": "meta.entity.tag.case.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(case|when)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.case.liquid"
+        }
+      },
+      "end": "(?=%})",
+      "patterns": [
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_case_liquid": {
+      "name": "meta.entity.tag.case.liquid",
+      "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(case|when)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.case.liquid"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "include": "#value_expression"
+        }
+      ]
+    },
+    "tag_expression_without_arguments": {
+      "patterns": [
+        {
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endunless|endif)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.conditional.liquid"
@@ -98,7 +276,7 @@
           }
         },
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(for|endfor|cycle|tablerow|endtablerow)\\b",
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endfor|endtablerow)\\b",
           "captures": {
             "1": {
               "name": "keyword.control.loop.liquid"
@@ -106,39 +284,71 @@
           }
         },
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(case|when|endcase)\\b",
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endcase)\\b",
           "captures": {
             "1": {
-              "name": "keyword.control.switch.liquid"
+              "name": "keyword.control.case.liquid"
             }
           }
         },
         {
-          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(\\w+)",
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(else|break|continue)\\b",
           "captures": {
             "1": {
-              "name": "entity.name.tag.liquid"
+              "name": "keyword.control.liquid"
             }
           }
         }
       ]
     },
-    "template_tag_keyword": {
+    "tag_expression": {
       "patterns": [
         {
-          "match": "\\b(reversed|in)\\b",
-          "name": "keyword.control.liquid"
+          "include": "#tag_expression_without_arguments"
         },
         {
-          "match": "\\b(cols|offset|limit):",
-          "name": "keyword.control.liquid"
+          "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(\\w+)",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.tag.liquid"
+            }
+          },
+          "end": "(?=%})",
+          "name": "meta.entity.tag.other.liquid",
+          "patterns": [
+            {
+              "include": "#value_expression"
+            }
+          ]
+        }
+      ]
+    },
+    "tag_expression_liquid": {
+      "patterns": [
+        {
+          "include": "#tag_expression_without_arguments"
+        },
+        {
+          "begin": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(\\w+)",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.tag.liquid"
+            }
+          },
+          "end": "$",
+          "name": "meta.entity.tag.other.liquid",
+          "patterns": [
+            {
+              "include": "#value_expression"
+            }
+          ]
         }
       ]
     },
     "object": {
       "begin": "{{-?",
       "end": "-?}}",
-      "name": "meta.braces.liquid",
+      "name": "meta.object.liquid",
       "beginCaptures": {
         "0": {
           "name": "punctuation.section.braces.begin.liquid"
@@ -151,7 +361,7 @@
       },
       "patterns": [
         {
-          "include": "#template_var"
+          "include": "#value_expression"
         }
       ]
     },
@@ -262,7 +472,7 @@
         }
       }
     },
-    "template_var": {
+    "value_expression": {
       "patterns": [
         {
           "match": "(\\[)(\\|)(?=[^\\]]*)(?=\\])",

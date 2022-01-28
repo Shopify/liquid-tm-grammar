@@ -14,89 +14,91 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{%echo 'hello world'%}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^^^^
-   text.html.liquid meta.braces.liquid entity.name.tag.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
        ^
-       text.html.liquid meta.braces.liquid
+       text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
         ^
-        text.html.liquid meta.braces.liquid string.quoted.single.liquid
+        text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
          ^^^^^^^^^^^
-         text.html.liquid meta.braces.liquid string.quoted.single.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                     ^
-                    text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                      ^^
-                     text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                     text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >{% echo 'hello world' %}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.braces.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
     ^^^^
-    text.html.liquid meta.braces.liquid entity.name.tag.liquid
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
         ^
-        text.html.liquid meta.braces.liquid
+        text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
          ^
-         text.html.liquid meta.braces.liquid string.quoted.single.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
           ^^^^^^^^^^^
-          text.html.liquid meta.braces.liquid string.quoted.single.liquid
+          text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                      ^
-                     text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                     text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                       ^
-                      text.html.liquid meta.braces.liquid
+                      text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
                        ^^
-                       text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                       text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >{%-echo 'hello world'-%}
  ^^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
     ^^^^
-    text.html.liquid meta.braces.liquid entity.name.tag.liquid
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
         ^
-        text.html.liquid meta.braces.liquid
+        text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
          ^
-         text.html.liquid meta.braces.liquid string.quoted.single.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
           ^^^^^^^^^^^
-          text.html.liquid meta.braces.liquid string.quoted.single.liquid
+          text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                      ^
-                     text.html.liquid meta.braces.liquid string.quoted.single.liquid
-                      ^^^
-                      text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                     text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                      ^
+                      text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+                       ^^
+                       text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >{%- echo 'hello world' -%}
  ^^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
     ^
-    text.html.liquid meta.braces.liquid
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
      ^^^^
-     text.html.liquid meta.braces.liquid entity.name.tag.liquid
+     text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
          ^
-         text.html.liquid meta.braces.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
           ^
-          text.html.liquid meta.braces.liquid string.quoted.single.liquid
+          text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
            ^^^^^^^^^^^
-           text.html.liquid meta.braces.liquid string.quoted.single.liquid
+           text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                       ^
-                      text.html.liquid meta.braces.liquid string.quoted.single.liquid
-                       ^
-                       text.html.liquid meta.braces.liquid
-                        ^^^
-                        text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                      text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                       ^^
+                       text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
+                         ^^
+                         text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >{%
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
 >  echo
  ^^
- text.html.liquid meta.braces.liquid
+ text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
    ^^^^
-   text.html.liquid meta.braces.liquid entity.name.tag.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
 >  'hello world'
  ^^
- text.html.liquid meta.braces.liquid
+ text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
    ^
-   text.html.liquid meta.braces.liquid string.quoted.single.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
     ^^^^^^^^^^^
-    text.html.liquid meta.braces.liquid string.quoted.single.liquid
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                ^
-               text.html.liquid meta.braces.liquid string.quoted.single.liquid
+               text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
 >%}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid

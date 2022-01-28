@@ -1,42 +1,84 @@
 original file
 -----------------------------------
 {% cycle 'one', 'two', 'three' %}
+{% liquid
+  cycle 'one', 'two', 'three'
+%}
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% cycle 'one', 'two', 'three' %}
  ^^
- text.html.liquid meta.braces.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.braces.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
     ^^^^^
-    text.html.liquid meta.braces.liquid keyword.control.loop.liquid
+    text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
          ^
-         text.html.liquid meta.braces.liquid
+         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
           ^
-          text.html.liquid meta.braces.liquid string.quoted.single.liquid
+          text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
            ^^^
-           text.html.liquid meta.braces.liquid string.quoted.single.liquid
+           text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
               ^
-              text.html.liquid meta.braces.liquid string.quoted.single.liquid
+              text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                ^^
-               text.html.liquid meta.braces.liquid
+               text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
                  ^
-                 text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                 text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                   ^^^
-                  text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                  text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                      ^
-                     text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                     text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                       ^^
-                      text.html.liquid meta.braces.liquid
+                      text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
                         ^
-                        text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                        text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                          ^^^^^
-                         text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                         text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                               ^
-                              text.html.liquid meta.braces.liquid string.quoted.single.liquid
+                              text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
                                ^
-                               text.html.liquid meta.braces.liquid
+                               text.html.liquid meta.tag.liquid meta.entity.tag.other.liquid
                                 ^^
-                                text.html.liquid meta.braces.liquid punctuation.section.braces.end.tag.liquid
+                                text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  cycle 'one', 'two', 'three'
+ ^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+   ^^^^^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid entity.name.tag.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+          ^^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+             ^
+             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+              ^^
+              text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+                ^
+                text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                 ^^^
+                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                    ^
+                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                     ^^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid
+                       ^
+                       text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                        ^^^^^
+                        text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+                             ^
+                             text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.other.liquid string.quoted.single.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
