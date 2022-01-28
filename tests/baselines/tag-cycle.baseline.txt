@@ -4,6 +4,7 @@ original file
 {% liquid
   cycle 'one', 'two', 'three'
 %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -82,3 +83,6 @@ Grammar: liquid.tmLanguage.json
 >%}
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid

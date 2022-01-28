@@ -4,8 +4,8 @@ original file
 {% elsif other condition %}
 {% else %}
 {% endif %}
-{% 
-  if 
+{%
+  if
   condition
 %}
 
@@ -18,6 +18,7 @@ original file
   else
   endif
 %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -78,18 +79,14 @@ Grammar: liquid.tmLanguage.json
          text.html.liquid meta.tag.liquid
           ^^
           text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
->{% 
+>{%
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
-   ^^
-   text.html.liquid meta.tag.liquid
->  if 
+>  if
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
    ^^
    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
-     ^^
-     text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
 >  condition
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
@@ -168,3 +165,6 @@ Grammar: liquid.tmLanguage.json
 >%}
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid

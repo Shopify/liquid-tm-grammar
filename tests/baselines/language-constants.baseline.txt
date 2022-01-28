@@ -5,6 +5,7 @@ original file
 {{ nil }}
 {{ blank }}
 {{ empty }}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -64,3 +65,6 @@ Grammar: liquid.tmLanguage.json
          text.html.liquid meta.object.liquid
           ^^
           text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>
+ ^
+ text.html.liquid

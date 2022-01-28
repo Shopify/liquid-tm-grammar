@@ -3,6 +3,7 @@ original file
 {% capture about_me %}
   I am {{ age }}
 {% endcapture %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -46,3 +47,6 @@ Grammar: liquid.tmLanguage.json
               text.html.liquid meta.tag.liquid meta.entity.tag.liquid
                ^^
                text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid

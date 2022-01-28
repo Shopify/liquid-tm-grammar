@@ -31,6 +31,7 @@ original file
   echo "foo" | plus: 1, arg: value
   assign x = "foo" | plus: 1, arg: value
 %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -348,3 +349,6 @@ Grammar: liquid.tmLanguage.json
 >%}
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid

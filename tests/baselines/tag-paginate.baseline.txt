@@ -3,14 +3,14 @@ original file
 {% paginate collection.products by 5 %}
 {% endpaginate %}
 
-{% 
+{%
   paginate
   col
   by
   5
 %}
 
-{% liquid 
+{% liquid
   paginate col by 5
   endpaginate
 %}
@@ -60,11 +60,9 @@ Grammar: liquid.tmLanguage.json
 >
  ^
  text.html.liquid
->{% 
+>{%
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
-   ^^
-   text.html.liquid meta.tag.liquid
 >  paginate
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.paginate.liquid
@@ -91,15 +89,13 @@ Grammar: liquid.tmLanguage.json
 >
  ^
  text.html.liquid
->{% liquid 
+>{% liquid
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
     ^^^^^^
     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
-          ^^
-          text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
 >  paginate col by 5
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.paginate.liquid

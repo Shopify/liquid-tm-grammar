@@ -10,6 +10,7 @@ original file
 {{-
   obj
 -}}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -72,3 +73,6 @@ Grammar: liquid.tmLanguage.json
 >-}}
  ^^^
  text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>
+ ^
+ text.html.liquid

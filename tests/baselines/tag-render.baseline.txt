@@ -15,6 +15,7 @@ original file
   render 'name' with foo as bar
   render 'name' for elements as element
 %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -308,3 +309,6 @@ Grammar: liquid.tmLanguage.json
 >%}
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid

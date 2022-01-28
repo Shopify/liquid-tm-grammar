@@ -1,6 +1,7 @@
 original file
 -----------------------------------
 {% if (a or b) %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -20,3 +21,6 @@ Grammar: liquid.tmLanguage.json
                text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
                 ^^
                 text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>
+ ^
+ text.html.liquid
