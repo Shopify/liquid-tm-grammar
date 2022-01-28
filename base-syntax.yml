@@ -2,14 +2,21 @@
 # liquid.YAML-tmLanguage and liquid-injection.YAML-tmLanguage. Our
 # build tool will merge these into the other files.
 repository:
+  raw_tag:
+    begin: '{%-?\s*(raw)\s*-?%}'
+    end: '{%-?\s*(endraw)\s*-?%}'
+    beginCaptures:
+      1: { name: entity.name.tag.liquid }
+    endCaptures:
+      1: { name: entity.name.tag.liquid }
+    name: meta.entity.tag.other.liquid
+    contentName: string.unquoted.liquid
 
-  # block comments
   comment_block:
     begin: '{%-?\s*comment\s*-?%}'
     end: '{%-?\s*endcomment\s*-?%}'
     name: comment.block.liquid
 
-  # new comment syntax
   comment_inline:
     begin: '{%-?\s*#'
     end: '-?%}'

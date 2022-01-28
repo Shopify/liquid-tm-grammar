@@ -11,6 +11,7 @@ injectionSelector: |
   L:string.quoted
 
 patterns:
+  - include: '#raw_tag'
   - include: '#comment_block'
   - include: '#comment_inline'
   - include: '#object'
