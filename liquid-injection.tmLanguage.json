@@ -472,6 +472,10 @@
         }
       }
     },
+    "language_constant": {
+      "match": "(false|true|nil|blank|empty)",
+      "name": "constant.language.liquid"
+    },
     "value_expression": {
       "patterns": [
         {
@@ -490,8 +494,7 @@
           "name": "invalid.illegal.filter.liquid"
         },
         {
-          "match": "(false|true|nil|blank)",
-          "name": "constant.language.liquid"
+          "include": "#language_constant"
         },
         {
           "include": "#operator"

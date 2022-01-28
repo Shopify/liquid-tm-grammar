@@ -284,6 +284,10 @@ repository:
     captures:
       1: { name: keyword.operator.expression.liquid }
 
+  language_constant:
+    match: (false|true|nil|blank|empty)
+    name: constant.language.liquid
+
   value_expression:
     patterns:
         # TODO ???
@@ -296,10 +300,7 @@ repository:
       - match: '(?<=\s)(\+|\-|\/|\*)(?=\s)'
         name: invalid.illegal.filter.liquid
 
-        # constants
-      - match: (false|true|nil|blank)
-        name: constant.language.liquid
-
+      - include: '#language_constant'
       - include: '#operator'
 
         # filter with args (e.g. "at_most" in `| at_most: 1` )

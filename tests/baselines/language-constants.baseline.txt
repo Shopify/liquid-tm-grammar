@@ -1,0 +1,66 @@
+original file
+-----------------------------------
+{{ true }}
+{{ false }}
+{{ nil }}
+{{ blank }}
+{{ empty }}
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{{ true }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^
+    text.html.liquid meta.object.liquid constant.language.liquid
+        ^
+        text.html.liquid meta.object.liquid
+         ^^
+         text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ false }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^^
+    text.html.liquid meta.object.liquid constant.language.liquid
+         ^
+         text.html.liquid meta.object.liquid
+          ^^
+          text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ nil }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^
+    text.html.liquid meta.object.liquid constant.language.liquid
+       ^
+       text.html.liquid meta.object.liquid
+        ^^
+        text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ blank }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^^
+    text.html.liquid meta.object.liquid constant.language.liquid
+         ^
+         text.html.liquid meta.object.liquid
+          ^^
+          text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>{{ empty }}
+ ^^
+ text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+   ^
+   text.html.liquid meta.object.liquid
+    ^^^^^
+    text.html.liquid meta.object.liquid constant.language.liquid
+         ^
+         text.html.liquid meta.object.liquid
+          ^^
+          text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
