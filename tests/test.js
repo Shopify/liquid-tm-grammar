@@ -23,7 +23,6 @@ function ensureCleanGeneratedFolder() {
 // Ensure generated folder
 ensureCleanGeneratedFolder();
 
-// Generate the new baselines
 for (const fileName of fs.readdirSync(casesFolder)) {
   const parsedFileName = path.parse(fileName);
   const baselineBaseName = parsedFileName.name + '.baseline.txt';
@@ -42,6 +41,7 @@ for (const fileName of fs.readdirSync(casesFolder)) {
     let generatedText;
 
     before(async () => {
+      // Generate the new baselines
       generatedText = await build.generateScopes(text);
       fs.writeFileSync(generatedFileName, generatedText);
     });
