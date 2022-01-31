@@ -1,3 +1,5 @@
+# This file is optional but will make things slightly better
+# if the editor supports injections like VS Code.
 scopeName: liquid.injection
 
 # The way this works is that we inject the following
@@ -11,11 +13,7 @@ injectionSelector: |
   L:string.quoted
 
 patterns:
-  - include: '#raw_tag'
-  - include: '#comment_block'
-  - include: '#comment_inline'
-  - include: '#object'
-  - include: '#tag_injection'
+  - include: '#injection'
 
 repository:
   # See base-syntax.yml

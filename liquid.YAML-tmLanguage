@@ -18,67 +18,7 @@ foldingStopMarker: |
     [^(%})]+
   %}
 patterns:
-  - include: '#raw_tag'
-  - include: '#comment_block'
-  - include: '#comment_inline'
-
-  # style code fence
-  - begin: '{%-?\s*(style)\s*-?%}'
-    end: '{%-?\s*(endstyle)\s*-?%}'
-    beginCaptures:
-      0:
-        name: meta.tag.metadata.style.start.liquid
-      1:
-        name: entity.name.tag.liquid
-    endCaptures:
-      0:
-        name: meta.tag.metadata.style.end.liquid
-      1:
-        name: entity.name.tag.liquid
-    name: meta.style.block.todo
-    contentName: meta.embedded.block.css
-    patterns:
-      - include: source.css
-
-  # json code fence
-  - begin: '{%-?\s*(schema)\s*-?%}'
-    end: '{%-?\s*(endschema)\s*-?%}'
-    beginCaptures:
-      0:
-        name: meta.tag.metadata.schema.start.liquid
-      1:
-        name: entity.name.tag.liquid
-    endCaptures:
-      0:
-        name: meta.tag.metadata.schema.end.liquid
-      1:
-        name: entity.name.tag.liquid
-    name: meta.block.schema.liquid
-    contentName: meta.embedded.block.json
-    patterns:
-      - include: source.json
-
-  # javascript code fence
-  - begin: '{%-?\s*(javascript)\s*-?%}'
-    end: '{%-?\s*(endjavascript)\s*-?%}'
-    beginCaptures:
-      0:
-        name: meta.tag.metadata.javascript.start.liquid
-      1:
-        name: entity.name.tag.liquid
-    endCaptures:
-      0:
-        name: meta.tag.metadata.javascript.end.liquid
-      1:
-        name: entity.name.tag.liquid
-    name: meta.block.javascript.liquid
-    contentName: meta.embedded.block.js
-    patterns:
-      - include: source.js
-
-  - include: '#object'
-  - include: '#tag'
-  - include: text.html.basic
+  - include: '#core'
 
 repository:
   # see base-syntax.yml
