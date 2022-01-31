@@ -5,40 +5,59 @@ const fs = require('fs');
 
 const GrammarKind = {
   liquid: 'text.html.liquid',
+  liquidInjection: 'liquid.injection',
+  html: 'text.html.basic',
+  css: 'source.css',
+  javascript: 'source.js',
+  json: 'source.json',
 };
 
 function grammarPath(kind) {
   return path.join(__dirname, '..', grammarFileNames[kind]);
 }
 
+function supportGrammarPath(kind) {
+  return path.join(__dirname, 'syntaxes', grammarFileNames[kind]);
+}
+
 const grammarFileNames = {
   [GrammarKind.liquid]: 'liquid.tmLanguage.json',
+  [GrammarKind.liquidInjection]: 'liquid-injection.tmLanguage.json',
+
+  // Support grammars
+  [GrammarKind.html]: 'html.tmLanguage.json',
+  [GrammarKind.css]: 'css.tmLanguage.json',
+  [GrammarKind.javascript]: 'javascript.tmLanguage.json',
+  [GrammarKind.json]: 'json.tmLanguage.json',
 };
 
 const grammarPaths = {
   [GrammarKind.liquid]: grammarPath(GrammarKind.liquid),
+  [GrammarKind.liquidInjection]: grammarPath(GrammarKind.liquidInjection),
+  [GrammarKind.html]: supportGrammarPath(GrammarKind.html),
+  [GrammarKind.css]: supportGrammarPath(GrammarKind.css),
+  [GrammarKind.javascript]: supportGrammarPath(
+    GrammarKind.javascript,
+  ),
+  [GrammarKind.json]: supportGrammarPath(GrammarKind.json),
 };
 
 const registry = new vt.Registry({
-  loadGrammar: function (scopeName) {
+  loadGrammar(scopeName) {
     const path = grammarPaths[scopeName];
     if (path) {
-      return new Promise((resolve, reject) => {
-        fs.readFile(path, (error, content) => {
-          if (error) {
-            reject(error);
-          } else {
-            const rawGrammar = vt.parseRawGrammar(
-              content.toString(),
-              path,
-            );
-            resolve(rawGrammar);
-          }
-        });
-      });
+      return fs.promises
+        .readFile(path, 'utf8')
+        .then((content) => vt.parseRawGrammar(content, path));
     }
 
     return Promise.resolve(null);
+  },
+
+  getInjections(scopeName) {
+    if (scopeName == 'text.html.liquid') {
+      return ['liquid.injection']
+    }
   },
 });
 
@@ -76,36 +95,6 @@ function tokenizeLine(grammar, line) {
   return lineTokens.tokens;
 }
 
-function hasDiff(first, second, hasDiffT) {
-  if (first.length != second.length) {
-    return true;
-  }
-
-  for (let i = 0; i < first.length; i++) {
-    if (hasDiffT(first[i], second[i])) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-function makeTsScope(scope) {
-  return scope.replace(/\.tsx/g, '.ts');
-}
-
-function hasDiffScope(first, second) {
-  return makeTsScope(first) !== makeTsScope(second);
-}
-
-function hasDiffLineToken(first, second) {
-  return (
-    first.startIndex != second.startIndex ||
-    first.endIndex != second.endIndex ||
-    hasDiff(first.scopes, second.scopes, hasDiffScope)
-  );
-}
-
 function getBaseline(grammar, outputLines) {
   return getGrammarInfo(grammar.kind) + outputLines.join('\n');
 }
@@ -121,7 +110,8 @@ function isValidScopeExtension(_grammar, scope) {
     scope.endsWith('.liquid') ||
     scope.endsWith('.html') ||
     scope.endsWith('.css') ||
-    scope.endsWith('.js')
+    scope.endsWith('.js') ||
+    scope.endsWith('ignored-vscode')
   );
 }
 
@@ -144,8 +134,7 @@ function generateScopesWorker(mainGrammar, oriLines) {
   }
 
   return (
-    getInputFile(cleanLines) +
-    getBaseline(mainGrammar, baselineLines)
+    getInputFile(cleanLines) + getBaseline(mainGrammar, baselineLines)
   );
 }
 
@@ -169,9 +158,7 @@ function writeTokenLine(grammar, token, outputLines) {
   );
 }
 
-exports.generateScopes = function generateScopes(
-  text,
-) {
+exports.generateScopes = function generateScopes(text) {
   const mainGrammar = liquidGrammar;
   const oriLines = text.split(/\r\n|\r|\n/);
 

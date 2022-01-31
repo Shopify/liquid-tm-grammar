@@ -7,6 +7,9 @@ const generatedFolder = path.join(__dirname, 'generated');
 const baselineFolder = path.join(__dirname, 'baselines');
 const casesFolder = path.join(__dirname, 'cases');
 
+chai.config.includeStack = false; // turn on stack trace
+chai.config.truncateThreshold = 0; // disable truncating
+
 function ensureCleanGeneratedFolder() {
   if (fs.existsSync(generatedFolder)) {
     for (const fileName of fs.readdirSync(generatedFolder)) {
@@ -22,51 +25,75 @@ ensureCleanGeneratedFolder();
 
 // Generate the new baselines
 for (const fileName of fs.readdirSync(casesFolder)) {
-  describe('Generating baseline for ' + fileName, function() {
-    this.timeout(100000);
-    let wholeBaseline;
-    let parsedFileName;
+  const parsedFileName = path.parse(fileName);
+  const baselineBaseName = parsedFileName.name + '.baseline.txt';
+  const generatedFileName = path.join(
+    generatedFolder,
+    baselineBaseName,
+  );
+  const text = fs.readFileSync(
+    path.join(casesFolder, fileName),
+    'utf8',
+  );
+  const baselineFile = path.join(baselineFolder, baselineBaseName);
 
-    before((done) => {
-      const text = fs.readFileSync(
-        path.join(casesFolder, fileName),
-        'utf8',
-      );
-      parsedFileName = path.parse(fileName);
-      build.generateScopes(text).then((result) => {
-        wholeBaseline = result;
-        done();
-      });
+  describe(path.join('tests/cases', fileName), function () {
+    this.timeout(100000);
+    let generatedText;
+
+    before(async () => {
+      generatedText = await build.generateScopes(text);
+      fs.writeFileSync(generatedFileName, generatedText);
     });
 
     after(() => {
-      wholeBaseline = undefined;
-      parsedFileName = undefined;
+      generatedText = undefined;
     });
 
-    it('Comparing baseline', () => {
-      assertBaselinesMatch(
-        parsedFileName.name + '.baseline.txt',
-        wholeBaseline,
-      );
+    it('should not hold INCORRECT_SCOPE_EXTENSION', () => {
+      generatedText.split('\n').forEach((line) => {
+        chai.assert.notMatch(
+          line,
+          /INCORRECT_SCOPE_EXTENSION/,
+          'Expected all scopes to end in .$lang',
+        );
+      });
     });
+
+    if (fs.existsSync(baselineFile)) {
+      const baselineText = fs.readFileSync(baselineFile, 'utf8');
+      const baselineChunks = getChunks(baselineText);
+
+      for (let i = 0; i < baselineChunks.length; i++) {
+        if ([0, 2].includes(i)) continue;
+        it(
+          i === 1
+            ? 'should have equal original files'
+            : `should tokenize line ${i - 2} the same way `,
+          () => {
+            const generatedChunks = getChunks(generatedText);
+            const expected = baselineChunks[i];
+            const actual = generatedChunks[i];
+            chai
+              .expect(actual)
+              .to.equal(expected, 'Chunks should be equal');
+          },
+        );
+      }
+    } else {
+      it('is a new baseline', () => {
+        chai.assert(false, 'New generated baseline');
+      });
+    }
   });
 }
 
-function assertBaselinesMatch(file, generatedText) {
-  const generatedFileName = path.join(generatedFolder, file);
-  fs.writeFileSync(generatedFileName, generatedText);
-
-  const baselineFile = path.join(baselineFolder, file);
-  if (fs.existsSync(baselineFile)) {
-    chai.assert.equal(
-      generatedText,
-      fs.readFileSync(baselineFile, 'utf8'),
-      'Expected baselines to match: ' + file,
-    );
-  } else {
-    chai.assert(false, 'New generated baseline');
-  }
+function getChunks(text) {
+  return text
+    .split(/\n*---+\n*/g)
+    .flatMap((chunk) => chunk.split(/^>/gm))
+    .map(x => x.trim())
+    .filter(Boolean);
 }
 
 process.on('unhandledRejection', (error) => {
