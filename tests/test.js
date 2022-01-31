@@ -82,7 +82,7 @@ for (const fileName of fs.readdirSync(casesFolder)) {
       }
     } else {
       it('is a new baseline', () => {
-        chai.assert(false, 'New generated baseline');
+        chai.assert(false, 'New generated baseline' + '\n' + generatedText);
       });
     }
   });
