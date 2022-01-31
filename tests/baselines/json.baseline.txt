@@ -1,0 +1,176 @@
+original file
+-----------------------------------
+{% schema %}
+  {
+    "json is highlighted properly": [
+      "world. cool huh?",
+      true,
+    ],
+    "nested": {
+      "object": "properties"
+    },
+    "invalid": type
+    "missing": "comma"
+  }
+{% endschema %}
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% schema %}
+ ^^
+ text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.start.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.start.liquid
+    ^^^^^^
+    text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.start.liquid entity.name.tag.schema.liquid
+          ^
+          text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.start.liquid
+           ^^
+           text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.start.liquid punctuation.definition.tag.begin.liquid
+>  {
+ ^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json
+   ^
+   text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json punctuation.definition.dictionary.begin.json
+>    "json is highlighted properly": [
+ ^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json
+     ^
+     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.begin.json
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json
+                                  ^
+                                  text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.end.json
+                                   ^
+                                   text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json punctuation.separator.dictionary.key-value.json
+                                    ^
+                                    text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+                                     ^
+                                     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json punctuation.definition.array.begin.json
+>      "world. cool huh?",
+ ^^^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json
+       ^
+       text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json string.quoted.double.json punctuation.definition.string.begin.json
+        ^^^^^^^^^^^^^^^^
+        text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json string.quoted.double.json
+                        ^
+                        text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json string.quoted.double.json punctuation.definition.string.end.json
+                         ^
+                         text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json punctuation.separator.array.json
+>      true,
+ ^^^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json
+       ^^^^
+       text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json constant.language.json
+           ^
+           text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json punctuation.separator.array.json
+>    ],
+ ^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json
+     ^
+     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.array.json punctuation.definition.array.end.json
+      ^
+      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json punctuation.separator.dictionary.pair.json
+>    "nested": {
+ ^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json
+     ^
+     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.begin.json
+      ^^^^^^
+      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json
+            ^
+            text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.end.json
+             ^
+             text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json punctuation.separator.dictionary.key-value.json
+              ^
+              text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+               ^
+               text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json punctuation.definition.dictionary.begin.json
+>      "object": "properties"
+ ^^^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json
+       ^
+       text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.begin.json
+        ^^^^^^
+        text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json string.json support.type.property-name.json
+              ^
+              text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.end.json
+               ^
+               text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json punctuation.separator.dictionary.key-value.json
+                ^
+                text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+                 ^
+                 text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json punctuation.definition.string.begin.json
+                  ^^^^^^^^^^
+                  text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json
+                            ^
+                            text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json punctuation.definition.string.end.json
+>    },
+ ^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+     ^
+     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json punctuation.definition.dictionary.end.json
+      ^
+      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json punctuation.separator.dictionary.pair.json
+>    "invalid": type
+ ^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json
+     ^
+     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.begin.json
+      ^^^^^^^
+      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json
+             ^
+             text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json string.json support.type.property-name.json punctuation.support.type.property-name.end.json
+              ^
+              text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json punctuation.separator.dictionary.key-value.json
+               ^
+               text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+                ^
+                text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json invalid.illegal.expected-dictionary-separator.json
+                 ^
+                 text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json invalid.illegal.expected-dictionary-separator.json
+                  ^
+                  text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json invalid.illegal.expected-dictionary-separator.json
+                   ^
+                   text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json invalid.illegal.expected-dictionary-separator.json
+>    "missing": "comma"
+ ^^^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+     ^
+     text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json punctuation.definition.string.begin.json
+      ^^^^^^^
+      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json
+             ^
+             text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json punctuation.definition.string.end.json
+              ^
+              text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json invalid.illegal.expected-dictionary-separator.json
+               ^
+               text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+                ^
+                text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json punctuation.definition.string.begin.json
+                 ^^^^^
+                 text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json
+                      ^
+                      text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json punctuation.definition.string.end.json
+>  }
+ ^^
+ text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json meta.structure.dictionary.value.json
+   ^
+   text.html.liquid meta.block.schema.liquid meta.embedded.block.json meta.structure.dictionary.json punctuation.definition.dictionary.end.json
+>{% endschema %}
+ ^^
+ text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.end.liquid punctuation.definition.tag.end.liquid
+   ^
+   text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.end.liquid
+    ^^^^^^^^^
+    text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.end.liquid entity.name.tag.schema.liquid
+             ^
+             text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.end.liquid
+              ^^
+              text.html.liquid meta.block.schema.liquid meta.tag.metadata.schema.end.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid

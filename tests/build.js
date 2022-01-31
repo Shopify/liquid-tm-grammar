@@ -111,6 +111,7 @@ function isValidScopeExtension(_grammar, scope) {
     scope.endsWith('.html') ||
     scope.endsWith('.css') ||
     scope.endsWith('.js') ||
+    scope.endsWith('.json') ||
     scope.endsWith('ignored-vscode')
   );
 }
