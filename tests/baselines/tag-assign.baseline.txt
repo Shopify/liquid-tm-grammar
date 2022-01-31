@@ -18,7 +18,7 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% assign var_name = 'value' %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.liquid
     ^^^^^^
@@ -38,10 +38,10 @@ Grammar: liquid.tmLanguage.json
                              ^
                              text.html.liquid meta.tag.liquid meta.entity.tag.liquid
                               ^^
-                              text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                              text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >{%
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
 >  assign
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid
@@ -66,13 +66,13 @@ Grammar: liquid.tmLanguage.json
          text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{% liquid
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
     ^^^^^^
@@ -96,7 +96,7 @@ Grammar: liquid.tmLanguage.json
                            text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid string.quoted.single.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid

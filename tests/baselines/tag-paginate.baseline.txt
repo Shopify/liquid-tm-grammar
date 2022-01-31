@@ -21,7 +21,7 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% paginate collection.products by 5 %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.paginate.liquid
     ^^^^^^^^
@@ -45,10 +45,10 @@ Grammar: liquid.tmLanguage.json
                                      ^
                                      text.html.liquid meta.tag.liquid meta.entity.tag.paginate.liquid
                                       ^^
-                                      text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                                      text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >{% endpaginate %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid
     ^^^^^^^^^^^
@@ -56,13 +56,13 @@ Grammar: liquid.tmLanguage.json
                ^
                text.html.liquid meta.tag.liquid
                 ^^
-                text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{%
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
 >  paginate
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.paginate.liquid
@@ -85,13 +85,13 @@ Grammar: liquid.tmLanguage.json
    text.html.liquid meta.tag.liquid meta.entity.tag.paginate.liquid constant.numeric.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{% liquid
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
     ^^^^^^
@@ -120,7 +120,7 @@ Grammar: liquid.tmLanguage.json
    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.loop.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid

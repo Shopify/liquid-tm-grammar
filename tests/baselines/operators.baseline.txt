@@ -11,7 +11,7 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% if a < b and b > c %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
     ^^
@@ -47,10 +47,10 @@ Grammar: liquid.tmLanguage.json
                       ^
                       text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
                        ^^
-                       text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                       text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >{% if a <= b and b <= c %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
     ^^
@@ -86,10 +86,10 @@ Grammar: liquid.tmLanguage.json
                         ^
                         text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
                          ^^
-                         text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                         text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >{% if a == b or a != b %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
     ^^
@@ -125,10 +125,10 @@ Grammar: liquid.tmLanguage.json
                        ^
                        text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
                         ^^
-                        text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                        text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >{% if a contains b %}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
     ^^
@@ -148,7 +148,7 @@ Grammar: liquid.tmLanguage.json
                    ^
                    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
                     ^^
-                    text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+                    text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid

@@ -14,7 +14,7 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{{ variable }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^^^^^^
@@ -22,10 +22,10 @@ Grammar: liquid.tmLanguage.json
             ^
             text.html.liquid meta.object.liquid
              ^^
-             text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+             text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ variable.about-us.title }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^^^^^^
@@ -41,10 +41,10 @@ Grammar: liquid.tmLanguage.json
                            ^
                            text.html.liquid meta.object.liquid
                             ^^
-                            text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                            text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ variable["about-us"] }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^^^^^^
@@ -62,10 +62,10 @@ Grammar: liquid.tmLanguage.json
                         ^
                         text.html.liquid meta.object.liquid
                          ^^
-                         text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                         text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ variable['about-us'].title }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^^^^^^
@@ -87,10 +87,10 @@ Grammar: liquid.tmLanguage.json
                               ^
                               text.html.liquid meta.object.liquid
                                ^^
-                               text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                               text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ variable['about-us']['title'] }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^^^^^^
@@ -116,10 +116,10 @@ Grammar: liquid.tmLanguage.json
                                 ^^
                                 text.html.liquid meta.object.liquid
                                   ^^
-                                  text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                                  text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ col.empty? }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^
@@ -131,10 +131,10 @@ Grammar: liquid.tmLanguage.json
               ^
               text.html.liquid meta.object.liquid
                ^^
-               text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+               text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ all_products }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^^^^^^^^^^^
@@ -142,7 +142,7 @@ Grammar: liquid.tmLanguage.json
                 ^
                 text.html.liquid meta.object.liquid
                  ^^
-                 text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                 text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid

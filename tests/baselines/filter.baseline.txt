@@ -38,7 +38,7 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{{ 42 | plus: tax.value | times: 100.0 | ceil }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^
@@ -76,13 +76,13 @@ Grammar: liquid.tmLanguage.json
                                               ^
                                               text.html.liquid meta.object.liquid
                                                ^^
-                                               text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                                               text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{{
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
 >  "foo.woff"
  ^^
  text.html.liquid meta.object.liquid
@@ -132,13 +132,13 @@ Grammar: liquid.tmLanguage.json
                                               text.html.liquid meta.object.liquid string.quoted.single.liquid
 >}}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{%
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
 >  echo
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid
@@ -197,13 +197,13 @@ Grammar: liquid.tmLanguage.json
                      text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{%
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
 >  assign foo =
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid
@@ -269,13 +269,13 @@ Grammar: liquid.tmLanguage.json
                 text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
 >{% liquid
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
     ^^^^^^
@@ -348,7 +348,7 @@ Grammar: liquid.tmLanguage.json
                                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid meta.entity.tag.liquid variable.parameter.liquid
 >%}
  ^^
- text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid

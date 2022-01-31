@@ -10,7 +10,7 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{{ 'hello' }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^
@@ -22,10 +22,10 @@ Grammar: liquid.tmLanguage.json
            ^
            text.html.liquid meta.object.liquid
             ^^
-            text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+            text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ "world" }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^
@@ -37,10 +37,10 @@ Grammar: liquid.tmLanguage.json
            ^
            text.html.liquid meta.object.liquid
             ^^
-            text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+            text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >{{ 25 }}
  ^^
- text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+ text.html.liquid meta.object.liquid punctuation.definition.tag.begin.liquid
    ^
    text.html.liquid meta.object.liquid
     ^^
@@ -48,7 +48,7 @@ Grammar: liquid.tmLanguage.json
       ^
       text.html.liquid meta.object.liquid
        ^^
-       text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+       text.html.liquid meta.object.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid

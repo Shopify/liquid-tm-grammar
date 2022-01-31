@@ -79,18 +79,18 @@ repository:
       - include: source.json
 
   javascript_codefence:
-    begin: '{%-?\s*(javascript)\s*-?%}'
-    end: '{%-?\s*(endjavascript)\s*-?%}'
+    begin: '({%-?)\s*(javascript)\s*(-?%})'
+    end: '({%-?)\s*(endjavascript)\s*(-?%})'
     beginCaptures:
-      0:
-        name: meta.tag.metadata.javascript.start.liquid
-      1:
-        name: entity.name.tag.liquid
+      0: { name: meta.tag.metadata.javascript.start.liquid }
+      1: { name: punctuation.definition.tag.begin.liquid }
+      2: { name: entity.name.tag.javascript.liquid }
+      3: { name: punctuation.definition.tag.begin.liquid }
     endCaptures:
-      0:
-        name: meta.tag.metadata.javascript.end.liquid
-      1:
-        name: entity.name.tag.liquid
+      0: { name: meta.tag.metadata.javascript.end.liquid }
+      1: { name: punctuation.definition.tag.end.liquid }
+      2: { name: entity.name.tag.javascript.liquid }
+      3: { name: punctuation.definition.tag.end.liquid }
     name: meta.block.javascript.liquid
     contentName: meta.embedded.block.js
     patterns:
@@ -101,11 +101,9 @@ repository:
     end: '-?%}'
     name: meta.tag.liquid
     beginCaptures:
-      0:
-        name: punctuation.section.braces.begin.tag.liquid
+      0: { name: punctuation.definition.tag.begin.liquid }
     endCaptures:
-      0:
-        name: punctuation.section.braces.end.tag.liquid
+      0: { name: punctuation.definition.tag.end.liquid }
     patterns:
       - include: '#tag_body'
 
@@ -116,13 +114,11 @@ repository:
     # injection
     begin: '{%-?(?!\s*(endstyle|endjavascript|endcomment))'
     end: '-?%}'
-    name: punctuation.tag.liquid
+    name: meta.tag.liquid
     beginCaptures:
-      0:
-        name: meta.embedded.punctuation.definition.block.liquid.tag
+      0: { name: punctuation.definition.tag.end.liquid }
     endCaptures:
-      0:
-        name: meta.embedded.punctuation.definition.block.liquid.tag
+      0: { name: punctuation.definition.tag.end.liquid }
     patterns:
       - include: '#tag_body'
 
@@ -365,11 +361,9 @@ repository:
     end: '-?}}'
     name: meta.object.liquid
     beginCaptures:
-      0:
-        name: punctuation.section.braces.begin.liquid
+      0: { name: punctuation.definition.tag.begin.liquid }
     endCaptures:
-      0:
-        name: punctuation.section.braces.end.liquid
+      0: { name: punctuation.definition.tag.end.liquid }
     patterns:
       - include: '#filter'
       - include: '#attribute'
