@@ -74,7 +74,7 @@ Grammar: liquid.tmLanguage.json
      ^
      text.html.liquid meta.tag.liquid
       ^^^^^^^^
-      text.html.liquid meta.tag.liquid keyword.control.liquid
+      text.html.liquid meta.tag.liquid keyword.control.other.liquid
               ^
               text.html.liquid meta.tag.liquid
                ^^
@@ -85,7 +85,7 @@ Grammar: liquid.tmLanguage.json
    ^
    text.html.liquid meta.tag.liquid
     ^^^^
-    text.html.liquid meta.tag.liquid keyword.control.liquid
+    text.html.liquid meta.tag.liquid keyword.control.other.liquid
         ^
         text.html.liquid meta.tag.liquid
          ^^
@@ -98,7 +98,7 @@ Grammar: liquid.tmLanguage.json
      ^
      text.html.liquid meta.tag.liquid
       ^^^^^
-      text.html.liquid meta.tag.liquid keyword.control.liquid
+      text.html.liquid meta.tag.liquid keyword.control.other.liquid
            ^
            text.html.liquid meta.tag.liquid
             ^^

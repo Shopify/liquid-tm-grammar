@@ -254,9 +254,15 @@ repository:
       - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(endcase)\b'
         captures:
           1: { name: keyword.control.case.liquid }
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(<%= ANY_BLOCK_OPEN_TAG %>)\b'
+        captures:
+          1: { name: keyword.control.other.liquid }
+      - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(<%= ANY_BLOCK_END_TAG %>)\b'
+        captures:
+          1: { name: keyword.control.other.liquid }
       - match: '(?:(?:(?<={%)|(?<={%-)|^)\s*)(else|break|continue)\b'
         captures:
-          1: { name: keyword.control.liquid }
+          1: { name: keyword.control.other.liquid }
 
   tag_expression:
     patterns:

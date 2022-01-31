@@ -1,7 +1,7 @@
 ---
 - assign
 - break
-- capture
+- capture: endcapture
 - case: endcase
 - comment: endcomment
 - continue

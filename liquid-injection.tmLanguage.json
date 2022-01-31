@@ -458,10 +458,26 @@
           }
         },
         {
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(capture|case|comment|for|form|if|javascript|paginate|schema|style)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.other.liquid"
+            }
+          }
+        },
+        {
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endcapture|endcase|endcomment|endfor|endform|endif|endjavascript|endpaginate|endschema|endstyle)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.other.liquid"
+            }
+          }
+        },
+        {
           "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(else|break|continue)\\b",
           "captures": {
             "1": {
-              "name": "keyword.control.liquid"
+              "name": "keyword.control.other.liquid"
             }
           }
         }

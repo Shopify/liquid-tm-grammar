@@ -12,15 +12,11 @@ Grammar: liquid.tmLanguage.json
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+   text.html.liquid meta.tag.liquid
     ^^^^^^^
-    text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.name.tag.liquid
-           ^
-           text.html.liquid meta.tag.liquid meta.entity.tag.liquid
-            ^^^^^^^^
-            text.html.liquid meta.tag.liquid meta.entity.tag.liquid variable.other.liquid
-                    ^
-                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+    text.html.liquid meta.tag.liquid keyword.control.other.liquid
+           ^^^^^^^^^^
+           text.html.liquid meta.tag.liquid
                      ^^
                      text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >  I am {{ age }}
@@ -40,11 +36,11 @@ Grammar: liquid.tmLanguage.json
  ^^
  text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
    ^
-   text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+   text.html.liquid meta.tag.liquid
     ^^^^^^^^^^
-    text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.name.tag.liquid
+    text.html.liquid meta.tag.liquid keyword.control.other.liquid
               ^
-              text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+              text.html.liquid meta.tag.liquid
                ^^
                text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
 >

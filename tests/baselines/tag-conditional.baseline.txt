@@ -63,7 +63,7 @@ Grammar: liquid.tmLanguage.json
    ^
    text.html.liquid meta.tag.liquid
     ^^^^
-    text.html.liquid meta.tag.liquid keyword.control.liquid
+    text.html.liquid meta.tag.liquid keyword.control.other.liquid
         ^
         text.html.liquid meta.tag.liquid
          ^^
@@ -156,7 +156,7 @@ Grammar: liquid.tmLanguage.json
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
    ^^^^
-   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.other.liquid
 >  endif
  ^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid

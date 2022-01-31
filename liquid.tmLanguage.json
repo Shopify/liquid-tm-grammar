@@ -4,8 +4,8 @@
   "fileTypes": [
     "liquid"
   ],
-  "foldingStartMarker": "(?x)\n{%\n  -?\n  \\s*\n  (case|comment|for|form|if|javascript|paginate|schema|style)\n  [^(%})]+\n%}\n",
-  "foldingStopMarker": "(?x)\n{%\n  \\s*\n  (endcase|endcomment|endfor|endform|endif|endjavascript|endpaginate|endschema|endstyle)\n  [^(%})]+\n%}\n",
+  "foldingStartMarker": "(?x)\n{%\n  -?\n  \\s*\n  (capture|case|comment|for|form|if|javascript|paginate|schema|style)\n  [^(%})]+\n%}\n",
+  "foldingStopMarker": "(?x)\n{%\n  \\s*\n  (endcapture|endcase|endcomment|endfor|endform|endif|endjavascript|endpaginate|endschema|endstyle)\n  [^(%})]+\n%}\n",
   "patterns": [
     {
       "include": "#raw_tag"
@@ -547,10 +547,26 @@
           }
         },
         {
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(capture|case|comment|for|form|if|javascript|paginate|schema|style)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.other.liquid"
+            }
+          }
+        },
+        {
+          "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(endcapture|endcase|endcomment|endfor|endform|endif|endjavascript|endpaginate|endschema|endstyle)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control.other.liquid"
+            }
+          }
+        },
+        {
           "match": "(?:(?:(?<={%)|(?<={%-)|^)\\s*)(else|break|continue)\\b",
           "captures": {
             "1": {
-              "name": "keyword.control.liquid"
+              "name": "keyword.control.other.liquid"
             }
           }
         }
