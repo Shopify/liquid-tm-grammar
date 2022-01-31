@@ -1,0 +1,25 @@
+<script>
+  // The drop is highlighted because liquid will render inside the comment.
+  // As such, it isn't a "real" comment w.r.t. liquid.
+  // comment {{ product.value }}
+  function main(arg1) {
+    if (condition) {
+      {% if condition %}
+        const foo = {{ variable | filter: arg1 | json }}
+      {% endif %}
+    }
+  }
+</script>
+
+{% javascript %}
+  // The drop is highlighted because liquid will render inside the comment.
+  // As such, it isn't a "real" comment w.r.t. liquid.
+  // comment {{ product.value }}
+  function main(arg1) {
+    if (condition) {
+      {% if condition %}
+        const foo = {{ variable | filter: arg1 | json }}
+      {% endif %}
+    }
+  }
+{% endjavascript %}

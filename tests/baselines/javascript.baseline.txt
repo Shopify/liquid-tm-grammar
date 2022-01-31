@@ -1,0 +1,380 @@
+original file
+-----------------------------------
+<script>
+  // The drop is highlighted because liquid will render inside the comment.
+  // As such, it isn't a "real" comment w.r.t. liquid.
+  // comment {{ product.value }}
+  function main(arg1) {
+    if (condition) {
+      {% if condition %}
+        const foo = {{ variable | filter: arg1 | json }}
+      {% endif %}
+    }
+  }
+</script>
+
+{% javascript %}
+  // The drop is highlighted because liquid will render inside the comment.
+  // As such, it isn't a "real" comment w.r.t. liquid.
+  // comment {{ product.value }}
+  function main(arg1) {
+    if (condition) {
+      {% if condition %}
+        const foo = {{ variable | filter: arg1 | json }}
+      {% endif %}
+    }
+  }
+{% endjavascript %}
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+><script>
+ ^
+ text.html.liquid meta.embedded.block.html meta.tag.metadata.script.start.html punctuation.definition.tag.begin.html
+  ^^^^^^
+  text.html.liquid meta.embedded.block.html meta.tag.metadata.script.start.html entity.name.tag.html
+        ^
+        text.html.liquid meta.embedded.block.html meta.tag.metadata.script.start.html punctuation.definition.tag.end.html
+>  // The drop is highlighted because liquid will render inside the comment.
+ ^^
+ text.html.liquid meta.embedded.block.html source.js punctuation.whitespace.comment.leading.js
+   ^^
+   text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js punctuation.definition.comment.js
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js
+>  // As such, it isn't a "real" comment w.r.t. liquid.
+ ^^
+ text.html.liquid meta.embedded.block.html source.js punctuation.whitespace.comment.leading.js
+   ^^
+   text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js punctuation.definition.comment.js
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js
+>  // comment {{ product.value }}
+ ^^
+ text.html.liquid meta.embedded.block.html source.js punctuation.whitespace.comment.leading.js
+   ^^
+   text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js punctuation.definition.comment.js
+     ^^^^^^^^^
+     text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js
+              ^^
+              text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid punctuation.definition.tag.begin.liquid
+                ^
+                text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid
+                 ^^^^^^^
+                 text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid variable.language.liquid
+                        ^
+                        text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid punctuation.accessor.liquid
+                         ^^^^^
+                         text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid variable.other.member.liquid
+                              ^
+                              text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid
+                               ^^
+                               text.html.liquid meta.embedded.block.html source.js comment.line.double-slash.js meta.object.liquid punctuation.definition.tag.end.liquid
+>  function main(arg1) {
+ ^^
+ text.html.liquid meta.embedded.block.html source.js
+   ^^^^^^^^
+   text.html.liquid meta.embedded.block.html source.js meta.function.js storage.type.function.js
+           ^
+           text.html.liquid meta.embedded.block.html source.js meta.function.js
+            ^^^^
+            text.html.liquid meta.embedded.block.html source.js meta.function.js meta.definition.function.js entity.name.function.js
+                ^
+                text.html.liquid meta.embedded.block.html source.js meta.function.js meta.parameters.js punctuation.definition.parameters.begin.js
+                 ^^^^
+                 text.html.liquid meta.embedded.block.html source.js meta.function.js meta.parameters.js variable.parameter.js
+                     ^
+                     text.html.liquid meta.embedded.block.html source.js meta.function.js meta.parameters.js punctuation.definition.parameters.end.js
+                      ^
+                      text.html.liquid meta.embedded.block.html source.js meta.function.js
+                       ^
+                       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js punctuation.definition.block.js
+>    if (condition) {
+ ^^^^
+ text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js
+     ^^
+     text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js keyword.control.conditional.js
+       ^
+       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js
+        ^
+        text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.brace.round.js
+         ^^^^^^^^^
+         text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js variable.other.readwrite.js
+                  ^
+                  text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.brace.round.js
+                   ^
+                   text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js
+                    ^
+                    text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js punctuation.definition.block.js
+>      {% if condition %}
+ ^^^^^^
+ text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js
+       ^^
+       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+         ^
+         text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid
+          ^^
+          text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
+            ^
+            text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid
+             ^^^^^^^^^
+             text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid variable.other.liquid
+                      ^
+                      text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid
+                       ^^
+                       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+>        const foo = {{ variable | filter: arg1 | json }}
+ ^^^^^^^^
+ text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js
+         ^^^^^
+         text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js storage.type.js
+              ^
+              text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js
+               ^^^
+               text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                  ^
+                  text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js
+                   ^
+                   text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js keyword.operator.assignment.js
+                    ^
+                    text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js
+                     ^^
+                     text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid punctuation.definition.tag.begin.liquid
+                       ^
+                       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                        ^^^^^^^^
+                        text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid variable.other.liquid
+                                ^
+                                text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                 ^^
+                                 text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                   ^^^^^^^
+                                   text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid support.function.liquid
+                                          ^
+                                          text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                           ^^^^
+                                           text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid variable.parameter.liquid
+                                               ^
+                                               text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                                ^^
+                                                text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                                  ^^^^
+                                                  text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid support.function.liquid
+                                                      ^
+                                                      text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                                       ^^
+                                                       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid punctuation.definition.tag.end.liquid
+>      {% endif %}
+ ^^^^^^
+ text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js
+       ^^
+       text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+         ^
+         text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid
+          ^^^^^
+          text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid keyword.control.conditional.liquid
+               ^
+               text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid
+                ^^
+                text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+>    }
+ ^^^^
+ text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js
+     ^
+     text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js meta.block.js punctuation.definition.block.js
+>  }
+ ^^
+ text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js
+   ^
+   text.html.liquid meta.embedded.block.html source.js meta.function.js meta.block.js punctuation.definition.block.js
+></script>
+ ^
+ text.html.liquid meta.embedded.block.html meta.tag.metadata.script.end.html punctuation.definition.tag.begin.html source.js-ignored-vscode
+  ^
+  text.html.liquid meta.embedded.block.html meta.tag.metadata.script.end.html punctuation.definition.tag.begin.html
+   ^^^^^^
+   text.html.liquid meta.embedded.block.html meta.tag.metadata.script.end.html entity.name.tag.html
+         ^
+         text.html.liquid meta.embedded.block.html meta.tag.metadata.script.end.html punctuation.definition.tag.end.html
+>
+ ^
+ text.html.liquid
+>{% javascript %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid
+    ^^^^^^^^^^
+    text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid entity.name.tag.javascript.liquid
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid
+               ^^
+               text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid punctuation.definition.tag.begin.liquid
+>  // The drop is highlighted because liquid will render inside the comment.
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js punctuation.whitespace.comment.leading.js
+   ^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js punctuation.definition.comment.js
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js
+>  // As such, it isn't a "real" comment w.r.t. liquid.
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js punctuation.whitespace.comment.leading.js
+   ^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js punctuation.definition.comment.js
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js
+>  // comment {{ product.value }}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js punctuation.whitespace.comment.leading.js
+   ^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js punctuation.definition.comment.js
+     ^^^^^^^^^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js
+              ^^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid punctuation.definition.tag.begin.liquid
+                ^
+                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid
+                 ^^^^^^^
+                 text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid variable.language.liquid
+                        ^
+                        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid punctuation.accessor.liquid
+                         ^^^^^
+                         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid variable.other.member.liquid
+                              ^
+                              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid
+                               ^^
+                               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js comment.line.double-slash.js meta.object.liquid punctuation.definition.tag.end.liquid
+>  function main(arg1) {
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^^^^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js storage.type.function.js
+           ^
+           text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js
+            ^^^^
+            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.definition.function.js entity.name.function.js
+                ^
+                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.parameters.js punctuation.definition.parameters.begin.js
+                 ^^^^
+                 text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.parameters.js variable.parameter.js
+                     ^
+                     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.parameters.js punctuation.definition.parameters.end.js
+                      ^
+                      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js
+                       ^
+                       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js punctuation.definition.block.js
+>    if (condition) {
+ ^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js
+     ^^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js keyword.control.conditional.js
+       ^
+       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js
+        ^
+        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.brace.round.js
+         ^^^^^^^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js variable.other.readwrite.js
+                  ^
+                  text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.brace.round.js
+                   ^
+                   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js
+                    ^
+                    text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js punctuation.definition.block.js
+>      {% if condition %}
+ ^^^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js
+       ^^
+       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+         ^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid
+          ^^
+          text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
+            ^
+            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid
+             ^^^^^^^^^
+             text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid variable.other.liquid
+                      ^
+                      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid meta.entity.tag.conditional.liquid
+                       ^^
+                       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+>        const foo = {{ variable | filter: arg1 | json }}
+ ^^^^^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js
+         ^^^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js storage.type.js
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js
+               ^^^
+               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                  ^
+                  text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js
+                   ^
+                   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js keyword.operator.assignment.js
+                    ^
+                    text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js
+                     ^^
+                     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid punctuation.definition.tag.begin.liquid
+                       ^
+                       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                        ^^^^^^^^
+                        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid variable.other.liquid
+                                ^
+                                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                 ^^
+                                 text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                   ^^^^^^^
+                                   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid support.function.liquid
+                                          ^
+                                          text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                           ^^^^
+                                           text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid variable.parameter.liquid
+                                               ^
+                                               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                                ^^
+                                                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                                  ^^^^
+                                                  text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid support.function.liquid
+                                                      ^
+                                                      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid
+                                                       ^^
+                                                       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.var.expr.js meta.object.liquid punctuation.definition.tag.end.liquid
+>      {% endif %}
+ ^^^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js
+       ^^
+       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+         ^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid
+          ^^^^^
+          text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid keyword.control.conditional.liquid
+               ^
+               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid
+                ^^
+                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js meta.tag.liquid punctuation.definition.tag.end.liquid
+>    }
+ ^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js
+     ^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js meta.block.js punctuation.definition.block.js
+>  }
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function.js meta.block.js punctuation.definition.block.js
+>{% endjavascript %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
+    ^^^^^^^^^^^^^
+    text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid entity.name.tag.javascript.liquid
+                 ^
+                 text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
+                  ^^
+                  text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
