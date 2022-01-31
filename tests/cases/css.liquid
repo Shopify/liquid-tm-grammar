@@ -1,0 +1,19 @@
+<style>
+  /* css comment {{ product.value }} */
+  :root {
+    --font-family-primary: {{ settings.font_family }};
+    {% if settings.font_family %}
+      --font-family-secondary: {{ settings.font_family_secondary }};
+    {% endif %}
+  }
+</style>
+
+{% style %}
+  /* css comment {{ product.value }} */
+  :root {
+    --font-family-primary: {{ settings.font_family }};
+    {% if settings.font_family %}
+      --font-family-secondary: {{ settings.font_family_secondary }};
+    {% endif %}
+  }
+{% endstyle %}
