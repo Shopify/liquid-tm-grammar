@@ -1,0 +1,108 @@
+original file
+-----------------------------------
+<ul>
+  {% for el in col %}
+    <li>
+      <a href="{{ el.url }}">
+        {{ el.content }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+><ul>
+ ^^^^^
+ text.html.liquid
+>  {% for el in col %}
+ ^^
+ text.html.liquid
+   ^^
+   text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+     ^
+     text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+      ^^^
+      text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.for.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+          ^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid variable.other.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+             ^^
+             text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid keyword.control.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+                ^^^
+                text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid variable.other.liquid
+                   ^
+                   text.html.liquid meta.tag.liquid meta.entity.tag.for.liquid
+                    ^^
+                    text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+>    <li>
+ ^^^^^^^^^
+ text.html.liquid
+>      <a href="{{ el.url }}">
+ ^^^^^^^^^^^^^^^
+ text.html.liquid
+                ^^
+                text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+                  ^
+                  text.html.liquid meta.object.liquid
+                   ^^
+                   text.html.liquid meta.object.liquid variable.other.liquid
+                     ^
+                     text.html.liquid meta.object.liquid punctuation.accessor.liquid
+                      ^^^
+                      text.html.liquid meta.object.liquid variable.other.member.liquid
+                         ^
+                         text.html.liquid meta.object.liquid
+                          ^^
+                          text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+                            ^^^
+                            text.html.liquid
+>        {{ el.content }}
+ ^^^^^^^^
+ text.html.liquid
+         ^^
+         text.html.liquid meta.object.liquid punctuation.section.braces.begin.liquid
+           ^
+           text.html.liquid meta.object.liquid
+            ^^
+            text.html.liquid meta.object.liquid variable.other.liquid
+              ^
+              text.html.liquid meta.object.liquid punctuation.accessor.liquid
+               ^^^^^^^
+               text.html.liquid meta.object.liquid variable.other.member.liquid
+                      ^
+                      text.html.liquid meta.object.liquid
+                       ^^
+                       text.html.liquid meta.object.liquid punctuation.section.braces.end.liquid
+>      </a>
+ ^^^^^^^^^^^
+ text.html.liquid
+>    </li>
+ ^^^^^^^^^^
+ text.html.liquid
+>  {% endfor %}
+ ^^
+ text.html.liquid
+   ^^
+   text.html.liquid meta.tag.liquid punctuation.section.braces.begin.tag.liquid
+     ^
+     text.html.liquid meta.tag.liquid
+      ^^^^^^
+      text.html.liquid meta.tag.liquid keyword.control.loop.liquid
+            ^
+            text.html.liquid meta.tag.liquid
+             ^^
+             text.html.liquid meta.tag.liquid punctuation.section.braces.end.tag.liquid
+></ul>
+ ^^^^^^
+ text.html.liquid
+>
+ ^
+ text.html.liquid
