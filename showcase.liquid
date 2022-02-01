@@ -1,0 +1,128 @@
+<ul>
+  {% for p in products %}
+    <li>
+      {% assign product_image = p.featured_image %}
+      <img
+        alt="{{ product_image.alt }}"
+        src="{{
+          product_image
+          | image_url:
+            width: 500,
+            height: 500
+        }}"
+        height="{{ product_image.width }}"
+        width="{{ product_image.width }}"
+        loading="lazy"
+      >
+    </li>
+  {% endfor %}
+</ul>
+<script>
+  // The drop is highlighted because liquid will render inside the comment.
+  // As such, it isn't a "real" comment w.r.t. liquid.
+  // comment {{ product.value }}
+  function main(arg1) {
+    if (condition) {
+      {% if condition %}
+        const foo = {{ variable | filter: arg1 | json }}
+      {% endif %}
+    }
+  }
+</script>
+
+{% javascript %}
+  // You'll notice that the highlighting works in the `javascript` liquid tag as well!
+  function main(arg1) {
+    if (condition) {
+      {% case fruit %}
+      {% when 'apple' %}
+        const fruit = {{ 'apple' | upcase | reverse | json }}
+      {% when 'banana' %}
+        const fruit = {{ 'banana' | reverse | json }}
+      {% endcase %}
+    }
+  }
+{% endjavascript %}
+<style>
+  :root {
+    {% if settings.font_family %}
+      --font-family-secondary: {{ settings.font_family }};
+    {% endif %}
+  }
+
+  #id.class {
+    background-color: rgba(100, 100, 100);
+  }
+</style>
+
+{% style %}
+  .button-primary {
+    width: 100%;
+    height: 100%;
+    {% if settings.button_primary_color %}
+      background-color: {{ settings.button_primary_color | json }};
+    {% else %}
+      background-color: var(--default-color);
+    {% endif %}
+  }
+{% endstyle %}
+{% schema %}
+  {
+    "json is highlighted properly": [
+      "world. cool huh?",
+      true,
+    ],
+    "nested": {
+      "object": "properties"
+    },
+    "invalid": type
+    "missing": "comma"
+  }
+{% endschema %}
+{% raw %}
+  this should be free form
+  {% comment %} does not need to close
+  {{ does not get highlighted }}
+{% endraw %}
+
+This is content that follows the raw tag.
+The with, as, for and as keywords are highlighted as keywords.
+{% render 'product' with foo as bar %}
+{% render 'variant' for elements as element %}
+
+You can write tags on multiple lines and the highlighting will follow.
+{%
+  render 'name', named: my_variable,
+  other:
+    'oranges'
+%}
+
+Works pretty well in the liquid tag too.
+{% liquid
+  render 'name', named: my_variable, other: 'oranges'
+  render 'name': named: my_variable, other: 'oranges'
+  render 'name' with foo as bar
+  render 'name' for elements as element
+%}
+Control flow tags are keywords and highlight the need to be closed
+{% if condition %}{% endif %}
+{% case fruit %}
+  {% when 'apple' %}
+  {% else %}
+{% endcase %}
+
+Single line tags are entities in a different color
+{% assign x = 1 %}
+{% echo x %}
+{% cycle 'a', 'b', 'c' %}
+
+The highlighting works in liquid tags too!
+{% liquid
+  if condition
+    assign x = 1
+  elsif condition
+    echo x | plus: 1
+  else
+    cycle 'a', 'b', 'c'
+  endif
+%}
