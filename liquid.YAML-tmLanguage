@@ -17,6 +17,12 @@ foldingStopMarker: |
     (<%= ANY_BLOCK_END_TAG %>)
     [^(%})]+
   %}
+
+injections:
+  "L:meta.embedded.block.js, L:meta.embedded.block.css, L:meta.embedded.block.html, L:string.quoted":
+    patterns:
+      - include: '#injection'
+
 patterns:
   - include: '#core'
 
