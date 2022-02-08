@@ -141,6 +141,7 @@ repository:
       1: { name: keyword.control.liquid.liquid }
     end: '(?=%})'
     patterns:
+      - include: '#tag_comment_liquid'
       - include: '#tag_assign_liquid'
       - include: '#tag_case_liquid'
       - include: '#tag_conditional_liquid'
@@ -149,6 +150,11 @@ repository:
       - include: '#tag_render_liquid'
       - include: '#tag_tablerow_liquid'
       - include: '#tag_expression_liquid'
+
+  tag_comment_liquid:
+    name: comment.block.liquid
+    begin: '(?:^\s*)(comment)\b'
+    end: '(?:^\s*)(endcomment)\b'
 
   tag_tablerow:
     name: meta.entity.tag.tablerow.liquid
