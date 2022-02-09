@@ -20,6 +20,28 @@ function escapeRegex(string) {
   return string.replace(/[><=]/g, '\\$&');
 }
 
+// OK this is SUPER weird. So whenever you inject a rule, for some reason
+// the injected rule will popout and try to match top level rules before
+// match patterns if it starts right after the begin match.
+//
+// e.g. if you have '{% raw %}{{ product.feature }}{% endraw %}'
+// then the algo will match product.feature as a normal object even though
+// the child rules for {% raw %} should gob those up. So the hack here is
+// to include a backtrack for the common prefixes and not match when the
+// open tag/variable is preceded by an opening raw or comment tag.
+const ABSURD_COMMENT_RAW_BACKTRACK = [
+  'comment %}',
+  'comment -%}',
+  'comment%}',
+  'comment-%}',
+  'raw %}',
+  'raw -%}',
+  'raw%}',
+  'raw-%}',
+]
+  .map((x) => `(?<!${x})`)
+  .join('');
+
 function replacePlaceholders(fileContents) {
   const context = {
     ANY_TAG: ALL_TAGS.join('|'),
@@ -27,6 +49,7 @@ function replacePlaceholders(fileContents) {
     ANY_BLOCK_END_TAG: ALL_BLOCK_END_TAGS.join('|'),
     ANY_GLOBAL_OBJECT: ALL_GLOBAL_OBJECTS.join('|'),
     ANY_OPERATOR: ALL_OPERATORS.map(escapeRegex).join('|'),
+    ABSURD_COMMENT_RAW_BACKTRACK,
   };
   return fileContents.replace(
     /<%= ([a-z_]+) %>/gi,

@@ -1,0 +1,19 @@
+{% raw %}
+  hello world
+  {{ product }}
+{% endraw %}
+{% raw %}{{ product.feature }}{% endraw %}
+{% javascript %}
+  {% raw %}{{ product.feature }}{% endraw %}
+  {% raw %}
+    hi {{ product }}
+  {% endraw %}
+  console.log('hello world');
+  const str = `
+    {% raw %}
+      hi {{ product }}
+    {% endraw %}
+  `
+  const fuu = '{% raw %} {{ product.feature }} {% endraw %}'
+  const fuu2 = '{% raw %}{{ product.feature }}{% endraw %}'
+{% endjavascript %}

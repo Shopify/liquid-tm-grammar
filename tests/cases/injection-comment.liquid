@@ -1,0 +1,19 @@
+{% comment %}
+  hello world
+  {{ product }}
+{% endcomment %}
+{% comment %}{{ product.feature }}{% endcomment %}
+{% javascript %}
+  {% comment %}{{ product.feature }}{% endcomment %}
+  {% comment %}
+    hi {{ product }}
+  {% endcomment %}
+  console.log('hello world');
+  const str = `
+    {% comment %}
+      hi {{ product }}
+    {% endcomment %}
+  `
+  const fuu = '{% comment %} {{ product.feature }} {% endcomment %}'
+  const fuu2 = '{% comment %}{{ product.feature }}{% endcomment %}'
+{% endjavascript %}

@@ -29,13 +29,17 @@ repository:
       1: { name: entity.name.tag.liquid }
     endCaptures:
       1: { name: entity.name.tag.liquid }
-    name: meta.entity.tag.liquid
+    name: meta.entity.tag.raw.liquid
     contentName: string.unquoted.liquid
+    patterns:
+      - match: '(.(?!{% endraw %}))*.'
 
   comment_block:
     begin: '{%-?\s*comment\s*-?%}'
     end: '{%-?\s*endcomment\s*-?%}'
     name: comment.block.liquid
+    patterns:
+      - match: '(.(?!{% endcomment %}))*.'
 
   comment_inline:
     begin: '{%-?\s*#'
@@ -97,7 +101,7 @@ repository:
       - include: source.js
 
   tag:
-    begin: '{%-?'
+    begin: '<%= ABSURD_COMMENT_RAW_BACKTRACK %>{%-?'
     end: '-?%}'
     name: meta.tag.liquid
     beginCaptures:
@@ -112,7 +116,7 @@ repository:
     # otherwise our parent syntax would never close. Since The injection
     # would think that endstyle/endjavascript was part of the
     # injection
-    begin: '{%-?(?!\s*(endstyle|endjavascript|endcomment))'
+    begin: '<%= ABSURD_COMMENT_RAW_BACKTRACK %>{%-?(?!\s*(endstyle|endjavascript|endcomment|endraw))'
     end: '-?%}'
     name: meta.tag.liquid
     beginCaptures:
@@ -363,7 +367,7 @@ repository:
           - include: '#value_expression'
 
   object:
-    begin: '{{-?'
+    begin: '<%= ABSURD_COMMENT_RAW_BACKTRACK %>{{-?'
     end: '-?}}'
     name: meta.object.liquid
     beginCaptures:

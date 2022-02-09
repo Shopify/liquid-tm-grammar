@@ -5,6 +5,7 @@ original file
   {% comment %} does not need to close
   {{ does not get highlighted }}
 {% endraw %}
+{% raw %}{{ product.feature }}{% endraw %}
 
 -----------------------------------
 
@@ -12,27 +13,42 @@ Grammar: liquid.tmLanguage.json
 -----------------------------------
 >{% raw %}
  ^^^
- text.html.liquid meta.entity.tag.liquid
+ text.html.liquid meta.entity.tag.raw.liquid
     ^^^
-    text.html.liquid meta.entity.tag.liquid entity.name.tag.liquid
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
        ^^^
-       text.html.liquid meta.entity.tag.liquid
+       text.html.liquid meta.entity.tag.raw.liquid
 >  this should be free form
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^
- text.html.liquid meta.entity.tag.liquid string.unquoted.liquid
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
 >  {% comment %} does not need to close
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- text.html.liquid meta.entity.tag.liquid string.unquoted.liquid
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
 >  {{ does not get highlighted }}
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- text.html.liquid meta.entity.tag.liquid string.unquoted.liquid
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
 >{% endraw %}
  ^^^
- text.html.liquid meta.entity.tag.liquid
+ text.html.liquid meta.entity.tag.raw.liquid
     ^^^^^^
-    text.html.liquid meta.entity.tag.liquid entity.name.tag.liquid
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
           ^^^
-          text.html.liquid meta.entity.tag.liquid
+          text.html.liquid meta.entity.tag.raw.liquid
+>{% raw %}{{ product.feature }}{% endraw %}
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+       ^^^
+       text.html.liquid meta.entity.tag.raw.liquid
+          ^^^^^^^^^^^^^^^^^^^^^
+          text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+                               ^^^
+                               text.html.liquid meta.entity.tag.raw.liquid
+                                  ^^^^^^
+                                  text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+                                        ^^^
+                                        text.html.liquid meta.entity.tag.raw.liquid
 >
  ^
  text.html.liquid

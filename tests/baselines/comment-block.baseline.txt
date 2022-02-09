@@ -4,6 +4,7 @@ original file
   hello world {{ product.liquid }}
 {% endcomment %}
 {% comment %}hello{% endcomment %}
+{% comment %}{{ product.feature }}{% endcomment %}
 
 -----------------------------------
 
@@ -13,7 +14,7 @@ Grammar: liquid.tmLanguage.json
  ^^^^^^^^^^^^^
  text.html.liquid comment.block.liquid
 >  hello world {{ product.liquid }}
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  text.html.liquid comment.block.liquid
 >{% endcomment %}
  ^^^^^^^^^^^^^^^^
@@ -25,6 +26,13 @@ Grammar: liquid.tmLanguage.json
               text.html.liquid comment.block.liquid
                    ^^^^^^^^^^^^^^^^
                    text.html.liquid comment.block.liquid
+>{% comment %}{{ product.feature }}{% endcomment %}
+ ^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
+              ^^^^^^^^^^^^^^^^^^^^^
+              text.html.liquid comment.block.liquid
+                                   ^^^^^^^^^^^^^^^^
+                                   text.html.liquid comment.block.liquid
 >
  ^
  text.html.liquid

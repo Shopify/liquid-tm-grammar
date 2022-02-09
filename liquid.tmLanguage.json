@@ -84,13 +84,23 @@
           "name": "entity.name.tag.liquid"
         }
       },
-      "name": "meta.entity.tag.liquid",
-      "contentName": "string.unquoted.liquid"
+      "name": "meta.entity.tag.raw.liquid",
+      "contentName": "string.unquoted.liquid",
+      "patterns": [
+        {
+          "match": "(.(?!{% endraw %}))*."
+        }
+      ]
     },
     "comment_block": {
       "begin": "{%-?\\s*comment\\s*-?%}",
       "end": "{%-?\\s*endcomment\\s*-?%}",
-      "name": "comment.block.liquid"
+      "name": "comment.block.liquid",
+      "patterns": [
+        {
+          "match": "(.(?!{% endcomment %}))*."
+        }
+      ]
     },
     "comment_inline": {
       "begin": "{%-?\\s*#",
@@ -215,7 +225,7 @@
       ]
     },
     "tag": {
-      "begin": "{%-?",
+      "begin": "(?<!comment %})(?<!comment -%})(?<!comment%})(?<!comment-%})(?<!raw %})(?<!raw -%})(?<!raw%})(?<!raw-%}){%-?",
       "end": "-?%}",
       "name": "meta.tag.liquid",
       "beginCaptures": {
@@ -235,7 +245,7 @@
       ]
     },
     "tag_injection": {
-      "begin": "{%-?(?!\\s*(endstyle|endjavascript|endcomment))",
+      "begin": "(?<!comment %})(?<!comment -%})(?<!comment%})(?<!comment-%})(?<!raw %})(?<!raw -%})(?<!raw%})(?<!raw-%}){%-?(?!\\s*(endstyle|endjavascript|endcomment|endraw))",
       "end": "-?%}",
       "name": "meta.tag.liquid",
       "beginCaptures": {
@@ -705,7 +715,7 @@
       ]
     },
     "object": {
-      "begin": "{{-?",
+      "begin": "(?<!comment %})(?<!comment -%})(?<!comment%})(?<!comment-%})(?<!raw %})(?<!raw -%})(?<!raw%})(?<!raw-%}){{-?",
       "end": "-?}}",
       "name": "meta.object.liquid",
       "beginCaptures": {

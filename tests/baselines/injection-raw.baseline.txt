@@ -1,0 +1,254 @@
+original file
+-----------------------------------
+{% raw %}
+  hello world
+  {{ product }}
+{% endraw %}
+{% raw %}{{ product.feature }}{% endraw %}
+{% javascript %}
+  {% raw %}{{ product.feature }}{% endraw %}
+  {% raw %}
+    hi {{ product }}
+  {% endraw %}
+  console.log('hello world');
+  const str = `
+    {% raw %}
+      hi {{ product }}
+    {% endraw %}
+  `
+  const fuu = '{% raw %} {{ product.feature }} {% endraw %}'
+  const fuu2 = '{% raw %}{{ product.feature }}{% endraw %}'
+{% endjavascript %}
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% raw %}
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+       ^^^
+       text.html.liquid meta.entity.tag.raw.liquid
+>  hello world
+ ^^^^^^^^^^^^^
+ text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+>  {{ product }}
+ ^^^^^^^^^^^^^^^
+ text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+>{% endraw %}
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+          ^^^
+          text.html.liquid meta.entity.tag.raw.liquid
+>{% raw %}{{ product.feature }}{% endraw %}
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+       ^^^
+       text.html.liquid meta.entity.tag.raw.liquid
+          ^^^^^^^^^^^^^^^^^^^^^
+          text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+                               ^^^
+                               text.html.liquid meta.entity.tag.raw.liquid
+                                  ^^^^^^
+                                  text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+                                        ^^^
+                                        text.html.liquid meta.entity.tag.raw.liquid
+>{% javascript %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid
+    ^^^^^^^^^^
+    text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid entity.name.tag.javascript.liquid
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid
+               ^^
+               text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid punctuation.definition.tag.begin.liquid
+>  {% raw %}{{ product.feature }}{% endraw %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+      ^^^
+      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+         ^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+            ^^^^^^^^^^^^^^^^^^^^^
+            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid string.unquoted.liquid
+                                 ^^^
+                                 text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+                                    ^^^^^^
+                                    text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+                                          ^^^
+                                          text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+>  {% raw %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+      ^^^
+      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+         ^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+>    hi {{ product }}
+ ^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid string.unquoted.liquid
+>  {% endraw %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid string.unquoted.liquid
+   ^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+      ^^^^^^
+      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+            ^^^
+            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.entity.tag.raw.liquid
+>  console.log('hello world');
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^^^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function-call.js variable.other.object.js
+          ^
+          text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function-call.js punctuation.accessor.js
+           ^^^
+           text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.function-call.js entity.name.function.js
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.brace.round.js
+               ^
+               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js string.quoted.single.js punctuation.definition.string.begin.js
+                ^^^^^^^^^^^
+                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js string.quoted.single.js
+                           ^
+                           text.html.liquid meta.block.javascript.liquid meta.embedded.block.js string.quoted.single.js punctuation.definition.string.end.js
+                            ^
+                            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.brace.round.js
+                             ^
+                             text.html.liquid meta.block.javascript.liquid meta.embedded.block.js punctuation.terminator.statement.js
+>  const str = `
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js storage.type.js
+        ^
+        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js
+         ^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+            ^
+            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js meta.var-single-variable.expr.js
+             ^
+             text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js keyword.operator.assignment.js
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js
+               ^
+               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js punctuation.definition.string.template.begin.js
+>    {% raw %}
+ ^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js
+     ^^^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid
+        ^^^
+        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+           ^^^
+           text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid
+>      hi {{ product }}
+ ^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid string.unquoted.liquid
+>    {% endraw %}
+ ^^^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid string.unquoted.liquid
+     ^^^
+     text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid
+        ^^^^^^
+        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+              ^^^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js meta.entity.tag.raw.liquid
+>  `
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.template.js punctuation.definition.string.template.end.js
+>  const fuu = '{% raw %} {{ product.feature }} {% endraw %}'
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js storage.type.js
+        ^
+        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js
+         ^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+            ^
+            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js meta.var-single-variable.expr.js
+             ^
+             text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js keyword.operator.assignment.js
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js
+               ^
+               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js punctuation.definition.string.begin.js
+                ^^^
+                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                   ^^^
+                   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+                      ^^^
+                      text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+                         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid string.unquoted.liquid
+                                                ^^^
+                                                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                                                   ^^^^^^
+                                                   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+                                                         ^^^
+                                                         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                                                            ^
+                                                            text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js punctuation.definition.string.end.js
+>  const fuu2 = '{% raw %}{{ product.feature }}{% endraw %}'
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.embedded.block.js
+   ^^^^^
+   text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js storage.type.js
+        ^
+        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js
+         ^^^^
+         text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+             ^
+             text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js meta.var-single-variable.expr.js
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js keyword.operator.assignment.js
+               ^
+               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js
+                ^
+                text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js punctuation.definition.string.begin.js
+                 ^^^
+                 text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                    ^^^
+                    text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+                       ^^^
+                       text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                          ^^^^^^^^^^^^^^^^^^^^^
+                          text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid string.unquoted.liquid
+                                               ^^^
+                                               text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                                                  ^^^^^^
+                                                  text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid entity.name.tag.liquid
+                                                        ^^^
+                                                        text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js meta.entity.tag.raw.liquid
+                                                           ^
+                                                           text.html.liquid meta.block.javascript.liquid meta.embedded.block.js meta.var.expr.js string.quoted.single.js punctuation.definition.string.end.js
+>{% endjavascript %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
+    ^^^^^^^^^^^^^
+    text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid entity.name.tag.javascript.liquid
+                 ^
+                 text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
+                  ^^
+                  text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
