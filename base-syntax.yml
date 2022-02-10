@@ -39,7 +39,7 @@ repository:
     end: '{%-?\s*endcomment\s*-?%}'
     name: comment.block.liquid
     patterns:
-      - match: '(.(?!{% endcomment %}))*.'
+      - match: '(.(?!{%-?\s*endcomment\s*-?%}))*.'
 
   comment_inline:
     begin: '{%-?\s*#'

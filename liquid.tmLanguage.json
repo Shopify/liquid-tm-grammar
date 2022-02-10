@@ -98,7 +98,7 @@
       "name": "comment.block.liquid",
       "patterns": [
         {
-          "match": "(.(?!{% endcomment %}))*."
+          "match": "(.(?!{%-?\\s*endcomment\\s*-?%}))*."
         }
       ]
     },

@@ -6,6 +6,34 @@ original file
 {% comment %}hello{% endcomment %}
 {% comment %}{{ product.feature }}{% endcomment %}
 
+<head>
+  {%- comment %}text{% endcomment %}
+  <meta property="og:title">
+  {%- comment -%}text{% endcomment %}
+  <meta property="og:title">
+  {%- comment -%}text{%- endcomment %}
+  <meta property="og:title">
+  {%- comment -%}text{%- endcomment -%}
+  <meta property="og:title">
+
+  {%- comment %}
+    text
+  {% endcomment %}
+  <meta property="og:title">
+  {%- comment -%}
+    text
+  {% endcomment %}
+  <meta property="og:title">
+  {%- comment -%}
+    text
+  {%- endcomment %}
+  <meta property="og:title">
+  {%- comment -%}
+    text
+  {%- endcomment -%}
+  <meta property="og:title">
+</head>
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -33,6 +61,282 @@ Grammar: liquid.tmLanguage.json
               text.html.liquid comment.block.liquid
                                    ^^^^^^^^^^^^^^^^
                                    text.html.liquid comment.block.liquid
+>
+ ^
+ text.html.liquid
+><head>
+ ^
+ text.html.liquid meta.tag.structure.head.start.html punctuation.definition.tag.begin.html
+  ^^^^
+  text.html.liquid meta.tag.structure.head.start.html entity.name.tag.html
+      ^
+      text.html.liquid meta.tag.structure.head.start.html punctuation.definition.tag.end.html
+>  {%- comment %}text{% endcomment %}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+                 ^^^^
+                 text.html.liquid comment.block.liquid
+                     ^^^^^^^^^^^^^^^^
+                     text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>  {%- comment -%}text{% endcomment %}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+                  ^^^^
+                  text.html.liquid comment.block.liquid
+                      ^^^^^^^^^^^^^^^^
+                      text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>  {%- comment -%}text{%- endcomment %}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+                  ^^^^
+                  text.html.liquid comment.block.liquid
+                      ^^^^^^^^^^^^^^^^^
+                      text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>  {%- comment -%}text{%- endcomment -%}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+                  ^^^^
+                  text.html.liquid comment.block.liquid
+                      ^^^^^^^^^^^^^^^^^^
+                      text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>
+ ^
+ text.html.liquid
+>  {%- comment %}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>    text
+ ^^^^^^^^
+ text.html.liquid comment.block.liquid
+>  {% endcomment %}
+ ^^
+ text.html.liquid comment.block.liquid
+   ^^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>  {%- comment -%}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>    text
+ ^^^^^^^^
+ text.html.liquid comment.block.liquid
+>  {% endcomment %}
+ ^^
+ text.html.liquid comment.block.liquid
+   ^^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>  {%- comment -%}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>    text
+ ^^^^^^^^
+ text.html.liquid comment.block.liquid
+>  {%- endcomment %}
+ ^^
+ text.html.liquid comment.block.liquid
+   ^^^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+>  {%- comment -%}
+ ^^
+ text.html.liquid
+   ^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>    text
+ ^^^^^^^^
+ text.html.liquid comment.block.liquid
+>  {%- endcomment -%}
+ ^^
+ text.html.liquid comment.block.liquid
+   ^^^^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid
+>  <meta property="og:title">
+ ^^
+ text.html.liquid
+   ^
+   text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.metadata.meta.void.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.metadata.meta.void.html
+         ^^^^^^^^
+         text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html entity.other.attribute-name.html
+                 ^
+                 text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html punctuation.separator.key-value.html
+                  ^
+                  text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.begin.html
+                   ^^^^^^^^
+                   text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html
+                           ^
+                           text.html.liquid meta.tag.metadata.meta.void.html meta.attribute.unrecognized.property.html string.quoted.double.html punctuation.definition.string.end.html
+                            ^
+                            text.html.liquid meta.tag.metadata.meta.void.html punctuation.definition.tag.end.html
+></head>
+ ^^
+ text.html.liquid meta.tag.structure.head.end.html punctuation.definition.tag.begin.html
+   ^^^^
+   text.html.liquid meta.tag.structure.head.end.html entity.name.tag.html
+       ^
+       text.html.liquid meta.tag.structure.head.end.html punctuation.definition.tag.end.html
 >
  ^
  text.html.liquid
