@@ -7,6 +7,10 @@ original file
 {% endraw %}
 {% raw %}{{ product.feature }}{% endraw %}
 
+{% raw %}text{% endraw %}<img>
+{% raw %}text{% endraw -%}<img>
+{% raw %}text{%- endraw -%}<img>
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -49,6 +53,72 @@ Grammar: liquid.tmLanguage.json
                                   text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
                                         ^^^
                                         text.html.liquid meta.entity.tag.raw.liquid
+>
+ ^
+ text.html.liquid
+>{% raw %}text{% endraw %}<img>
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+       ^^^
+       text.html.liquid meta.entity.tag.raw.liquid
+          ^^^^
+          text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+              ^^^
+              text.html.liquid meta.entity.tag.raw.liquid
+                 ^^^^^^
+                 text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+                       ^^^
+                       text.html.liquid meta.entity.tag.raw.liquid
+                          ^
+                          text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.begin.html
+                           ^^^
+                           text.html.liquid meta.tag.object.img.void.html entity.name.tag.html
+                              ^
+                              text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.end.html
+>{% raw %}text{% endraw -%}<img>
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+       ^^^
+       text.html.liquid meta.entity.tag.raw.liquid
+          ^^^^
+          text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+              ^^^
+              text.html.liquid meta.entity.tag.raw.liquid
+                 ^^^^^^
+                 text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+                       ^^^^
+                       text.html.liquid meta.entity.tag.raw.liquid
+                           ^
+                           text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.begin.html
+                            ^^^
+                            text.html.liquid meta.tag.object.img.void.html entity.name.tag.html
+                               ^
+                               text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.end.html
+>{% raw %}text{%- endraw -%}<img>
+ ^^^
+ text.html.liquid meta.entity.tag.raw.liquid
+    ^^^
+    text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+       ^^^
+       text.html.liquid meta.entity.tag.raw.liquid
+          ^^^^
+          text.html.liquid meta.entity.tag.raw.liquid string.unquoted.liquid
+              ^^^^
+              text.html.liquid meta.entity.tag.raw.liquid
+                  ^^^^^^
+                  text.html.liquid meta.entity.tag.raw.liquid entity.name.tag.liquid
+                        ^^^^
+                        text.html.liquid meta.entity.tag.raw.liquid
+                            ^
+                            text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.begin.html
+                             ^^^
+                             text.html.liquid meta.tag.object.img.void.html entity.name.tag.html
+                                ^
+                                text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.end.html
 >
  ^
  text.html.liquid

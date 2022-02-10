@@ -32,7 +32,7 @@ repository:
     name: meta.entity.tag.raw.liquid
     contentName: string.unquoted.liquid
     patterns:
-      - match: '(.(?!{% endraw %}))*.'
+      - match: '(.(?!{%-?\s*endraw\s*-?%}))*.'
 
   comment_block:
     begin: '{%-?\s*comment\s*-?%}'

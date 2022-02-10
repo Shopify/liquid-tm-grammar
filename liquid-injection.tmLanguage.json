@@ -74,7 +74,7 @@
       "contentName": "string.unquoted.liquid",
       "patterns": [
         {
-          "match": "(.(?!{% endraw %}))*."
+          "match": "(.(?!{%-?\\s*endraw\\s*-?%}))*."
         }
       ]
     },
