@@ -245,7 +245,7 @@
       ]
     },
     "tag_injection": {
-      "begin": "(?<!comment %})(?<!comment -%})(?<!comment%})(?<!comment-%})(?<!raw %})(?<!raw -%})(?<!raw%})(?<!raw-%}){%-?(?!\\s*(endstyle|endjavascript|endcomment|endraw))",
+      "begin": "(?<!comment %})(?<!comment -%})(?<!comment%})(?<!comment-%})(?<!raw %})(?<!raw -%})(?<!raw%})(?<!raw-%}){%-?(?!-?\\s*(endstyle|endjavascript|endcomment|endraw))",
       "end": "-?%}",
       "name": "meta.tag.liquid",
       "beginCaptures": {

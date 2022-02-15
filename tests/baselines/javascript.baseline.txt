@@ -26,6 +26,10 @@ original file
   }
 {% endjavascript %}
 
+{% javascript %}
+{%- endjavascript %}
+<img>
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -375,6 +379,38 @@ Grammar: liquid.tmLanguage.json
                  text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
                   ^^
                   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{% javascript %}
+ ^^
+ text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid
+    ^^^^^^^^^^
+    text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid entity.name.tag.javascript.liquid
+              ^
+              text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid
+               ^^
+               text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.start.liquid punctuation.definition.tag.begin.liquid
+>{%- endjavascript %}
+ ^^^
+ text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+    ^
+    text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
+     ^^^^^^^^^^^^^
+     text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid entity.name.tag.javascript.liquid
+                  ^
+                  text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid
+                   ^^
+                   text.html.liquid meta.block.javascript.liquid meta.tag.metadata.javascript.end.liquid punctuation.definition.tag.end.liquid
+><img>
+ ^
+ text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.begin.html
+  ^^^
+  text.html.liquid meta.tag.object.img.void.html entity.name.tag.html
+     ^
+     text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.end.html
 >
  ^
  text.html.liquid

@@ -20,6 +20,11 @@ original file
   }
 {% endstyle %}
 
+
+{% style %}
+{%- endstyle %}
+<img>
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -315,6 +320,41 @@ Grammar: liquid.tmLanguage.json
             text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid
              ^^
              text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>
+ ^
+ text.html.liquid
+>{% style %}
+ ^^
+ text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid
+    ^^^^^
+    text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid entity.name.tag.style.liquid
+         ^
+         text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid
+          ^^
+          text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid punctuation.definition.tag.begin.liquid
+>{%- endstyle %}
+ ^^^
+ text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid punctuation.definition.tag.end.liquid
+    ^
+    text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid
+     ^^^^^^^^
+     text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid entity.name.tag.style.liquid
+             ^
+             text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid
+              ^^
+              text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid punctuation.definition.tag.end.liquid
+><img>
+ ^
+ text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.begin.html
+  ^^^
+  text.html.liquid meta.tag.object.img.void.html entity.name.tag.html
+     ^
+     text.html.liquid meta.tag.object.img.void.html punctuation.definition.tag.end.html
 >
  ^
  text.html.liquid

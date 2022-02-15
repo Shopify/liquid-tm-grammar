@@ -116,7 +116,7 @@ repository:
     # otherwise our parent syntax would never close. Since The injection
     # would think that endstyle/endjavascript was part of the
     # injection
-    begin: '<%= ABSURD_COMMENT_RAW_BACKTRACK %>{%-?(?!\s*(endstyle|endjavascript|endcomment|endraw))'
+    begin: '<%= ABSURD_COMMENT_RAW_BACKTRACK %>{%-?(?!-?\s*(endstyle|endjavascript|endcomment|endraw))'
     end: '-?%}'
     name: meta.tag.liquid
     beginCaptures:
