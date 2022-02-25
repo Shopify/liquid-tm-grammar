@@ -78,7 +78,7 @@ module.exports = async function build(file) {
     const syntax = merge(fileSyntax, baseSyntax);
 
     await fs.promises.writeFile(
-      path.join(dirName, baseName + '.tmLanguage.json'),
+      path.join(dirName, 'grammars', baseName + '.tmLanguage.json'),
       JSON.stringify(syntax, null, 2),
       'utf8',
     );
