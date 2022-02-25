@@ -15,7 +15,8 @@ function buildAll() {
   // No dependency watch/build. Has some caveats but do we really need
   // watchman for this? Probably not.
   fs.readdirSync('.')
-    .filter((file) => file.endsWith('YAML-tmLanguage'))
+      .filter((file) => file.endsWith('yml'))
+      .filter((file) => !file.match(/base-syntax/))
     .forEach((file) => {
       build(file);
     });
@@ -28,7 +29,7 @@ function main() {
 
   fs.watch('.', (event, file) => {
     if (file.endsWith('base-syntax.yml')) return buildAll();
-    if (!file.endsWith('YAML-tmLanguage')) return;
+    if (!file.endsWith('.yml')) return;
     throttledBuild(file);
   });
 }

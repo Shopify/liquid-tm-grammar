@@ -1,6 +1,6 @@
 # This file is shared and exists so that we don't repeat ourselves in
-# liquid.YAML-tmLanguage and liquid-injection.YAML-tmLanguage. Our
-# build tool will merge these into the other files.
+# liquid.yml and liquid-injection.yml. Our build tool will merge these
+# into the other files.
 repository:
   core:
     patterns:

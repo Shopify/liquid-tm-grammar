@@ -67,7 +67,7 @@ async function loadYamlFileAsJson(file) {
 
 module.exports = async function build(file) {
   const dirName = path.dirname(file);
-  const baseName = path.basename(file, '.YAML-tmLanguage');
+  const baseName = path.basename(file, '.yml');
   try {
     console.error(`Converting ${file}`);
     const start = Date.now();
