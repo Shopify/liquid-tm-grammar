@@ -27,3 +27,7 @@ This repository contains the official syntax highlighting rules for the [Shopify
 ## Development
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Credits
+
+- The initial version of the syntax comes from [siteleaf/liquid-syntax-mode](https://github.com/siteleaf/liquid-syntax-mode)
