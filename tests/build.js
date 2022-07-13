@@ -13,7 +13,7 @@ const GrammarKind = {
 };
 
 function grammarPath(kind) {
-  return path.join(__dirname, '..', grammarFileNames[kind]);
+  return path.join(__dirname, '../grammars', grammarFileNames[kind]);
 }
 
 function supportGrammarPath(kind) {

@@ -19,7 +19,7 @@ The `*.tmLanguage.json` files are _generated_ by our build and are _not_ maintai
 
 ### Setup
 
-Visual Studio Code only lets you debug _extensions_, so we'll use [`theme-check-vscode`]() for this. Since this repository is a `git submodule` of `theme-check-vscode`.
+Visual Studio Code only lets you debug _extensions_, so we'll use [`theme-check-vscode`](https://github.com/shopify/theme-check-vscode) for this. Since this repository is a `git submodule` of `theme-check-vscode`.
 
 1. Clone [theme-check-vscode](https://github.com/Shopify/theme-check-vscode).
 
