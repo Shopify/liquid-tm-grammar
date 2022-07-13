@@ -39,7 +39,16 @@ repository:
     end: '{%-?\s*endcomment\s*-?%}'
     name: comment.block.liquid
     patterns:
-      - match: '(.(?!{%-?\s*endcomment\s*-?%}))*.'
+      # Liquid supports nested comment blocks. So an {% endcomment %}
+      # inside a {% comment %} block is valid so long as it is paired.
+      #
+      # When this happens, we want to create a nested comment block
+      # context. Hence why we have this recursive rule here.
+      #
+      # For more details:
+      # https://github.com/shopify/liquid-tm-grammar/issues/4
+      - include: '#comment_block'
+      - match: '(.(?!{%-?\s*(comment|endcomment)\s*-?%}))*.'
 
   comment_inline:
     begin: '{%-?\s*#'

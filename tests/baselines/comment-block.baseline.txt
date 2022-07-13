@@ -34,6 +34,14 @@ original file
   <meta property="og:title">
 </head>
 
+{% comment %}
+  hello
+  {% comment %}
+    nested
+  {% endcomment %}
+  hello
+{% endcomment %}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -337,6 +345,34 @@ Grammar: liquid.tmLanguage.json
    text.html.liquid meta.tag.structure.head.end.html entity.name.tag.html
        ^
        text.html.liquid meta.tag.structure.head.end.html punctuation.definition.tag.end.html
+>
+ ^
+ text.html.liquid
+>{% comment %}
+ ^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
+>  hello
+ ^^^^^^^
+ text.html.liquid comment.block.liquid
+>  {% comment %}
+ ^^
+ text.html.liquid comment.block.liquid
+   ^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid comment.block.liquid
+>    nested
+ ^^^^^^^^^^
+ text.html.liquid comment.block.liquid comment.block.liquid
+>  {% endcomment %}
+ ^^
+ text.html.liquid comment.block.liquid comment.block.liquid
+   ^^^^^^^^^^^^^^^^
+   text.html.liquid comment.block.liquid comment.block.liquid
+>  hello
+ ^^^^^^^
+ text.html.liquid comment.block.liquid
+>{% endcomment %}
+ ^^^^^^^^^^^^^^^^
+ text.html.liquid comment.block.liquid
 >
  ^
  text.html.liquid
