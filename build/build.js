@@ -65,11 +65,17 @@ async function loadYamlFileAsJson(file) {
   });
 }
 
+function log(msg) {
+  console.error(
+    `[${new Date().toISOString().replace(/\..*$/, '')}] ${msg}`,
+  );
+}
+
 module.exports = async function build(file) {
   const dirName = path.dirname(file);
   const baseName = path.basename(file, '.yml');
   try {
-    console.error(`Converting ${file}`);
+    log(`Converting ${file}`);
     const start = Date.now();
     const [baseSyntax, fileSyntax] = await Promise.all([
       loadYamlFileAsJson(path.join(dirName, 'base-syntax.yml')),
@@ -82,7 +88,7 @@ module.exports = async function build(file) {
       JSON.stringify(syntax, null, 2),
       'utf8',
     );
-    console.error(
+    log(
       `Succesfully built ${baseName}.tmLanguage.json in ${(
         Date.now() - start
       ).toFixed(0)} ms`,
