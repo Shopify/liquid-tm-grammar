@@ -23,6 +23,7 @@
 - render
 - schema: endschema
 - section
+- sections
 - style: endstyle
 - stylesheet
 - tablerow
