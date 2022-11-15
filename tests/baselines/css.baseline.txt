@@ -20,6 +20,15 @@ original file
   }
 {% endstyle %}
 
+{% stylesheet %}
+  /* css comment {{ product.value }} */
+  :root {
+    --font-family-primary: {{ settings.font_family }};
+    {% if settings.font_family %}
+      --font-family-secondary: {{ settings.font_family_secondary }};
+    {% endif %}
+  }
+{% endstylesheet %}
 
 {% style %}
 {%- endstyle %}
@@ -323,6 +332,153 @@ Grammar: liquid.tmLanguage.json
 >
  ^
  text.html.liquid
+>{% stylesheet %}
+ ^^
+ text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid
+    ^^^^^^^^^^
+    text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid entity.name.tag.style.liquid
+              ^
+              text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid
+               ^^
+               text.html.liquid meta.block.style.liquid meta.tag.metadata.style.start.liquid punctuation.definition.tag.begin.liquid
+>  /* css comment {{ product.value }} */
+ ^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css
+   ^^
+   text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css punctuation.definition.comment.begin.css
+     ^^^^^^^^^^^^^
+     text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css
+                  ^^
+                  text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid punctuation.definition.tag.begin.liquid
+                    ^
+                    text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid
+                     ^^^^^^^
+                     text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid variable.language.liquid
+                            ^
+                            text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid punctuation.accessor.liquid
+                             ^^^^^
+                             text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid variable.other.member.liquid
+                                  ^
+                                  text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid
+                                   ^^
+                                   text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css meta.object.liquid punctuation.definition.tag.end.liquid
+                                     ^
+                                     text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css
+                                      ^^
+                                      text.html.liquid meta.block.style.liquid meta.embedded.block.css comment.block.css punctuation.definition.comment.end.css
+>  :root {
+ ^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css
+   ^
+   text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.selector.css entity.other.attribute-name.pseudo-class.css punctuation.definition.entity.css
+    ^^^^
+    text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.selector.css entity.other.attribute-name.pseudo-class.css
+        ^
+        text.html.liquid meta.block.style.liquid meta.embedded.block.css
+         ^
+         text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css punctuation.section.property-list.begin.bracket.curly.css
+>    --font-family-primary: {{ settings.font_family }};
+ ^^^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+     ^^^^^^^^^^^^^^^^^^^^^
+     text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css variable.css
+                          ^
+                          text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css punctuation.separator.key-value.css
+                           ^
+                           text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+                            ^^
+                            text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid punctuation.definition.tag.begin.liquid
+                              ^
+                              text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid
+                               ^^^^^^^^
+                               text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid variable.language.liquid
+                                       ^
+                                       text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid punctuation.accessor.liquid
+                                        ^^^^^^^^^^^
+                                        text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid variable.other.member.liquid
+                                                   ^
+                                                   text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid
+                                                    ^^
+                                                    text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid punctuation.definition.tag.end.liquid
+                                                      ^
+                                                      text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css punctuation.terminator.rule.css
+>    {% if settings.font_family %}
+ ^^^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+     ^^
+     text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid punctuation.definition.tag.end.liquid
+       ^
+       text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid
+        ^^
+        text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
+          ^
+          text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid
+           ^^^^^^^^
+           text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid variable.language.liquid
+                   ^
+                   text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid punctuation.accessor.liquid
+                    ^^^^^^^^^^^
+                    text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid variable.other.member.liquid
+                               ^
+                               text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid meta.entity.tag.conditional.liquid
+                                ^^
+                                text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid punctuation.definition.tag.end.liquid
+>      --font-family-secondary: {{ settings.font_family_secondary }};
+ ^^^^^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+       ^^^^^^^^^^^^^^^^^^^^^^^
+       text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css variable.css
+                              ^
+                              text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css punctuation.separator.key-value.css
+                               ^
+                               text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+                                ^^
+                                text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid punctuation.definition.tag.begin.liquid
+                                  ^
+                                  text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid
+                                   ^^^^^^^^
+                                   text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid variable.language.liquid
+                                           ^
+                                           text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid punctuation.accessor.liquid
+                                            ^^^^^^^^^^^^^^^^^^^^^
+                                            text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid variable.other.member.liquid
+                                                                 ^
+                                                                 text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid
+                                                                  ^^
+                                                                  text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.property-value.css meta.object.liquid punctuation.definition.tag.end.liquid
+                                                                    ^
+                                                                    text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css punctuation.terminator.rule.css
+>    {% endif %}
+ ^^^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+     ^^
+     text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid punctuation.definition.tag.end.liquid
+       ^
+       text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid
+        ^^^^^
+        text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid keyword.control.conditional.liquid
+             ^
+             text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid
+              ^^
+              text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css meta.tag.liquid punctuation.definition.tag.end.liquid
+>  }
+ ^^
+ text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css
+   ^
+   text.html.liquid meta.block.style.liquid meta.embedded.block.css meta.property-list.css punctuation.section.property-list.end.bracket.curly.css
+>{% endstylesheet %}
+ ^^
+ text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid punctuation.definition.tag.end.liquid
+   ^
+   text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid
+    ^^^^^^^^^^^^^
+    text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid entity.name.tag.style.liquid
+                 ^
+                 text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid
+                  ^^
+                  text.html.liquid meta.block.style.liquid meta.tag.metadata.style.end.liquid punctuation.definition.tag.end.liquid
 >
  ^
  text.html.liquid
