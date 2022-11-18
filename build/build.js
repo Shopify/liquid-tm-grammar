@@ -89,7 +89,7 @@ module.exports = async function build(file) {
       'utf8',
     );
     log(
-      `Succesfully built ${baseName}.tmLanguage.json in ${(
+      `Successfully built ${baseName}.tmLanguage.json in ${(
         Date.now() - start
       ).toFixed(0)} ms`,
     );
