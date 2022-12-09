@@ -2,6 +2,7 @@
 const vt = require('vscode-textmate');
 const path = require('path');
 const fs = require('fs');
+const oniguruma = require('vscode-oniguruma');
 
 const GrammarKind = {
   liquid: 'text.html.liquid',
@@ -33,7 +34,9 @@ const grammarFileNames = {
 
 const grammarPaths = {
   [GrammarKind.liquid]: grammarPath(GrammarKind.liquid),
-  [GrammarKind.liquidInjection]: grammarPath(GrammarKind.liquidInjection),
+  [GrammarKind.liquidInjection]: grammarPath(
+    GrammarKind.liquidInjection,
+  ),
   [GrammarKind.html]: supportGrammarPath(GrammarKind.html),
   [GrammarKind.css]: supportGrammarPath(GrammarKind.css),
   [GrammarKind.javascript]: supportGrammarPath(
@@ -42,7 +45,25 @@ const grammarPaths = {
   [GrammarKind.json]: supportGrammarPath(GrammarKind.json),
 };
 
+const wasmBin = fs.readFileSync(
+  path.join(
+    __dirname,
+    '../node_modules/vscode-oniguruma/release/onig.wasm',
+  ),
+).buffer;
+const vscodeOnigurumaLib = oniguruma.loadWASM(wasmBin).then(() => {
+  return {
+    createOnigScanner(patterns) {
+      return new oniguruma.OnigScanner(patterns);
+    },
+    createOnigString(s) {
+      return new oniguruma.OnigString(s);
+    },
+  };
+});
+
 const registry = new vt.Registry({
+  onigLib: vscodeOnigurumaLib,
   loadGrammar(scopeName) {
     const path = grammarPaths[scopeName];
     if (path) {
@@ -56,7 +77,7 @@ const registry = new vt.Registry({
 
   getInjections(scopeName) {
     if (scopeName == 'text.html.liquid') {
-      return ['liquid.injection']
+      return ['liquid.injection'];
     }
   },
 });
