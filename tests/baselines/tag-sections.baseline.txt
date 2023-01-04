@@ -1,0 +1,30 @@
+original file
+-----------------------------------
+{% sections 'header' %}
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% sections 'header' %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+    ^^^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid entity.name.tag.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+             ^
+             text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+              ^^^^^^
+              text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                    ^
+                    text.html.liquid meta.tag.liquid meta.entity.tag.liquid string.quoted.single.liquid
+                     ^
+                     text.html.liquid meta.tag.liquid meta.entity.tag.liquid
+                      ^^
+                      text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
