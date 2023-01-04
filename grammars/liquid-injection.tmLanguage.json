@@ -368,7 +368,15 @@
     "tag_comment_liquid": {
       "name": "comment.block.liquid",
       "begin": "(?:^\\s*)(comment)\\b",
-      "end": "(?:^\\s*)(endcomment)\\b"
+      "end": "(?:^\\s*)(endcomment)\\b",
+      "patterns": [
+        {
+          "include": "#tag_comment_liquid"
+        },
+        {
+          "match": "(?:^\\s*)(?!(comment|endcomment)).*"
+        }
+      ]
     },
     "tag_tablerow": {
       "name": "meta.entity.tag.tablerow.liquid",

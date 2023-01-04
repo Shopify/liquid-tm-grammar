@@ -6,6 +6,14 @@ original file
   endcomment
 %}
 
+{% liquid
+  comment
+    comment
+      this is a nested comment's body
+    endcomment
+  endcomment
+%}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -21,8 +29,36 @@ Grammar: liquid.tmLanguage.json
  ^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
 >    this is a comment's body
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>  endcomment
+ ^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  comment
+ ^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>    comment
+ ^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid comment.block.liquid
+>      this is a nested comment's body
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid comment.block.liquid
+>    endcomment
+ ^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid comment.block.liquid
 >  endcomment
  ^^^^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid

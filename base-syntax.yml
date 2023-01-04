@@ -187,6 +187,17 @@ repository:
     name: comment.block.liquid
     begin: '(?:^\s*)(comment)\b'
     end: '(?:^\s*)(endcomment)\b'
+    patterns:
+      # Liquid supports nested comment blocks. So an endcomment
+      # inside a comment block is valid so long as it is paired.
+      #
+      # When this happens, we want to create a nested comment block
+      # context. Hence why we have this recursive rule here.
+      #
+      # For more details:
+      # https://github.com/shopify/liquid-tm-grammar/issues/9
+      - include: '#tag_comment_liquid'
+      - match: '(?:^\s*)(?!(comment|endcomment)).*'
 
   tag_tablerow:
     name: meta.entity.tag.tablerow.liquid
