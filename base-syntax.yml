@@ -6,7 +6,6 @@ repository:
     patterns:
       - include: '#raw_tag'
       - include: '#comment_block'
-      - include: '#comment_inline'
       - include: '#style_codefence'
       - include: '#stylesheet_codefence'
       - include: '#json_codefence'
@@ -19,7 +18,6 @@ repository:
     patterns:
       - include: '#raw_tag'
       - include: '#comment_block'
-      - include: '#comment_inline'
       - include: '#object'
       - include: '#tag_injection'
 
@@ -50,11 +48,6 @@ repository:
       # https://github.com/shopify/liquid-tm-grammar/issues/4
       - include: '#comment_block'
       - match: '(.(?!{%-?\s*(comment|endcomment)\s*-?%}))*.'
-
-  comment_inline:
-    begin: '{%-?\s*#'
-    end: '-?%}'
-    name: comment.line.number-sign.liquid
 
   style_codefence:
     begin: '({%-?)\s*(style)\s*(-?%})'
@@ -158,6 +151,7 @@ repository:
     patterns:
       - include: '#tag_liquid'
       - include: '#tag_assign'
+      - include: '#tag_comment_inline'
       - include: '#tag_case'
       - include: '#tag_conditional'
       - include: '#tag_for'
@@ -173,7 +167,8 @@ repository:
       1: { name: keyword.control.liquid.liquid }
     end: '(?=%})'
     patterns:
-      - include: '#tag_comment_liquid'
+      - include: '#tag_comment_block_liquid'
+      - include: '#tag_comment_inline_liquid'
       - include: '#tag_assign_liquid'
       - include: '#tag_case_liquid'
       - include: '#tag_conditional_liquid'
@@ -183,10 +178,31 @@ repository:
       - include: '#tag_tablerow_liquid'
       - include: '#tag_expression_liquid'
 
-  tag_comment_liquid:
+  tag_comment_block_liquid:
     name: comment.block.liquid
     begin: '(?:^\s*)(comment)\b'
     end: '(?:^\s*)(endcomment)\b'
+    patterns:
+      # Liquid supports nested comment blocks. So an endcomment
+      # inside a comment block is valid so long as it is paired.
+      #
+      # When this happens, we want to create a nested comment block
+      # context. Hence why we have this recursive rule here.
+      #
+      # For more details:
+      # https://github.com/shopify/liquid-tm-grammar/issues/9
+      - include: '#tag_comment_block_liquid'
+      - match: '(?:^\s*)(?!(comment|endcomment)).*'
+
+  tag_comment_inline:
+    name: comment.line.number-sign.liquid
+    begin: '#'
+    end: '(?=%})'
+
+  tag_comment_inline_liquid:
+    name: comment.line.number-sign.liquid
+    begin: '(?:^\s*)#.*'
+    end: '$'
 
   tag_tablerow:
     name: meta.entity.tag.tablerow.liquid

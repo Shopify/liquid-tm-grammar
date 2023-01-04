@@ -3,3 +3,29 @@
     this is a comment's body
   endcomment
 %}
+
+{% liquid
+  comment
+    comment
+      this is a nested comment's body
+    endcomment
+  endcomment
+%}
+
+{% liquid
+  # this is an inline comment
+  # this is another
+%}
+
+{% # inline comment %}
+
+{%
+  # inline comment
+  # multiline
+%}
+
+{%
+  ##########
+  # fenced #
+  ##########
+%}

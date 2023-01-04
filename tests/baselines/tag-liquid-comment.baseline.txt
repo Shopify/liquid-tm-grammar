@@ -6,6 +6,32 @@ original file
   endcomment
 %}
 
+{% liquid
+  comment
+    comment
+      this is a nested comment's body
+    endcomment
+  endcomment
+%}
+
+{% liquid
+  # this is an inline comment
+  # this is another
+%}
+
+{% # inline comment %}
+
+{%
+  # inline comment
+  # multiline
+%}
+
+{%
+  ##########
+  # fenced #
+  ##########
+%}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -21,11 +47,113 @@ Grammar: liquid.tmLanguage.json
  ^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
 >    this is a comment's body
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
 >  endcomment
  ^^^^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  comment
+ ^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>    comment
+ ^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid comment.block.liquid
+>      this is a nested comment's body
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid comment.block.liquid
+>    endcomment
+ ^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid comment.block.liquid
+>  endcomment
+ ^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  # this is an inline comment
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.line.number-sign.liquid
+>  # this is another
+ ^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.line.number-sign.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{% # inline comment %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid
+    ^
+    text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+     ^^^^^^^^^^^^^^^^
+     text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+                     ^^
+                     text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{%
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+>  # inline comment
+ ^^
+ text.html.liquid meta.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+    ^^^^^^^^^^^^^^^^
+    text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+>  # multiline
+ ^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{%
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+>  ##########
+ ^^
+ text.html.liquid meta.tag.liquid
+   ^
+   text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+    ^^^^^^^^^^
+    text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+>  # fenced #
+ ^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
+>  ##########
+ ^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid comment.line.number-sign.liquid
 >%}
  ^^
  text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid

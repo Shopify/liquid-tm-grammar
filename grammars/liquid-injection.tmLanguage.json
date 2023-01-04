@@ -16,9 +16,6 @@
           "include": "#comment_block"
         },
         {
-          "include": "#comment_inline"
-        },
-        {
           "include": "#style_codefence"
         },
         {
@@ -48,9 +45,6 @@
         },
         {
           "include": "#comment_block"
-        },
-        {
-          "include": "#comment_inline"
         },
         {
           "include": "#object"
@@ -93,11 +87,6 @@
           "match": "(.(?!{%-?\\s*(comment|endcomment)\\s*-?%}))*."
         }
       ]
-    },
-    "comment_inline": {
-      "begin": "{%-?\\s*#",
-      "end": "-?%}",
-      "name": "comment.line.number-sign.liquid"
     },
     "style_codefence": {
       "begin": "({%-?)\\s*(style)\\s*(-?%})",
@@ -304,6 +293,9 @@
           "include": "#tag_assign"
         },
         {
+          "include": "#tag_comment_inline"
+        },
+        {
           "include": "#tag_case"
         },
         {
@@ -337,7 +329,10 @@
       "end": "(?=%})",
       "patterns": [
         {
-          "include": "#tag_comment_liquid"
+          "include": "#tag_comment_block_liquid"
+        },
+        {
+          "include": "#tag_comment_inline_liquid"
         },
         {
           "include": "#tag_assign_liquid"
@@ -365,10 +360,28 @@
         }
       ]
     },
-    "tag_comment_liquid": {
+    "tag_comment_block_liquid": {
       "name": "comment.block.liquid",
       "begin": "(?:^\\s*)(comment)\\b",
-      "end": "(?:^\\s*)(endcomment)\\b"
+      "end": "(?:^\\s*)(endcomment)\\b",
+      "patterns": [
+        {
+          "include": "#tag_comment_block_liquid"
+        },
+        {
+          "match": "(?:^\\s*)(?!(comment|endcomment)).*"
+        }
+      ]
+    },
+    "tag_comment_inline": {
+      "name": "comment.line.number-sign.liquid",
+      "begin": "#",
+      "end": "(?=%})"
+    },
+    "tag_comment_inline_liquid": {
+      "name": "comment.line.number-sign.liquid",
+      "begin": "(?:^\\s*)#.*",
+      "end": "$"
     },
     "tag_tablerow": {
       "name": "meta.entity.tag.tablerow.liquid",
