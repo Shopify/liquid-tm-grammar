@@ -14,6 +14,11 @@ original file
   endcomment
 %}
 
+{% liquid
+  # this is an inline comment
+  # this is another
+%}
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -62,6 +67,25 @@ Grammar: liquid.tmLanguage.json
 >  endcomment
  ^^^^^^^^^^^^
  text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.block.liquid
+>%}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
+>{% liquid
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid
+    ^^^^^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid keyword.control.liquid.liquid
+>  # this is an inline comment
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.line.number-sign.liquid
+>  # this is another
+ ^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.tag.liquid meta.entity.tag.liquid.liquid comment.line.number-sign.liquid
 >%}
  ^^
  text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid

@@ -351,7 +351,10 @@
       "end": "(?=%})",
       "patterns": [
         {
-          "include": "#tag_comment_liquid"
+          "include": "#tag_comment_block_liquid"
+        },
+        {
+          "include": "#tag_comment_inline_liquid"
         },
         {
           "include": "#tag_assign_liquid"
@@ -379,18 +382,23 @@
         }
       ]
     },
-    "tag_comment_liquid": {
+    "tag_comment_block_liquid": {
       "name": "comment.block.liquid",
       "begin": "(?:^\\s*)(comment)\\b",
       "end": "(?:^\\s*)(endcomment)\\b",
       "patterns": [
         {
-          "include": "#tag_comment_liquid"
+          "include": "#tag_comment_block_liquid"
         },
         {
           "match": "(?:^\\s*)(?!(comment|endcomment)).*"
         }
       ]
+    },
+    "tag_comment_inline_liquid": {
+      "name": "comment.line.number-sign.liquid",
+      "begin": "(?:^\\s*)#.*",
+      "end": "$"
     },
     "tag_tablerow": {
       "name": "meta.entity.tag.tablerow.liquid",

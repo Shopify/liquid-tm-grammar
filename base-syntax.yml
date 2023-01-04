@@ -173,7 +173,8 @@ repository:
       1: { name: keyword.control.liquid.liquid }
     end: '(?=%})'
     patterns:
-      - include: '#tag_comment_liquid'
+      - include: '#tag_comment_block_liquid'
+      - include: '#tag_comment_inline_liquid'
       - include: '#tag_assign_liquid'
       - include: '#tag_case_liquid'
       - include: '#tag_conditional_liquid'
@@ -183,7 +184,7 @@ repository:
       - include: '#tag_tablerow_liquid'
       - include: '#tag_expression_liquid'
 
-  tag_comment_liquid:
+  tag_comment_block_liquid:
     name: comment.block.liquid
     begin: '(?:^\s*)(comment)\b'
     end: '(?:^\s*)(endcomment)\b'
@@ -196,8 +197,13 @@ repository:
       #
       # For more details:
       # https://github.com/shopify/liquid-tm-grammar/issues/9
-      - include: '#tag_comment_liquid'
+      - include: '#tag_comment_block_liquid'
       - match: '(?:^\s*)(?!(comment|endcomment)).*'
+
+  tag_comment_inline_liquid:
+    name: comment.line.number-sign.liquid
+    begin: '(?:^\s*)#.*'
+    end: '$'
 
   tag_tablerow:
     name: meta.entity.tag.tablerow.liquid
