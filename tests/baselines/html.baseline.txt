@@ -10,6 +10,15 @@ original file
   {% endfor %}
 </ul>
 
+<body
+  attr='value'
+  {{ block.attributes }}
+  {% if settings.reduce_animations %}
+    data-reduce-animations
+  {% endif %}
+></body>
+
+
 -----------------------------------
 
 Grammar: liquid.tmLanguage.json
@@ -143,6 +152,95 @@ Grammar: liquid.tmLanguage.json
    text.html.liquid meta.tag.structure.ul.end.html entity.name.tag.html
      ^
      text.html.liquid meta.tag.structure.ul.end.html punctuation.definition.tag.end.html
+>
+ ^
+ text.html.liquid
+><body
+ ^
+ text.html.liquid meta.tag.structure.body.start.html punctuation.definition.tag.begin.html
+  ^^^^
+  text.html.liquid meta.tag.structure.body.start.html entity.name.tag.html
+>  attr='value'
+ ^^
+ text.html.liquid meta.tag.structure.body.start.html
+   ^^^^
+   text.html.liquid meta.tag.structure.body.start.html meta.attribute.unrecognized.attr.html entity.other.attribute-name.html
+       ^
+       text.html.liquid meta.tag.structure.body.start.html meta.attribute.unrecognized.attr.html punctuation.separator.key-value.html
+        ^
+        text.html.liquid meta.tag.structure.body.start.html meta.attribute.unrecognized.attr.html string.quoted.single.html punctuation.definition.string.begin.html
+         ^^^^^
+         text.html.liquid meta.tag.structure.body.start.html meta.attribute.unrecognized.attr.html string.quoted.single.html
+              ^
+              text.html.liquid meta.tag.structure.body.start.html meta.attribute.unrecognized.attr.html string.quoted.single.html punctuation.definition.string.end.html
+>  {{ block.attributes }}
+ ^^
+ text.html.liquid meta.tag.structure.body.start.html
+   ^^
+   text.html.liquid meta.tag.structure.body.start.html meta.object.liquid punctuation.definition.tag.begin.liquid
+     ^
+     text.html.liquid meta.tag.structure.body.start.html meta.object.liquid
+      ^^^^^
+      text.html.liquid meta.tag.structure.body.start.html meta.object.liquid variable.language.liquid
+           ^
+           text.html.liquid meta.tag.structure.body.start.html meta.object.liquid punctuation.accessor.liquid
+            ^^^^^^^^^^
+            text.html.liquid meta.tag.structure.body.start.html meta.object.liquid variable.other.member.liquid
+                      ^
+                      text.html.liquid meta.tag.structure.body.start.html meta.object.liquid
+                       ^^
+                       text.html.liquid meta.tag.structure.body.start.html meta.object.liquid punctuation.definition.tag.end.liquid
+>  {% if settings.reduce_animations %}
+ ^^
+ text.html.liquid meta.tag.structure.body.start.html
+   ^^
+   text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid punctuation.definition.tag.end.liquid
+     ^
+     text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid
+      ^^
+      text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
+        ^
+        text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid
+         ^^^^^^^^
+         text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid variable.language.liquid
+                 ^
+                 text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid punctuation.accessor.liquid
+                  ^^^^^^^^^^^^^^^^^
+                  text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid variable.other.member.liquid
+                                   ^
+                                   text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid meta.entity.tag.conditional.liquid
+                                    ^^
+                                    text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid punctuation.definition.tag.end.liquid
+>    data-reduce-animations
+ ^^^^
+ text.html.liquid meta.tag.structure.body.start.html
+     ^^^^^^^^^^^^^^^^^^^^^^
+     text.html.liquid meta.tag.structure.body.start.html meta.attribute.data-x.data-reduce-animations.html entity.other.attribute-name.html
+>  {% endif %}
+ ^^
+ text.html.liquid meta.tag.structure.body.start.html
+   ^^
+   text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid punctuation.definition.tag.end.liquid
+     ^
+     text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid
+      ^^^^^
+      text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid keyword.control.conditional.liquid
+           ^
+           text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid
+            ^^
+            text.html.liquid meta.tag.structure.body.start.html meta.tag.liquid punctuation.definition.tag.end.liquid
+>></body>
+ ^
+ text.html.liquid meta.tag.structure.body.start.html punctuation.definition.tag.end.html
+  ^^
+  text.html.liquid meta.tag.structure.body.end.html punctuation.definition.tag.begin.html
+    ^^^^
+    text.html.liquid meta.tag.structure.body.end.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.structure.body.end.html punctuation.definition.tag.end.html
+>
+ ^
+ text.html.liquid
 >
  ^
  text.html.liquid

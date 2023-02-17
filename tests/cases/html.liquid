@@ -7,3 +7,12 @@
     </li>
   {% endfor %}
 </ul>
+
+<body
+  attr='value'
+  {{ block.attributes }}
+  {% if settings.reduce_animations %}
+    data-reduce-animations
+  {% endif %}
+></body>
+
