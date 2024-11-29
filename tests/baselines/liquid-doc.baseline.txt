@@ -1,0 +1,44 @@
+original file
+-----------------------------------
+{% doc %}
+The default docs
+@param {string} name - The name of the person
+{% enddoc %}
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% doc %}
+ ^^^
+ text.html.liquid meta.block.doc.liquid meta.tag.liquid
+    ^^^
+    text.html.liquid meta.block.doc.liquid meta.tag.liquid entity.name.tag.doc.liquid
+       ^^^
+       text.html.liquid meta.block.doc.liquid meta.tag.liquid
+>The default docs
+ ^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+>@param {string} name - The name of the person
+ ^^^^^^
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid storage.type.class.liquid
+       ^
+       text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+        ^^^^^^^^
+        text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid entity.name.type.instance.liquid
+                ^
+                text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+                 ^^^^
+                 text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid variable.other.liquid
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+>{% enddoc %}
+ ^^^
+ text.html.liquid meta.block.doc.liquid meta.tag.liquid
+    ^^^^^^
+    text.html.liquid meta.block.doc.liquid meta.tag.liquid entity.name.tag.doc.liquid
+          ^^^
+          text.html.liquid meta.block.doc.liquid meta.tag.liquid
+>
+ ^
+ text.html.liquid
