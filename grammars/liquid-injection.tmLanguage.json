@@ -101,18 +101,17 @@
       },
       "patterns": [
         {
-          "include": "#doc_param"
+          "include": "#liquid_doc_param_tag"
         },
         {
-          "include": "#doc_at_sign"
+          "include": "#liquid_doc_example_tag"
+        },
+        {
+          "include": "#liquid_doc_fallback_tag"
         }
       ]
     },
-    "doc_at_sign": {
-      "match": "@[a-zA-Z]+",
-      "name": "storage.type.class.liquid"
-    },
-    "doc_param": {
+    "liquid_doc_param_tag": {
       "match": "(@param)\\s+(?:({[^}]*}?)\\s+)?([a-zA-Z_]\\w*)?",
       "captures": {
         "1": {
@@ -123,6 +122,22 @@
         },
         "3": {
           "name": "variable.other.liquid"
+        }
+      }
+    },
+    "liquid_doc_example_tag": {
+      "match": "(@example)\\b",
+      "captures": {
+        "1": {
+          "name": "storage.type.class.liquid"
+        }
+      }
+    },
+    "liquid_doc_fallback_tag": {
+      "match": "(@\\w+)\\b",
+      "captures": {
+        "1": {
+          "name": "storage.type.class.liquid"
         }
       }
     },
