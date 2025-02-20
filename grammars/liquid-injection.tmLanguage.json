@@ -107,6 +107,9 @@
           "include": "#liquid_doc_example_tag"
         },
         {
+          "include": "#liquid_doc_description_tag"
+        },
+        {
           "include": "#liquid_doc_fallback_tag"
         }
       ]
@@ -127,6 +130,14 @@
     },
     "liquid_doc_example_tag": {
       "match": "(@example)\\b",
+      "captures": {
+        "1": {
+          "name": "storage.type.class.liquid"
+        }
+      }
+    },
+    "liquid_doc_description_tag": {
+      "match": "(@description)\\b",
       "captures": {
         "1": {
           "name": "storage.type.class.liquid"

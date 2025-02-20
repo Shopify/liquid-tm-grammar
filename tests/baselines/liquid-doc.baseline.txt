@@ -3,6 +3,9 @@ original file
 {% doc %}
 The default docs
 @param {string} name - The name of the person
+@description This is a description
+@example
+{% render 'my-component', name: 'John' %}
 {% enddoc %}
 
 -----------------------------------
@@ -32,6 +35,17 @@ Grammar: liquid.tmLanguage.json
                  text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid variable.other.liquid
                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
                      text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+>@description This is a description
+ ^^^^^^^^^^^^
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid storage.type.class.liquid
+             ^^^^^^^^^^^^^^^^^^^^^^^
+             text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+>@example
+ ^^^^^^^^
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid storage.type.class.liquid
+>{% render 'my-component', name: 'John' %}
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
 >{% enddoc %}
  ^^^
  text.html.liquid meta.block.doc.liquid meta.tag.liquid
