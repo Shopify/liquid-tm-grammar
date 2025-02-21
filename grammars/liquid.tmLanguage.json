@@ -129,7 +129,7 @@
       ]
     },
     "liquid_doc_param_tag": {
-      "match": "(@param)\\s+(?:({[^}]*}?)\\s+)?([a-zA-Z_]\\w*)?",
+      "match": "(@param)\\s+(?:({[^}]*}?)\\s+)?([a-zA-Z_][\\w-]*)?(?:\\s+(.*))?",
       "captures": {
         "1": {
           "name": "storage.type.class.liquid"
@@ -139,6 +139,9 @@
         },
         "3": {
           "name": "variable.other.liquid"
+        },
+        "4": {
+          "name": "comment.block.liquid"
         }
       }
     },

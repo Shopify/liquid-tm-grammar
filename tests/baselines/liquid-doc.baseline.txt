@@ -33,8 +33,10 @@ Grammar: liquid.tmLanguage.json
                 text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
                  ^^^^
                  text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid variable.other.liquid
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     ^
                      text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+                      text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.liquid
 >@description This is a description
  ^^^^^^^^^^^^
  text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid storage.type.class.liquid
