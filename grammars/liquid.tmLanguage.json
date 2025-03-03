@@ -121,12 +121,15 @@
           "include": "#liquid_doc_example_tag"
         },
         {
+          "include": "#liquid_doc_description_tag"
+        },
+        {
           "include": "#liquid_doc_fallback_tag"
         }
       ]
     },
     "liquid_doc_param_tag": {
-      "match": "(@param)\\s+(?:({[^}]*}?)\\s+)?([a-zA-Z_]\\w*)?",
+      "match": "(@param)\\s+(?:({[^}]*}?)\\s+)?(\\[?[a-zA-Z_][\\w-]*\\]?)?(?:\\s+(.*))?",
       "captures": {
         "1": {
           "name": "storage.type.class.liquid"
@@ -136,14 +139,35 @@
         },
         "3": {
           "name": "variable.other.liquid"
+        },
+        "4": {
+          "name": "string.quoted.single.liquid"
         }
       }
     },
     "liquid_doc_example_tag": {
-      "match": "(@example)\\b",
+    "begin": "(@example)\\b\\s*",
+    "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.class.liquid"
+        }
+      },
+      "contentName": "string.quoted.single.liquid",
+      "patterns": [
+        {
+          "match": "(.(?!@|{%-?\\s*enddoc\\s*-?%}))*."
+        }
+      ]
+    },
+    "liquid_doc_description_tag": {
+      "match": "(@description)\\b(?:\\s+(.*))?",
       "captures": {
         "1": {
           "name": "storage.type.class.liquid"
+        },
+        "2": {
+          "name": "string.quoted.single.liquid"
         }
       }
     },
@@ -151,7 +175,7 @@
       "match": "(@\\w+)\\b",
       "captures": {
         "1": {
-          "name": "storage.type.class.liquid"
+          "name": "comment.block.liquid"
         }
       }
     },
