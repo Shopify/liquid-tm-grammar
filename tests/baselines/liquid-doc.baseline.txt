@@ -39,56 +39,30 @@ Grammar: liquid.tmLanguage.json
                       text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
 >@description This is a description
  ^^^^^^^^^^^^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid storage.type.class.liquid
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid storage.type.class.liquid
              ^
-             text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
-              ^^^^^^^^^^^^^^^^^^^^^
+             text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid
+              ^^^^^^^^^^^^^^^^^^^^^^
               text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
 >@example
  ^^^^^^^^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid storage.type.class.liquid
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid storage.type.class.liquid
 >{% render 'my-component', name: 'John' %}
  ^^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
-   ^
-   text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid
-    ^^^^^^
-    text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.name.tag.render.liquid
-          ^
-          text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid
-           ^
-           text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
-            ^^^^^^^^^^^^
-            text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
-                        ^
-                        text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
-                         ^^
-                         text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid
-                           ^^^^^
-                           text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid entity.other.attribute-name.liquid
-                                ^
-                                text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid
-                                 ^
-                                 text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
-                                  ^^^^
-                                  text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
-                                      ^
-                                      text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid string.quoted.single.liquid
-                                       ^
-                                       text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.render.liquid
-                                        ^^
-                                        text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
+                                        ^
+                                        text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
+                                         ^^
+                                         text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
 >{% enddoc %}
- ^^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
-   ^
-   text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.liquid
+ ^^^
+ text.html.liquid meta.block.doc.liquid meta.tag.liquid
     ^^^^^^
-    text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.liquid entity.name.tag.liquid
-          ^
-          text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid meta.entity.tag.liquid
-           ^^
-           text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+    text.html.liquid meta.block.doc.liquid meta.tag.liquid entity.name.tag.doc.liquid
+          ^^^
+          text.html.liquid meta.block.doc.liquid meta.tag.liquid
 >
  ^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
+ text.html.liquid
