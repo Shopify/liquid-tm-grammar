@@ -101,16 +101,34 @@
       },
       "patterns": [
         {
+          "include": "#liquid_doc_description_tag"
+        },
+        {
           "include": "#liquid_doc_param_tag"
         },
         {
           "include": "#liquid_doc_example_tag"
         },
         {
-          "include": "#liquid_doc_description_tag"
-        },
-        {
           "include": "#liquid_doc_fallback_tag"
+        }
+      ]
+    },
+    "liquid_doc_description_tag": {
+      "begin": "(@description)\\b\\s*",
+      "beginCaptures": {
+        "0": {
+          "name": "comment.block.documentation.liquid"
+        },
+        "1": {
+          "name": "storage.type.class.liquid"
+        }
+      },
+      "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
+      "patterns": [
+        {
+          "match": "[^@]+",
+          "name": "string.quoted.single.liquid"
         }
       ]
     },
@@ -134,22 +152,12 @@
     "liquid_doc_example_tag": {
       "begin": "(@example)\\b\\s*",
       "beginCaptures": {
-        "0": { "name": "comment.block.documentation.liquid" },
-        "1": { "name": "storage.type.class.liquid" }
-      },
-      "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
-      "patterns": [
-        {
-          "match": "[^@]+",
-          "name": "string.quoted.single.liquid"
+        "0": {
+          "name": "comment.block.documentation.liquid"
+        },
+        "1": {
+          "name": "storage.type.class.liquid"
         }
-      ]
-    },
-    "liquid_doc_description_tag": {
-      "begin": "(@description)\\b\\s*",
-      "beginCaptures": {
-        "0": { "name": "comment.block.documentation.liquid" },
-        "1": { "name": "storage.type.class.liquid" }
       },
       "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
       "patterns": [
@@ -163,7 +171,7 @@
       "match": "(@\\w+)\\b",
       "captures": {
         "1": {
-          "name": "storage.type.class.liquid"
+          "name": "comment.block.liquid"
         }
       }
     },
