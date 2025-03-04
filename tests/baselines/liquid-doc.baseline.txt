@@ -48,14 +48,8 @@ Grammar: liquid.tmLanguage.json
  ^^^^^^^^
  text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid storage.type.class.liquid
 >{% render 'my-component', name: 'John' %}
- ^^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
-                                        ^
-                                        text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid
-                                         ^^
-                                         text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
 >{% enddoc %}
  ^^^
  text.html.liquid meta.block.doc.liquid meta.tag.liquid
