@@ -154,7 +154,7 @@
       "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
       "patterns": [
         {
-          "match": "[^@{%]+",
+          "match": "[^@]+",
           "name": "string.quoted.single.liquid"
         }
       ]
@@ -168,7 +168,7 @@
       "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
       "patterns": [
         {
-          "match": "[^@{%]+",
+          "match": "[^@]+",
           "name": "string.quoted.single.liquid"
         }
       ]
