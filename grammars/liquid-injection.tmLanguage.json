@@ -163,7 +163,31 @@
       "contentName": "meta.embedded.block.liquid",
       "patterns": [
         {
-          "include": "#core"
+          "include": "#raw_tag"
+        },
+        {
+          "include": "#style_codefence"
+        },
+        {
+          "include": "#stylesheet_codefence"
+        },
+        {
+          "include": "#json_codefence"
+        },
+        {
+          "include": "#javascript_codefence"
+        },
+        {
+          "include": "#object"
+        },
+        {
+          "include": "#tag"
+        },
+        {
+          "include": "#free_form_text"
+        },
+        {
+          "include": "text.html.basic"
         }
       ]
     },
@@ -174,6 +198,10 @@
           "name": "comment.block.liquid"
         }
       }
+    },
+    "free_form_text": {
+      "match": "(?:(?![{<]).)+",
+      "name": "string.quoted.single.liquid"
     },
     "comment_block": {
       "begin": "{%-?\\s*comment\\s*-?%}",
