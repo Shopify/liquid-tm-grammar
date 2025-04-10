@@ -110,9 +110,6 @@
           "include": "#liquid_doc_example_tag"
         },
         {
-          "include": "#liquid_doc_prompt_tag"
-        },
-        {
           "include": "#liquid_doc_fallback_tag"
         }
       ]
@@ -167,24 +164,6 @@
       "patterns": [
         {
           "include": "#core"
-        }
-      ]
-    },
-    "liquid_doc_prompt_tag": {
-      "begin": "(@prompt)\\b\\s*",
-      "beginCaptures": {
-        "0": {
-          "name": "comment.block.documentation.liquid"
-        },
-        "1": {
-          "name": "storage.type.class.liquid"
-        }
-      },
-      "end": "(?=@|{%-?\\s*enddoc\\s*-?%})",
-      "patterns": [
-        {
-          "match": "[^@]+",
-          "name": "string.quoted.single.liquid"
         }
       ]
     },

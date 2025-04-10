@@ -4,7 +4,6 @@ original file
 The default docs
 @param {string} name - The name of the person
 @description This is a description
-@prompt "What is the name of the person?"
 @example
 {% render 'my-component', name: 'John' %}
 {% enddoc %}
@@ -45,13 +44,6 @@ Grammar: liquid.tmLanguage.json
              text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid
               ^^^^^^^^^^^^^^^^^^^^^^
               text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
->@prompt "What is the name of the person?"
- ^^^^^^^
- text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid storage.type.class.liquid
-        ^
-        text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid string.quoted.single.liquid
 >@example
  ^^^^^^^^
  text.html.liquid meta.block.doc.liquid comment.block.documentation.liquid comment.block.documentation.liquid storage.type.class.liquid
