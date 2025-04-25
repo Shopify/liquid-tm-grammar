@@ -11,6 +11,7 @@ injectionSelector: |
   L:meta.embedded.block.css,
   L:meta.embedded.block.html,
   L:entity.other.attribute-name.html,
+  L:meta.tag.custom.start.html,
   L:meta.tag.structure,
   L:string.quoted
 
