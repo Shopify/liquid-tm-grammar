@@ -1,6 +1,6 @@
 {
   "scopeName": "liquid.injection",
-  "injectionSelector": "L:meta.embedded.block.js,\nL:meta.embedded.block.css,\nL:meta.embedded.block.html,\nL:meta.tag.structure,\nL:string.quoted\n",
+  "injectionSelector": "L:meta.embedded.block.js,\nL:meta.embedded.block.css,\nL:meta.embedded.block.html,\nL:entity.other.attribute-name.html,\nL:meta.tag.structure,\nL:string.quoted\n",
   "patterns": [
     {
       "include": "#injection"

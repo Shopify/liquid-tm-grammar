@@ -1,0 +1,46 @@
+original file
+-----------------------------------
+<button {% if disabled %}disabled{% endif %}>
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+><button {% if disabled %}disabled{% endif %}>
+ ^
+ text.html.liquid meta.tag.structure.button.start.html punctuation.definition.tag.begin.html
+  ^^^^^^
+  text.html.liquid meta.tag.structure.button.start.html entity.name.tag.html
+        ^
+        text.html.liquid meta.tag.structure.button.start.html
+         ^^
+         text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid punctuation.definition.tag.end.liquid
+           ^
+           text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid meta.entity.tag.conditional.liquid
+            ^^
+            text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
+              ^
+              text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid meta.entity.tag.conditional.liquid
+               ^^^^^^^^
+               text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid meta.entity.tag.conditional.liquid variable.other.liquid
+                       ^
+                       text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid meta.entity.tag.conditional.liquid
+                        ^^
+                        text.html.liquid meta.tag.structure.button.start.html meta.tag.liquid punctuation.definition.tag.end.liquid
+                          ^^^^^^^^
+                          text.html.liquid meta.tag.structure.button.start.html meta.attribute.disabled.html entity.other.attribute-name.html
+                                  ^^
+                                  text.html.liquid meta.tag.structure.button.start.html meta.attribute.disabled.html meta.tag.liquid punctuation.definition.tag.end.liquid
+                                    ^
+                                    text.html.liquid meta.tag.structure.button.start.html meta.attribute.disabled.html meta.tag.liquid
+                                     ^^^^^
+                                     text.html.liquid meta.tag.structure.button.start.html meta.attribute.disabled.html meta.tag.liquid keyword.control.conditional.liquid
+                                          ^
+                                          text.html.liquid meta.tag.structure.button.start.html meta.attribute.disabled.html meta.tag.liquid
+                                           ^^
+                                           text.html.liquid meta.tag.structure.button.start.html meta.attribute.disabled.html meta.tag.liquid punctuation.definition.tag.end.liquid
+                                             ^
+                                             text.html.liquid meta.tag.structure.button.start.html punctuation.definition.tag.end.html
+>
+ ^
+ text.html.liquid
