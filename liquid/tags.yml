@@ -24,6 +24,7 @@
 - schema: endschema
 - section
 - sections
+- snippet: endsnippet
 - style: endstyle
 - stylesheet
 - tablerow
