@@ -909,36 +909,9 @@
         }
       ]
     },
-    "invalid_range": {
-      "match": "\\((.(?!\\.\\.))+\\)",
-      "name": "invalid.illegal.range.liquid"
-    },
     "range": {
-      "begin": "\\(",
-      "end": "\\)",
-      "name": "meta.range.liquid",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.section.parens.begin.liquid"
-        }
-      },
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.section.parens.end.liquid"
-        }
-      },
-      "patterns": [
-        {
-          "match": "\\.\\.",
-          "name": "punctuation.range.liquid"
-        },
-        {
-          "include": "#variable_lookup"
-        },
-        {
-          "include": "#number"
-        }
-      ]
+      "match": "\\.\\.",
+      "name": "punctuation.range.liquid"
     },
     "number": {
       "match": "((-|\\+)\\s*)?[0-9]+(\\.[0-9]+)?",
@@ -1036,7 +1009,7 @@
           "include": "#operator"
         },
         {
-          "include": "#invalid_range"
+          "include": "#grouping"
         },
         {
           "include": "#range"
@@ -1049,6 +1022,26 @@
         },
         {
           "include": "#variable_lookup"
+        }
+      ]
+    },
+    "grouping": {
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.parens.begin.liquid"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.parens.end.liquid"
+        }
+      },
+      "name": "meta.grouping.liquid",
+      "patterns": [
+        {
+          "include": "#value_expression"
         }
       ]
     },
