@@ -1,0 +1,38 @@
+original file
+-----------------------------------
+{% if (a or b) %}
+
+-----------------------------------
+
+Grammar: liquid.tmLanguage.json
+-----------------------------------
+>{% if (a or b) %}
+ ^^
+ text.html.liquid meta.tag.liquid punctuation.definition.tag.begin.liquid
+   ^
+   text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
+    ^^
+    text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid keyword.control.conditional.liquid
+      ^
+      text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
+       ^
+       text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid punctuation.parens.begin.liquid
+        ^
+        text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid variable.other.liquid
+         ^
+         text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid
+          ^^
+          text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid keyword.operator.expression.liquid
+            ^
+            text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid
+             ^
+             text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid variable.other.liquid
+              ^
+              text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid meta.grouping.liquid punctuation.parens.end.liquid
+               ^
+               text.html.liquid meta.tag.liquid meta.entity.tag.conditional.liquid
+                ^^
+                text.html.liquid meta.tag.liquid punctuation.definition.tag.end.liquid
+>
+ ^
+ text.html.liquid
